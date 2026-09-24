@@ -1,3 +1,5 @@
+import HeroVideoCycle from "@/components/HeroVideoCycle";
+
 export default function Home() {
   return (
     <>
@@ -25,11 +27,7 @@ export default function Home() {
             <div className="mxd-hero-media__small">
               <div className="mxd-hero-media__wrapper" data-flip-element="wrapper" data-flip-id="auto-2">
                 <div className="mxd-hero-media__scaling-media" data-flip-element="target">
-                  <img
-                    className="scaling-media__video"
-                    src="/images/innector/brain-g216ffd9b8_1920-1024x780.jpg"
-                    alt="Innector digital innovation"
-                  />
+                  <HeroVideoCycle />
                 </div>
               </div>
             </div>
@@ -211,7 +209,7 @@ export default function Home() {
                           </p>
                         </div>
                         <div className="mxd-niche-cards__image absolute-desktop-bottom">
-                          <img src="https://dummyimage.com/1200x1600/5d5d5d/838383" alt="Web development" />
+                          <img src="/images/innector/customsoftware.jpg" alt="Web development" />
                         </div>
                       </div>
                     </div>
@@ -242,7 +240,7 @@ export default function Home() {
                                 </p>
                               </div>
                               <div className="mxd-niche-cards__image absolute-desktop-full">
-                                <img src="https://dummyimage.com/1320x800/5d5d5d/838383" alt="AI-powered solutions" />
+                                <img src="/img/illustrations/niche02.webp" alt="AI-powered solutions" />
                                 <div className="mxd-niche-cards__gradient gradient-linear"></div>
                               </div>
                             </div>
@@ -605,7 +603,7 @@ export default function Home() {
                         <p className="mxd-cpb-list__name">AI-powered chatbots</p>
                       </div>
                       <div className="col-12 col-md-6 col-xl-4 mxd-grid-item mxd-cpb-list__image">
-                        <img src="https://dummyimage.com/1200x980/5d5d5d/838383" alt="AI-powered chatbots" />
+                        <img src="/img/services/1200x980_cpb05.webp" alt="AI-powered chatbots" />
                       </div>
                       <div className="col-12 col-md-6 col-xl-4 mxd-cpb-list__data">
                         <div className="mxd-cpb-list__descr mxd-grid-item">
@@ -646,7 +644,7 @@ export default function Home() {
                         <p className="mxd-cpb-list__name">Business process automation</p>
                       </div>
                       <div className="col-12 col-md-6 col-xl-4 mxd-grid-item mxd-cpb-list__image">
-                        <img src="https://dummyimage.com/1200x980/5d5d5d/838383" alt="Business process automation" />
+                        <img src="/img/services/1200x980_cpb07.webp" alt="Business process automation" />
                       </div>
                       <div className="col-12 col-md-6 col-xl-4 mxd-cpb-list__data">
                         <div className="mxd-cpb-list__descr mxd-grid-item">
@@ -687,7 +685,7 @@ export default function Home() {
                         <p className="mxd-cpb-list__name">Custom AI development</p>
                       </div>
                       <div className="col-12 col-md-6 col-xl-4 mxd-grid-item mxd-cpb-list__image">
-                        <img src="https://dummyimage.com/1200x980/5d5d5d/838383" alt="Custom AI development" />
+                        <img src="/img/services/1200x980_cpb06.webp" alt="Custom AI development" />
                       </div>
                       <div className="col-12 col-md-6 col-xl-4 mxd-cpb-list__data">
                         <div className="mxd-cpb-list__descr mxd-grid-item">
