@@ -137,7 +137,7 @@ export default function ServicesPage() {
                     </p>
                   </div>
                   <div className="services-card__image">
-                    <img src="/images/innector/bannerfallback.jpg" alt="Team collaborating on a web development project" />
+                    <img src="/images/stock/web-development.jpg" alt="Web development" />
                     <div className="services-card__cover"></div>
                   </div>
                 </div>
@@ -375,8 +375,8 @@ export default function ServicesPage() {
                   </div>
                   <div className="services-card__image">
                     <img
-                      src="/images/innector/brain-g216ffd9b8_1920-1024x780.jpg"
-                      alt="Artificial intelligence and machine learning concept"
+                      src="/images/stock/ai-chatbot.jpg"
+                      alt="AI-powered chatbots"
                     />
                     <div className="services-card__cover"></div>
                   </div>
@@ -416,7 +416,7 @@ export default function ServicesPage() {
                     </p>
                   </div>
                   <div className="services-card__image">
-                    <img src="/images/innector/erp-image.jpg" alt="Business process automation and ERP workflow" />
+                    <img src="/images/stock/process-automation.jpg" alt="Business process automation" />
                     <div className="services-card__cover"></div>
                   </div>
                 </div>
@@ -456,8 +456,8 @@ export default function ServicesPage() {
                   </div>
                   <div className="services-card__image">
                     <img
-                      src="/images/innector/brain-g216ffd9b8_1920-1024x780.jpg"
-                      alt="Artificial intelligence and machine learning concept"
+                      src="/img/services/1200x980_cpb06.webp"
+                      alt="Custom AI development"
                     />
                     <div className="services-card__cover"></div>
                   </div>

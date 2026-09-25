@@ -1,4 +1,50 @@
 import HeroVideoCycle from "@/components/HeroVideoCycle";
+import SectionIcon from "@/components/SectionIcon";
+
+const missionAims: [string, string][] = [
+  ["Deliver innovative digital solutions ", "to businesses worldwide."],
+  ["Provide reliable, scalable IT solutions ", "for growing SMBs globally."],
+  ["Deliver exceptional results ", "and exceed our clients' expectations."],
+  ["Work creatively, ", "honestly, & responsibly."],
+];
+
+const clientBenefits: [string, string][] = [
+  ["Long-term ", "partnerships"],
+  ["Efficient & timely ", "services"],
+  ["Ongoing ", "communication"],
+  ["Increased ", "revenue"],
+  ["Guaranteed ", "results"],
+];
+
+// `color`: full-colour badge artwork that has to stay as supplied; the rest are wordmarks that the
+// marquee flattens to a single-colour silhouette.
+const clients: { logo: string; name: string; color?: boolean }[] = [
+  { logo: "wurth.png", name: "Würth" },
+  { logo: "grass-tunes.png", name: "Grass Tunes", color: true },
+  { logo: "acec.png", name: "ACEC" },
+  { logo: "trend-qa.png", name: "Trend.QA" },
+  { logo: "candy-station.png", name: "Candy Station", color: true },
+  { logo: "qgec.png", name: "QGEC" },
+  { logo: "numen.png", name: "Numen" },
+  { logo: "global-enterprises.png", name: "Global Enterprises" },
+];
+
+// "Selected projects": the client sites shown in the grid. Images live in public/images/case-studies
+// (WebP at the template's own card sizes: 850x1200 portrait, 1280x850 landscape, 1200x1200 square).
+// `image` is the card's resting image. `more` (optional) lists extra frames from the same folder that the
+// hover slideshow cycles through; without it the hover layer just repeats `image`.
+const CASE_DIR = "/images/case-studies";
+const caseStudies: { title: string; tags: string[]; image: string; w: number; h: number; more?: string[] }[] = [
+  { title: "Candy Station", tags: ["E-commerce", "Web App", "UI/UX"], image: "candy-station", w: 850, h: 1200 },
+  { title: "Naaz Overseas", tags: ["Corporate", "Feedback", "Web"], image: "naaz-overseas", w: 1280, h: 850 },
+  { title: "ACEC", tags: ["Corporate", "Web Development", "UI/UX"], image: "acec", w: 1200, h: 1200 },
+  { title: "Trend.QA", tags: ["E-commerce", "Marketplace", "Web"], image: "trend-qa", w: 1280, h: 850 },
+  { title: "Spice Idea", tags: ["Agency", "Web Development", "Branding"], image: "spice-idea", w: 850, h: 1200 },
+  { title: "Numen", tags: ["Portfolio", "Web Development", "UI/UX"], image: "numen", w: 1200, h: 1200 },
+  { title: "Qatar Mobile", tags: ["E-commerce", "Web Development"], image: "qatar-mobile", w: 1200, h: 1200 },
+];
+// "All Works" preview: 800x450 crops of the same sites; hover cycles through the others.
+const worksPreview = { main: "trend-qa", layers: ["acec", "candy-station", "naaz-overseas", "numen", "qatar-mobile", "spice-idea"] };
 
 export default function Home() {
   return (
@@ -34,8 +80,8 @@ export default function Home() {
           </div>
           {/* control left */}
           <div className="mxd-hero-03__control-left loading-item">
-            <a className="btn btn-line btn-line-small btn-line-medium" href="/about">
-              <span className="btn-caption mxd-scramble">Studio</span>
+            <a className="btn btn-line btn-line-small btn-line-medium" href="/managed-it-services">
+              <span className="btn-caption mxd-scramble">Managed IT</span>
             </a>
           </div>
           {/* control right */}
@@ -109,7 +155,10 @@ export default function Home() {
                   <div className="col-12 col-xl-4 mxd-grid-item">
                     <div className="mxd-section-title__data top-number">
                       <div className="mxd-section-title__number pre-manifest anim-uni-in-up">
-                        <span className="title-number mxd-scramble">A/01</span>
+                        <span className="title-number">
+                          <SectionIcon />
+                          <span className="mxd-scramble">/01</span>
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -194,22 +243,23 @@ export default function Home() {
                       <div className="mxd-niche-cards__inner">
                         <div className="mxd-niche-cards__title">
                           <div className="mxd-niche-cards__name">
-                            <p>Web development</p>
+                            <p>Enterprises</p>
                           </div>
                           <div className="mxd-niche-cards__tags">
-                            <span className="tag tag-m tag-medium mxd-scramble">Frontend</span>
-                            <span className="tag tag-m tag-medium mxd-scramble">Interactions</span>
-                            <span className="tag tag-m tag-medium mxd-scramble">Backend</span>
+                            <span className="tag tag-m tag-medium mxd-scramble">ERP Systems</span>
+                            <span className="tag tag-m tag-medium mxd-scramble">Custom Software</span>
+                            <span className="tag tag-m tag-medium mxd-scramble">Integration</span>
+                            <span className="tag tag-m tag-medium mxd-scramble">IT Infrastructure</span>
                           </div>
                         </div>
                         <div className="mxd-niche-cards__descr wide">
                           <p className="t-bold t-medium">
-                            Custom, high-performance websites built to{" "}
-                            <span>generate leads and represent your brand.</span>
+                            Bespoke software, ERP integration and dependable infrastructure{" "}
+                            <span>that streamline operations at scale.</span>
                           </p>
                         </div>
-                        <div className="mxd-niche-cards__image absolute-desktop-bottom">
-                          <img src="/images/innector/customsoftware.jpg" alt="Web development" />
+                        <div className="mxd-niche-cards__image absolute-desktop-bottom fill-space">
+                          <img src="/images/stock/enterprise-skyscraper.jpg" alt="Modern corporate skyscrapers" />
                         </div>
                       </div>
                     </div>
@@ -251,22 +301,23 @@ export default function Home() {
                             <div className="mxd-niche-cards__inner permanent fixed-height-desktop space-between-desktop">
                               <div className="mxd-niche-cards__title">
                                 <div className="mxd-niche-cards__name">
-                                  <p className="permanent">Corporate branding</p>
+                                  <p className="permanent">SMBs</p>
                                 </div>
                                 <div className="mxd-niche-cards__tags">
-                                  <span className="tag tag-m tag-permanent mxd-scramble">Brand Strategy</span>
-                                  <span className="tag tag-m tag-permanent mxd-scramble">Logo Design</span>
-                                  <span className="tag tag-m tag-permanent mxd-scramble">Guidelines</span>
+                                  <span className="tag tag-m tag-permanent mxd-scramble">Managed IT</span>
+                                  <span className="tag tag-m tag-permanent mxd-scramble">Web &amp; Hosting</span>
+                                  <span className="tag tag-m tag-permanent mxd-scramble">Security</span>
+                                  <span className="tag tag-m tag-permanent mxd-scramble">24/7 Support</span>
                                 </div>
                               </div>
                               <div className="mxd-niche-cards__descr wide">
                                 <p className="t-bold t-medium t-permanent">
-                                  Distinctive visual identities and brand guidelines that{" "}
-                                  <span>help your business stand out.</span>
+                                  One partner for web, hosting, security and support{" "}
+                                  <span>at a predictable monthly cost.</span>
                                 </p>
                               </div>
                               <div className="mxd-niche-cards__image absolute-desktop-full">
-                                <img src="/images/innector/innectorbranding.jpg" alt="Corporate branding" />
+                                <img src="/images/innector/bannerfallback.jpg" alt="Small and medium business team" />
                                 <div className="mxd-niche-cards__gradient gradient-radial"></div>
                               </div>
                             </div>
@@ -277,22 +328,23 @@ export default function Home() {
                             <div className="mxd-niche-cards__inner fixed-height-desktop space-between-desktop">
                               <div className="mxd-niche-cards__title">
                                 <div className="mxd-niche-cards__name">
-                                  <p>IT infrastructure setup</p>
+                                  <p>Startups &amp; entrepreneurs</p>
                                 </div>
                                 <div className="mxd-niche-cards__tags">
-                                  <span className="tag tag-m tag-medium mxd-scramble">Setup</span>
-                                  <span className="tag tag-m tag-medium mxd-scramble">Maintenance</span>
-                                  <span className="tag tag-m tag-medium mxd-scramble">Support</span>
+                                  <span className="tag tag-m tag-medium mxd-scramble">Websites</span>
+                                  <span className="tag tag-m tag-medium mxd-scramble">Mobile Apps</span>
+                                  <span className="tag tag-m tag-medium mxd-scramble">Branding</span>
+                                  <span className="tag tag-m tag-medium mxd-scramble">Digital Marketing</span>
                                 </div>
                               </div>
                               <div className="mxd-niche-cards__descr short">
                                 <p className="t-bold t-medium">
-                                  Reliable infrastructure setup, upgrades,{" "}
-                                  <span>and ongoing maintenance and support.</span>
+                                  Websites, apps and branding to launch fast,{" "}
+                                  <span>and build a strong online presence.</span>
                                 </p>
                               </div>
                               <div className="mxd-niche-cards__image absolute-desktop-aside">
-                                <img src="/images/innector/datacenter.jpg" alt="IT infrastructure setup" />
+                                <img src="/images/stock/startup-team.jpg" alt="Young startup team working around a laptop" />
                               </div>
                             </div>
                           </div>
@@ -309,6 +361,106 @@ export default function Home() {
       </div>
       {/* Section - Niche Cards End */}
 
+      {/* Section - Mission & Why Work With Us Start */}
+      <div className="mxd-section blur-section padding-top-number padding-bottom-default">
+        <div className="mxd-container grid-l-container">
+          <div className="mxd-block">
+            <div className="mxd-section-title">
+              <div className="container-fluid p-0">
+                <div className="row g-0">
+                  <div className="col-12 col-xl-4 mxd-grid-item">
+                    <div className="mxd-section-title__data top-number">
+                      <div className="mxd-section-title__number pre-manifest anim-uni-in-up">
+                        <span className="title-number">
+                          <SectionIcon />
+                          <span className="mxd-scramble">/02</span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-12 col-xl-8 mxd-grid-item">
+                    {/* Our Mission */}
+                    <div className="home-split-group">
+                      <div className="mxd-block-split__subtitle pre-manifest">
+                        <p className="anim-uni-in-up">
+                          <span>/ Our Mission</span>
+                        </p>
+                      </div>
+                      <div className="mxd-block-split__manifest">
+                        <p className="manifest manifest-s mxd-split-lines">
+                          In an era where digital presence is crucial to an organization&apos;s growth and success, you
+                          simply cannot afford to get left behind. <span>At Innector, we aim to:</span>
+                        </p>
+                      </div>
+                      <div className="mxd-block-split__info home-split-list">
+                        {missionAims.map(([lead, rest]) => (
+                          <div className="split-info__item" key={lead}>
+                            <div className="split-info__divider divider-top"></div>
+                            <div className="split-info__details">
+                              <p className="anim-uni-in-up">
+                                {lead}
+                                <span>{rest}</span>
+                              </p>
+                            </div>
+                            <div className="split-info__divider divider-bottom"></div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Why Work With Us */}
+                    <div className="home-split-group">
+                      <div className="mxd-block-split__subtitle pre-manifest">
+                        <p className="anim-uni-in-up">
+                          <span>/ Why Work With Us</span>
+                        </p>
+                      </div>
+                      <div className="mxd-block-split__manifest">
+                        <p className="manifest manifest-s mxd-split-lines">
+                          Working with Innector has several advantages! <span>Our clients enjoy:</span>
+                        </p>
+                      </div>
+                      <div className="mxd-block-split__info home-split-list">
+                        {clientBenefits.map(([lead, rest]) => (
+                          <div className="split-info__item" key={lead}>
+                            <div className="split-info__divider divider-top"></div>
+                            <div className="split-info__details">
+                              <p className="anim-uni-in-up">
+                                {lead}
+                                <span>{rest}</span>
+                              </p>
+                            </div>
+                            <div className="split-info__divider divider-bottom"></div>
+                          </div>
+                        ))}
+                      </div>
+                      <div className="mxd-block-split__manifest home-split-closing">
+                        <p className="t-large t-bold">
+                          Our experts have over 20 years of experience{" "}
+                          <span>
+                            and are well-versed in various aspects of IT and digital marketing. Get in touch with us
+                            today!
+                          </span>
+                        </p>
+                        <a className="btn btn-default-icon btn-default-accent slide-right anim-uni-in-up" href="/contact">
+                          <span className="btn-caption mxd-scramble">Get in touch</span>
+                          <i className="btn-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 18 18">
+                              <path d="M10.8,0v3.6h-3.6V0h3.6ZM14.4,10.8h3.6v-3.6h-3.6v-3.6h-3.6v3.6H0v3.6h10.8v3.6h3.6v-3.6ZM10.8,14.4h-3.6v3.6h3.6v-3.6Z" />
+                            </svg>
+                          </i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* Section - Mission & Why Work With Us End */}
+
       {/* Section - Our Capabilities Start */}
       <div className="mxd-section blur-section padding-bottom-default">
         <div className="mxd-container grid-l-container">
@@ -320,7 +472,10 @@ export default function Home() {
                   <div className="col-12 col-xl-4 mxd-grid-item">
                     <div className="mxd-section-title__data top-number">
                       <div className="mxd-section-title__number anim-uni-in-up">
-                        <span className="title-number mxd-scramble">C/02</span>
+                        <span className="title-number">
+                          <SectionIcon />
+                          <span className="mxd-scramble">/03</span>
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -357,7 +512,7 @@ export default function Home() {
                         <p className="mxd-cpb-list__name">Web development</p>
                       </div>
                       <div className="col-12 col-md-6 col-xl-4 mxd-grid-item mxd-cpb-list__image">
-                        <img src="/images/innector/brain-g216ffd9b8_1920-1024x780.jpg" alt="Web development" />
+                        <img src="/images/stock/web-development.jpg" alt="Web development" />
                       </div>
                       <div className="col-12 col-md-6 col-xl-4 mxd-cpb-list__data">
                         <div className="mxd-cpb-list__descr mxd-grid-item">
@@ -603,7 +758,7 @@ export default function Home() {
                         <p className="mxd-cpb-list__name">AI-powered chatbots</p>
                       </div>
                       <div className="col-12 col-md-6 col-xl-4 mxd-grid-item mxd-cpb-list__image">
-                        <img src="/img/services/1200x980_cpb05.webp" alt="AI-powered chatbots" />
+                        <img src="/images/stock/ai-chatbot.jpg" alt="AI-powered chatbots" />
                       </div>
                       <div className="col-12 col-md-6 col-xl-4 mxd-cpb-list__data">
                         <div className="mxd-cpb-list__descr mxd-grid-item">
@@ -644,7 +799,7 @@ export default function Home() {
                         <p className="mxd-cpb-list__name">Business process automation</p>
                       </div>
                       <div className="col-12 col-md-6 col-xl-4 mxd-grid-item mxd-cpb-list__image">
-                        <img src="/img/services/1200x980_cpb07.webp" alt="Business process automation" />
+                        <img src="/images/stock/process-automation.jpg" alt="Business process automation" />
                       </div>
                       <div className="col-12 col-md-6 col-xl-4 mxd-cpb-list__data">
                         <div className="mxd-cpb-list__descr mxd-grid-item">
@@ -720,6 +875,188 @@ export default function Home() {
       </div>
       {/* Section - Our Capabilities End */}
 
+      {/* Section - Few Of Our Elite Clientele Start */}
+      {/* Same band as the About page's closing CTA: inverted bg, reveal-type.opposite heading, logo marquee.
+          The logo set is rendered twice so the strip is wider than any viewport once app.js duplicates it. */}
+      <div className="mxd-section blur-section bg-color-opposite">
+        <div className="mxd-container fullwidth-container">
+          <div className="mxd-block">
+            <div className="mxd-promo transparent">
+              <div className="mxd-promo__wrap auto-height clients-band">
+                <div className="mxd-promo__content">
+                  <div className="mxd-promo__caption">
+                    <h2 className="reveal-type opposite">Few of our elite clientele</h2>
+                  </div>
+                </div>
+                <div className="mxd-promo__marquee">
+                  <div className="marquee marquee-left--gsap">
+                    <div className="marquee__toleft marquee__logos clients-marquee align-center">
+                      {[0, 1].flatMap((round) =>
+                        clients.map((client) => (
+                          <div
+                            className={`marquee__item item-logoblock item-clientlogo${client.color ? " item-clientlogo--color" : ""}`}
+                            key={`${round}-${client.logo}`}
+                            aria-hidden={round === 1 ? true : undefined}
+                          >
+                            <img src={`/images/clients/${client.logo}`} alt={round === 1 ? "" : client.name} />
+                          </div>
+                        ))
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* Section - Few Of Our Elite Clientele End */}
+
+      {/* Section - Featured Case Studies (Projects Grid x3 Showcase) Start */}
+      <div className="mxd-section blur-section pinned-section padding-top-number case-studies">
+        <div className="pinned-section__inner">
+          <div className="mxd-container grid-l-container">
+            {/* Block - Section Title Start */}
+            <div className="mxd-block">
+              <div className="mxd-section-title pre-grid">
+                <div className="container-fluid p-0">
+                  <div className="row g-0">
+                    <div className="col-12 col-xl-4 mxd-grid-item">
+                      <div className="mxd-section-title__data top-number">
+                        <div className="mxd-section-title__number anim-uni-in-up">
+                          <span className="title-number">
+                            <SectionIcon />
+                            <span className="mxd-scramble">/04</span>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col-12 col-xl-8 mxd-grid-item">
+                      <div className="mxd-section-title__title">
+                        <a className="active-cursor-accent" data-cursor-text="More Works" href="/services">
+                          <h2 className="mxd-split-lines">
+                            Selected
+                            <br />
+                            projects
+                          </h2>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* Block - Section Title End */}
+
+            {/* Block - Projects Grid x3 Showcase Start */}
+            <div className="mxd-block">
+              <div className="mxd-projects-grid">
+                <div className="container-fluid p-0">
+                  <div className="row g-0 mxd-projects-grid__gallery">
+                    {caseStudies.map((study) => {
+                      const src = `${CASE_DIR}/${study.image}.webp`;
+                      return (
+                        <div className="col-12 col-md-6 col-xl-4 mxd-project-item animate-card-3" key={study.title}>
+                          <a
+                            className="mxd-project-item__media mxd-img-anim active-cursor-permanent"
+                            data-cursor-text="View Work"
+                            href="/services"
+                          >
+                            {/* hover frames (mxdHoverSlideshow needs at least one) */}
+                            {(study.more?.length ? study.more.map((m) => `${CASE_DIR}/${m}.webp`) : [src]).map((frame) => (
+                              <img
+                                className="mxd-img-anim__absolute"
+                                key={frame}
+                                src={frame}
+                                width={study.w}
+                                height={study.h}
+                                alt=""
+                              />
+                            ))}
+                            <img
+                              className="mxd-img-anim__main"
+                              src={src}
+                              width={study.w}
+                              height={study.h}
+                              alt={`${study.title} website`}
+                            />
+                          </a>
+                          <div className="mxd-project-item__caption">
+                            <div className="mxd-project-item__name">
+                              <a className="project-name-s" href="/services">
+                                {study.title}
+                              </a>
+                            </div>
+                            <div className="mxd-project-item__tags">
+                              {study.tags.map((tag) => (
+                                <span className="tag tag-s tag-medium mxd-scramble" key={tag}>
+                                  {tag}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                  <div className="row g-0">
+                    {/* all projects link */}
+                    <div className="mxd-object-link">
+                      <div className="container-fluid p-0">
+                        <div className="row g-0 mxd-object-link__wrap">
+                          <div className="col-12 col-md-6 col-xl-4 mxd-object-link__item justify-start">
+                            <div className="mxd-object-link__object mxd-slide-object">
+                              <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 259 260">
+                                <path d="M143.9,0v28.8h-28.8V0h28.8ZM143.9,28.8v28.8h28.8v-28.8h-28.8ZM172.7,57.6v28.8h28.8v-28.8h-28.8ZM230.2,115.2v-28.8h-28.8v28.8H0v28.8h201.4v28.8h28.8v-28.8h28.8v-28.8h-28.8ZM172.7,201.6h28.8v-28.8h-28.8v28.8ZM143.9,230.4h28.8v-28.8h-28.8v28.8ZM114.3,260h28.8v-28.8h-28.8v28.8Z" />
+                              </svg>
+                            </div>
+                          </div>
+                          <div className="col-12 col-md-6 col-xl-4 mxd-object-link__item justify-end">
+                            <div className="mxd-object-link__content">
+                              <div className="mxd-object-link__btnholder anim-uni-in-up">
+                                <a className="btn btn-line btn-line-default" href="/services">
+                                  <span className="btn-caption mxd-scramble">All Works</span>
+                                </a>
+                              </div>
+                              <a
+                                className="mxd-object-link__media mxd-img-anim active-cursor-permanent anim-uni-in-up"
+                                data-cursor-text="All Works"
+                                href="/services"
+                              >
+                                {worksPreview.layers.map((slug) => (
+                                  <img
+                                    className="mxd-img-anim__absolute centered-y"
+                                    key={slug}
+                                    src={`${CASE_DIR}/preview/${slug}.webp`}
+                                    width={800}
+                                    height={450}
+                                    alt=""
+                                  />
+                                ))}
+                                <img
+                                  className="mxd-img-anim__main"
+                                  src={`${CASE_DIR}/preview/${worksPreview.main}.webp`}
+                                  width={800}
+                                  height={450}
+                                  alt="All works"
+                                />
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* Block - Projects Grid x3 Showcase End */}
+          </div>
+          <div className="pinned-section__trigger"></div>
+        </div>
+      </div>
+      {/* Section - Featured Case Studies (Projects Grid x3 Showcase) End */}
+
       {/* Section - Parallax Divider Image Start */}
       <div className="mxd-section blur-section">
         <div className="mxd-container fullwidth-container">
@@ -764,7 +1101,10 @@ export default function Home() {
                   <div className="col-12 col-xl-4 mxd-grid-item">
                     <div className="mxd-section-title__data top-number">
                       <div className="mxd-section-title__number anim-uni-in-up">
-                        <span className="title-number mxd-scramble">T/03</span>
+                        <span className="title-number">
+                          <SectionIcon />
+                          <span className="mxd-scramble">/05</span>
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -789,7 +1129,7 @@ export default function Home() {
               <div className="row g-0">
                 <div className="col-12 col-xl-4 mxd-aside-descr mxd-grid-item">
                   <p className="t-bold t-large t-aside mxd-split-lines">
-                    A powerhouse in <span>full-stack development and ERP solutions</span>
+                    A powerhouse in <span>full-stack development solutions</span>
                   </p>
                 </div>
                 <div className="col-12 col-xl-8">
@@ -812,12 +1152,12 @@ export default function Home() {
                           <div className="mxd-tech-stack__item">
                             <div className="mxd-tech-stack__divider divider-top anim-uni-clip-in"></div>
                             <div className="mxd-tech-stack__logo">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="2500" height="1309" version="1.1" viewBox="0 0 2500 1309">
-                                <path d="M839,547.9c-8.6,145.6-77.1,171.2-154.1,179.8h-102.7l42.8-256.9h111.3c59.9,0,102.7,25.7,102.7,77.1ZM1883.6,470.9h-111.3l-42.8,256.9h102.8c77.1-8.6,145.5-34.2,154.1-179.8,0-51.4-42.8-77.1-102.7-77.1h0ZM2500,650.7c0,359.4-559.6,650.7-1250,650.7S0,1010,0,650.7,559.6,0,1250,0s1250,291.3,1250,650.7ZM1010.3,539.4c0-119.9-68.5-188.4-205.5-196.9h-316.8l-137,693.5h162.7l34.2-179.8h154.1c145.6,8.6,308.2-111.3,308.2-316.8h0ZM1398,539.4l-59.9,316.8h171.2l59.9-351c17.1-85.6-34.2-154.1-171.2-162.7h-154.1l34.2-179.8h-162.7l-137,693.5h162.7l77.1-385.3h128.4c59.9,0,59.9,25.7,51.4,68.5ZM2157.5,539.4c0-119.9-68.5-188.4-205.5-196.9h-316.8l-137,693.5h162.7l34.2-179.8h154.1c145.5,8.6,308.2-111.3,308.2-316.8h.1Z"/>
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" version="1.1" viewBox="0 0 24 24">
+                                <path d="M12 2.746c-6.627 0-12 3.599-12 8.037 0 3.897 4.144 7.144 9.64 7.88V16.26c-2.924-.915-4.925-2.755-4.925-4.877 0-3.035 4.084-5.494 9.12-5.494 5.038 0 8.757 1.683 8.757 5.494 0 1.976-.999 3.379-2.662 4.272.09.066.174.128.258.216.169.149.25.363.372.544 2.128-1.45 3.44-3.437 3.44-5.631 0-4.44-5.373-8.038-12-8.038zm-2.111 4.99v13.516l4.093-.002-.002-5.291h1.1c.225 0 .321.066.549.25.272.22.715.982.715.982l2.164 4.063 4.627-.002-2.864-4.826s-.086-.193-.265-.383a2.22 2.22 0 00-.582-.416c-.422-.214-1.149-.434-1.149-.434s3.578-.264 3.578-3.826c0-3.562-3.744-3.63-3.744-3.63zm4.127 2.93l2.478.002s1.149-.062 1.149 1.127c0 1.165-1.149 1.17-1.149 1.17h-2.478zm1.754 6.119c-.494.049-1.012.079-1.54.088v1.807a16.622 16.622 0 002.37-.473l-.471-.891s-.108-.183-.248-.394c-.039-.054-.08-.098-.111-.137z"/>
                               </svg>
                             </div>
                             <div className="mxd-tech-stack__name anim-uni-slide-down">
-                              <p>PHP</p>
+                              <p>R</p>
                             </div>
                             <div className="mxd-tech-stack__divider divider-bottom anim-uni-clip-in"></div>
                           </div>
@@ -852,12 +1192,12 @@ export default function Home() {
                           <div className="mxd-tech-stack__item">
                             <div className="mxd-tech-stack__divider divider-top anim-uni-clip-in"></div>
                             <div className="mxd-tech-stack__logo">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="225.8" height="201.2" version="1.1" viewBox="0 0 225.8 201.2">
-                                <path d="M185.7,65.2c-2.3-.8-4.8-1.6-7.3-2.3.4-1.7.8-3.3,1.1-5,5.5-26.7,1.9-48.3-10.4-55.3-11.8-6.8-31.1.3-50.5,17.2-1.9,1.6-3.7,3.4-5.6,5.2-1.3-1.2-2.5-2.4-3.7-3.5C88.9,3.4,68.4-4.3,56.2,2.9c-11.8,6.8-15.3,27.1-10.3,52.4.5,2.4,1,4.9,1.7,7.5-2.9.8-5.7,1.7-8.4,2.6C15.3,73.7,0,86.8,0,100.4s16.4,28,41.3,36.6c2,.7,4,1.3,6.1,1.9-.7,2.7-1.3,5.4-1.8,8.1-4.7,24.9-1,44.7,10.7,51.4,12.1,7,32.5-.2,52.3-17.5,1.6-1.4,3.1-2.8,4.7-4.3,2,2,4.1,3.8,6.1,5.6,19.2,16.5,38.2,23.2,49.9,16.4,12.1-7,16.1-28.2,10.9-54.1-.4-2-.8-4-1.4-6,1.4-.4,2.8-.9,4.2-1.3,25.9-8.6,42.8-22.5,42.8-36.6s-15.8-26.8-40.2-35.2h0v-.2h.1ZM180.1,127.8c-1.2.4-2.5.8-3.8,1.2-2.9-9.1-6.7-18.7-11.4-28.6,4.5-9.7,8.2-19.2,11-28.2,2.3.7,4.6,1.4,6.7,2.1,20.9,7.2,33.7,17.8,33.7,26s-13.8,20.1-36.1,27.5c0,0-.1,0-.1,0ZM170.8,146.2c2.3,11.4,2.6,21.7,1.1,29.8-1.3,7.3-4.1,12.1-7.4,14-7.1,4.1-22.3-1.2-38.8-15.4-1.9-1.6-3.8-3.3-5.7-5.2,6.4-7,12.7-15.1,18.9-24,10.9-1,21.2-2.6,30.6-4.7.5,1.9.9,3.7,1.2,5.5h0ZM77,189.4c-7,2.5-12.5,2.5-15.8.6-7.1-4.1-10.1-20-6-41.3.5-2.4,1-4.9,1.6-7.5,9.3,2,19.5,3.5,30.5,4.4,6.3,8.8,12.8,16.9,19.4,24-1.4,1.4-2.9,2.7-4.3,4-8.8,7.7-17.6,13.1-25.3,15.8h-.1ZM44.4,127.8c-11-3.8-20.1-8.7-26.4-14-5.6-4.8-8.4-9.6-8.4-13.4,0-8.2,12.3-18.7,32.7-25.9,2.5-.9,5.1-1.7,7.8-2.4,2.8,9.2,6.5,18.8,11,28.5-4.5,9.9-8.3,19.6-11.2,28.9-1.9-.6-3.8-1.1-5.6-1.7h0ZM55.3,53.4c-4.2-21.7-1.4-38.1,5.7-42.2,7.6-4.4,24.3,1.9,41.9,17.5,1.1,1,2.3,2,3.4,3.1-6.6,7-13.1,15.1-19.2,23.8-10.6,1-20.8,2.6-30.2,4.7-.6-2.4-1.1-4.7-1.6-7h0ZM152.8,77.5c-2.2-3.9-4.5-7.6-6.9-11.3,7.2.9,14.1,2.1,20.6,3.6-1.9,6.2-4.4,12.8-7.2,19.5-2-3.9-4.2-7.8-6.5-11.8h0ZM113,38.8c4.5,4.8,8.9,10.2,13.3,16.1-4.4-.2-8.9-.3-13.4-.3s-8.9,0-13.3.3c4.4-5.8,8.9-11.2,13.4-16h0ZM73,77.5c-2.2,3.9-4.4,7.8-6.4,11.7-2.8-6.7-5.2-13.2-7.2-19.6,6.4-1.4,13.3-2.6,20.5-3.5-2.4,3.7-4.7,7.5-6.9,11.4h0ZM80.2,135.2c-7.4-.8-14.4-1.9-20.8-3.3,2-6.4,4.5-13.1,7.3-19.9,2,3.9,4.2,7.8,6.4,11.7h0c2.3,4,4.7,7.8,7.1,11.6h0ZM113.3,162.6c-4.6-4.9-9.1-10.4-13.6-16.3,4.3.2,8.7.3,13.2.3s9.2-.1,13.6-.3c-4.4,6-8.8,11.4-13.3,16.3h.1ZM159.4,111.6c3,6.9,5.6,13.5,7.6,19.9-6.6,1.5-13.6,2.7-21.1,3.6,2.3-3.7,4.7-7.6,6.9-11.5,2.3-4,4.5-8,6.6-12h0ZM144.5,118.7c-3.5,6.1-7.2,12-10.8,17.5-6.7.5-13.6.7-20.7.7s-13.9-.2-20.5-.6c-3.8-5.6-7.5-11.5-11-17.5h0c-3.5-6-6.7-12.1-9.6-18.2,2.9-6.1,6.1-12.2,9.6-18.2h0c3.5-6,7.2-11.9,11-17.4,6.7-.5,13.6-.8,20.6-.8h0c7,0,13.9.3,20.6.8,3.7,5.5,7.4,11.3,10.9,17.4s6.8,12.2,9.7,18.1c-2.9,6-6.2,12.2-9.7,18.3h-.1,0ZM164.4,10.9c7.6,4.4,10.5,22,5.8,45-.3,1.5-.6,3-1,4.5-9.4-2.2-19.6-3.8-30.2-4.8-6.2-8.8-12.6-16.9-19.1-23.8,1.7-1.7,3.5-3.3,5.2-4.8,16.7-14.5,32.3-20.2,39.4-16.2h-.1ZM112.9,80.2c11.1,0,20.2,9,20.2,20.2s-9,20.2-20.2,20.2-20.2-9-20.2-20.2,9-20.2,20.2-20.2"/>
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" version="1.1" viewBox="0 0 24 24">
+                                <path d="M18.665 21.978C16.758 23.255 14.465 24 12 24 5.377 24 0 18.623 0 12S5.377 0 12 0s12 5.377 12 12c0 3.583-1.574 6.801-4.067 9.001L9.219 7.2H7.2v9.596h1.615V9.251l9.85 12.727Zm-3.332-8.533 1.6 2.061V7.2h-1.6v6.245Z"/>
                               </svg>
                             </div>
                             <div className="mxd-tech-stack__name anim-uni-slide-down">
-                              <p>React</p>
+                              <p>Next.js</p>
                             </div>
                             <div className="mxd-tech-stack__divider divider-bottom anim-uni-clip-in"></div>
                           </div>
@@ -904,40 +1244,48 @@ export default function Home() {
                           <div className="mxd-tech-stack__item">
                             <div className="mxd-tech-stack__divider divider-top anim-uni-clip-in"></div>
                             <div className="mxd-tech-stack__logo">
-                              <img src="/images/innector/odoologo.png" alt="Odoo" />
+                              <svg xmlns="http://www.w3.org/2000/svg" width="512" height="416.2" version="1.1" viewBox="0 0 512 416.2">
+                                <path d="M256,96.1L200.5,0h-79.4l134.9,233.7L390.9,0h-79.4l-55.5,96.1ZM409.4,0l-153.4,265.7L102.6,0H15.7l240.3,416.2L496.3,0h-86.9Z"/>
+                              </svg>
                             </div>
                             <div className="mxd-tech-stack__name anim-uni-slide-down">
-                              <p>Odoo</p>
+                              <p>Vue.js</p>
                             </div>
                             <div className="mxd-tech-stack__divider divider-bottom anim-uni-clip-in"></div>
                           </div>
                           <div className="mxd-tech-stack__item">
                             <div className="mxd-tech-stack__divider divider-top anim-uni-clip-in"></div>
                             <div className="mxd-tech-stack__logo">
-                              <img src="/images/innector/erpnext-logo.png" alt="ERPNext" />
+                              <svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" version="1.1" viewBox="0 0 256 256">
+                                <path d="M0,0v256h256V0H0ZM139.3,199.7c0,24.9-14.6,36.3-35.9,36.3s-30.4-10-36.1-22h0l19.6-11.9c3.8,6.7,7.2,12.4,15.5,12.4s12.9-3.1,12.9-15.1v-81.8h24.1v82.1h-.1ZM196.2,235.9c-22.3,0-36.8-10.7-43.8-24.6h0l19.6-11.3c5.2,8.4,11.9,14.6,23.7,14.6s16.3-5,16.3-11.9-6.5-11.2-17.5-16l-6-2.6c-17.4-7.4-28.9-16.7-28.9-36.3s13.7-31.8,35.2-31.8,26.3,5.3,34.2,19.2l-18.7,12c-4.1-7.4-8.6-10.3-15.5-10.3s-11.5,4.5-11.5,10.3,4.5,10.1,14.8,14.6l6,2.6c20.4,8.8,32,17.7,32,37.8s-17,33.5-39.9,33.5v.2Z"/>
+                              </svg>
                             </div>
                             <div className="mxd-tech-stack__name anim-uni-slide-down">
-                              <p>ERPNext</p>
+                              <p>JavaScript</p>
                             </div>
                             <div className="mxd-tech-stack__divider divider-bottom anim-uni-clip-in"></div>
                           </div>
                           <div className="mxd-tech-stack__item">
                             <div className="mxd-tech-stack__divider divider-top anim-uni-clip-in"></div>
                             <div className="mxd-tech-stack__logo">
-                              <img src="/images/innector/dolibarr_logo.svg" alt="Dolibarr" />
+                              <svg width="16" height="20" viewBox="0 0 16 20" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 9.23077L10.6503 14.6402L16 20.0496H9.91411L7.60736 17.7171L4.56442 14.6402L9.91411 9.23077H16ZM9.91411 0L0 10.0248L3.04294 13.1017L16 0H9.91411Z"/>
+                              </svg>
                             </div>
                             <div className="mxd-tech-stack__name anim-uni-slide-down">
-                              <p>Dolibarr</p>
+                              <p>Flutter</p>
                             </div>
                             <div className="mxd-tech-stack__divider divider-bottom anim-uni-clip-in"></div>
                           </div>
                           <div className="mxd-tech-stack__item">
                             <div className="mxd-tech-stack__divider divider-top anim-uni-clip-in"></div>
                             <div className="mxd-tech-stack__logo">
-                              <img src="/images/innector/easyerp-logo.png" alt="EasyERP" />
+                              <svg xmlns="http://www.w3.org/2000/svg" width="212.6" height="79.4" version="1.1" viewBox="0 0 212.6 79.4">
+                                <path d="M116.2,69.8h32.3v8.2h-41.4V0h39.6v8.2h-30.4v26h28.2v8.2h-28.2v27.3h0ZM157.1,8.2h22.5v69.8h9.1V8.2h22.5V0h-54.1v8.2ZM7.4,67.1c-1.7,0-3.1.6-4.3,1.8-1.2,1.2-1.8,2.7-1.8,4.4s.6,3.1,1.8,4.4c1.2,1.2,2.6,1.8,4.3,1.8s3.2-.6,4.4-1.8c1.2-1.2,1.8-2.7,1.8-4.4s-.6-3.1-1.8-4.4c-1.2-1.2-2.7-1.8-4.4-1.8ZM80.7,66L38.8,0h-11.9v78.1h9.1V11.1l42.6,67h11.1V0h-9.1v66h0Z"/>
+                              </svg>
                             </div>
                             <div className="mxd-tech-stack__name anim-uni-slide-down">
-                              <p>EasyERP</p>
+                              <p>.NET</p>
                             </div>
                             <div className="mxd-tech-stack__divider divider-bottom anim-uni-clip-in"></div>
                           </div>
@@ -976,7 +1324,10 @@ export default function Home() {
                     <div className="col-12 col-xl-4 mxd-grid-item">
                       <div className="mxd-section-title__data top-number">
                         <div className="mxd-section-title__number anim-uni-in-up">
-                          <span className="title-number mxd-scramble">I/04</span>
+                          <span className="title-number">
+                            <SectionIcon />
+                            <span className="mxd-scramble">/06</span>
+                          </span>
                         </div>
                       </div>
                     </div>

@@ -6,18 +6,26 @@ import MenuOverlay from "@/components/MenuOverlay";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
+import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: "IT Solutions Company In Nepal - Innector",
   description:
     "Innector was established in 2018. As an IT solutions provider in Kathmandu, Nepal, our IT services encompass a wide range of technologies and digital marketing solutions.",
+  // Google's favicon guidelines: square, a multiple of 48px (48/96/192 below), stable URLs,
+  // and a /favicon.ico at the site root.
   icons: {
     icon: [
-      { url: "/favicon/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon.ico", sizes: "48x48" },
       { url: "/favicon/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/favicon/favicon.ico" },
+      { url: "/favicon/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon/favicon-48x48.png", sizes: "48x48", type: "image/png" },
+      { url: "/favicon/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+      { url: "/favicon/android-chrome-192x192.png", sizes: "192x192", type: "image/png" },
     ],
-    apple: "/favicon/apple-touch-icon.png",
+    shortcut: "/favicon.ico",
+    apple: { url: "/favicon/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
   },
   manifest: "/favicon/site.webmanifest",
 };

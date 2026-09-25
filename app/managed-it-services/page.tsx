@@ -206,7 +206,7 @@ export default function ManagedItServicesPage() {
                     </p>
                   </div>
                   <div className="services-card__image">
-                    <img src="/images/innector/bannerfallback.jpg" alt="Team working on a website project" />
+                    <img src="/images/stock/web-development.jpg" alt="Web design, development and maintenance" />
                     <div className="services-card__cover"></div>
                   </div>
                 </div>
@@ -515,7 +515,7 @@ export default function ManagedItServicesPage() {
                   </div>
                   <div className="services-card__image">
                     <img
-                      src="/images/innector/brain-g216ffd9b8_1920-1024x780.jpg"
+                      src="/images/stock/ai-chatbot.jpg"
                       alt="Artificial intelligence chatbot concept"
                     />
                     <div className="services-card__cover"></div>
@@ -550,7 +550,7 @@ export default function ManagedItServicesPage() {
                     </p>
                   </div>
                   <div className="services-card__image">
-                    <img src="/images/innector/customsoftware.jpg" alt="Business process automation workflow" />
+                    <img src="/images/stock/process-automation.jpg" alt="Business process automation" />
                     <div className="services-card__cover"></div>
                   </div>
                 </div>
@@ -587,7 +587,7 @@ export default function ManagedItServicesPage() {
                   </div>
                   <div className="services-card__image">
                     <img
-                      src="/images/innector/brain-g216ffd9b8_1920-1024x780.jpg"
+                      src="/img/services/1200x980_cpb06.webp"
                       alt="Machine learning and custom AI development"
                     />
                     <div className="services-card__cover"></div>

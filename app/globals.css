@@ -26,3 +26,101 @@ html[color-scheme="dark"] img.theme-logo--dark {
   display: inline-flex;
 }
 
+
+/* Section-number icon (replaces the leading letter in "A/01" etc.). Sized from the label's own
+   font-size so it tracks the responsive .title-number scale and sits on the baseline like a glyph. */
+.title-number__icon {
+  display: inline-block;
+  height: 0.7em;
+  width: auto;
+  aspect-ratio: 315.72 / 327.05;
+  margin-right: 0.04em;
+  vertical-align: baseline;
+}
+
+/* Tall niche card (Enterprises): it stretches to the height of the two cards beside it, so let the
+   image fill whatever height the text leaves instead of sitting at its natural height with a big
+   empty gap above it. Desktop only — below 1200px the card is a normal stacked block. */
+@media only screen and (min-width: 1200px) {
+  .mxd-niche-cards__image.absolute-desktop-bottom.fill-space {
+    position: relative;
+    flex: 1 1 auto;
+    min-height: 260px;
+    margin-top: 3rem;
+  }
+  .mxd-niche-cards__image.absolute-desktop-bottom.fill-space img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+/* Home page /02 section: two stacked groups (Our Mission / Why Work With Us) built from the theme's
+   Split List pieces, laid out in the right-hand column like the /01 statistics section. */
+.home-split-group + .home-split-group {
+  margin-top: 9rem;
+}
+.home-split-list {
+  margin-top: 4.4rem;
+}
+.home-split-closing {
+  margin-top: 4.4rem;
+}
+
+/* "Few of our elite clientele" band: the About page's closing CTA band (.bg-color-opposite >
+   .mxd-promo__wrap.auto-height) with the client logos in the theme's left-scrolling marquee.
+   The band is dark in day mode and light in night mode, so the colour PNGs are flattened to one
+   silhouette that contrasts with it: white on the dark band, black on the light one. */
+.mxd-promo__wrap.auto-height.clients-band {
+  padding-bottom: 12rem;
+}
+.clients-band .mxd-promo__marquee {
+  margin-top: 8rem;
+}
+/* Spacing is per-item padding rather than flex gap: app.js duplicates the strip and scrolls it by exactly
+   50%, which only loops seamlessly when the two halves are the same width (a gap leaves half a gap over). */
+.marquee__logos.clients-marquee {
+  gap: 0;
+}
+.marquee__item.item-logoblock.item-clientlogo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  max-height: none;
+  padding: 0 4.6rem;
+}
+.marquee__item.item-logoblock.item-clientlogo img {
+  max-width: 20rem;
+  max-height: 6rem;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+.marquee__item.item-logoblock.item-clientlogo:hover img {
+  opacity: 1;
+}
+html[color-scheme="dark"] .marquee__item.item-logoblock.item-clientlogo img {
+  filter: brightness(0);
+}
+/* Full-colour badges (Grass Tunes, Candy Station) keep their own colours on either band. */
+.marquee__item.item-logoblock.item-clientlogo.item-clientlogo--color img,
+html[color-scheme="dark"] .marquee__item.item-logoblock.item-clientlogo.item-clientlogo--color img {
+  filter: none;
+  opacity: 1;
+}
+
+/* The "Selected projects" section is pinned: the parallax divider after it slides over the pinned content
+   as you scroll, so it needs more room below "All Works" than the stock padding-bottom-default
+   (14-20rem) or the divider's top edge chops the arrow / preview straight away. */
+.mxd-section.case-studies {
+  padding-bottom: 20rem;
+}
+@media only screen and (min-width: 1200px) {
+  .mxd-section.case-studies {
+    padding-bottom: 34rem;
+  }
+}
