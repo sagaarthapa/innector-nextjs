@@ -124,3 +124,86 @@ html[color-scheme="dark"] .marquee__item.item-logoblock.item-clientlogo.item-cli
     padding-bottom: 34rem;
   }
 }
+
+/* Innector's deep teal: the menu's logo panel and the home page "Let's talk about your project" section. */
+:root {
+  --brand-teal: #063846;
+}
+
+/* Menu media panel: the Innector wordmark as loose, draggable letters (components/MenuLetters.tsx).
+   The panel is teal in both day and night mode: the white + gold letters need a dark ground, and the
+   overlay colour turns light in night mode. */
+.menu-media__wrapper {
+  background-color: var(--brand-teal);
+}
+
+/* "Let's talk about your project" (matter.js block on the home page): the template paints it with the
+   accent colour; here it uses the same teal as the menu panel. */
+.mxd-promo.mxd-gravity-section.accent {
+  background-color: var(--brand-teal);
+}
+.menu-letters {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.menu-letters.is-over {
+  cursor: grab;
+}
+.menu-letters.is-dragging {
+  cursor: grabbing;
+}
+/* hidden until the first physics frame has positioned them, so they never flash at the top-left */
+.menu-letter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform-origin: 50% 50%;
+  will-change: transform;
+}
+.menu-letters.is-live .menu-letter {
+  visibility: visible;
+}
+.menu-media__wrapper .menu-letter img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+/* The wordmark now lives in the media panel (>=1200px, where the panel exists), so the small logo +
+   name in the menu's top-left corner would just repeat it. Below 1200px the panel is hidden and that
+   corner logo is the menu's only branding, so it stays. */
+@media only screen and (min-width: 1200px) {
+  .mxd-menu__logo {
+    display: none;
+  }
+}
+
+/* "INNECTOR  IT SOLUTIONS" under the wordmark. --word-bottom is set by MenuLetters (the bottom edge of the
+   word); the calc is only the fallback before it runs (letters are ~4.4vw tall in the 40vw-wide panel). */
+.menu-media__wrapper .menu-letters__caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: var(--word-bottom, calc(50% + 2.2vw));
+  margin: 2.8rem 0 0;
+  padding: 0 0 0 0.28em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1.6rem;
+  font: 600 1.6rem/1.2 var(--_font-accent);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--nl-white);
+  pointer-events: none;
+}

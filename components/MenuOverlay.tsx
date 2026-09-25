@@ -1,3 +1,5 @@
+import MenuLetters from "./MenuLetters";
+
 const arrowIcon = (
   <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 18 18">
     <path d="M10.8,0v3.6h-3.6V0h3.6ZM14.4,10.8h3.6v-3.6h-3.6v-3.6h-3.6v3.6H0v3.6h10.8v3.6h3.6v-3.6ZM10.8,14.4h-3.6v3.6h3.6v-3.6Z" />
@@ -57,7 +59,7 @@ export default function MenuOverlay() {
             {/* Menu Media Start */}
             <div className="mxd-menu__media">
               <div className="menu-media__wrapper">
-                <img src="/images/innector/digitalmarketing.jpg" alt="Innector" />
+                <MenuLetters />
               </div>
             </div>
             {/* Menu Media End */}
@@ -70,7 +72,7 @@ export default function MenuOverlay() {
                   <p>
                     IT solutions &amp; digital innovation
                     <br />
-                    for businesses across Nepal
+                    for businesses across the globe
                   </p>
                 </div>
                 {/* left side */}
