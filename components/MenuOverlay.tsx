@@ -46,7 +46,6 @@ export default function MenuOverlay() {
                   className="menu-logo__image"
                   src="/images/innector/innector-logo-white.svg"
                   alt="Innector"
-                  style={{ height: "32px", width: "auto" }}
                 />
                 <div className="menu-logo__text">
                   <span>Innector</span>
@@ -158,8 +157,8 @@ export default function MenuOverlay() {
                           </a>
                         </li>
                         <li>
-                          <a className="tag tag-m" href="tel:+9779851118818">
-                            <span className="mxd-scramble">+977 985-111-8818</span>
+                          <a className="tag tag-m" href="tel:+9779705559159">
+                            <span className="mxd-scramble">+977 970-555-9159</span>
                           </a>
                         </li>
                       </ul>

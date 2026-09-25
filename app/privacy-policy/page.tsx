@@ -152,8 +152,8 @@ const sections: PolicySection[] = [
           </li>
           <li className="anim-uni-in-up">
             <strong>Phone:</strong>{" "}
-            <a className="tag tag-s-mobile mxd-scramble" href="tel:+9779851118818">
-              +977 985-111-8818
+            <a className="tag tag-s-mobile mxd-scramble" href="tel:+9779705559159">
+              +977 970-555-9159
             </a>
           </li>
           <li className="anim-uni-in-up">
@@ -255,7 +255,12 @@ export default function PrivacyPolicyPage() {
       <div className="mxd-section blur-section">
         <div className="mxd-container fullwidth-container">
           <div className="mxd-divider">
-            <div className="mxd-divider__image divider-image-9 parallax-img"></div>
+            <div
+              className="mxd-divider__image parallax-img"
+              style={{ backgroundImage: "url(/images/pages/privacy-band.webp)" }}
+              role="img"
+              aria-label="A padlock resting on a laptop keyboard"
+            ></div>
           </div>
         </div>
       </div>

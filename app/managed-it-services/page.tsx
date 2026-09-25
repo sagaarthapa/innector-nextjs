@@ -1,4 +1,5 @@
 import TrialForm from "@/components/TrialForm";
+import ServiceMarquee from "@/components/ServiceMarquee";
 
 export default function ManagedItServicesPage() {
   return (
@@ -115,7 +116,7 @@ export default function ManagedItServicesPage() {
                       <div className="mxd-section-manifest__text manifest-text-m">
                         <p className="manifest manifest-m mxd-split-lines">
                           Tired of juggling multiple IT vendors, unpredictable costs, and security worries? Running
-                          an SMB is demanding — managing infrastructure, cybersecurity, your website, and support
+                          an SMB is demanding. Managing infrastructure, cybersecurity, your website, and support
                           shouldn&apos;t drain your budget.
                           <span>
                             {" "}
@@ -159,7 +160,7 @@ export default function ManagedItServicesPage() {
                           <span>
                             {" "}
                             From a stunning, secure website and reliable hosting to proactive maintenance, data
-                            backups, cybersecurity, and responsive support — for just $999 USD/month (or local
+                            backups, cybersecurity, and responsive support, for just $999 USD/month (or local
                             equivalent).
                           </span>
                         </p>
@@ -620,7 +621,12 @@ export default function ManagedItServicesPage() {
       <div className="mxd-section blur-section">
         <div className="mxd-container fullwidth-container">
           <div className="mxd-divider">
-            <div className="mxd-divider__image divider-image-9 parallax-img"></div>
+            <div
+              className="mxd-divider__image parallax-img"
+              style={{ backgroundImage: "url(/images/pages/managed-it-band.webp)" }}
+              role="img"
+              aria-label="A support team working together at a shared table"
+            ></div>
           </div>
         </div>
       </div>
@@ -996,36 +1002,7 @@ export default function ManagedItServicesPage() {
                 {/* marquee */}
                 <div className="mxd-promo__marquee">
                   {/* Marquee Divider Start */}
-                  <div className="marquee marquee-left--gsap">
-                    <div className="marquee__toleft marquee__images">
-                      {[
-                        { tag: "Web Development", src: "https://dummyimage.com/1200x1200/5d5d5d/838383" },
-                        { tag: "Mobile Apps", src: "https://dummyimage.com/1200x685/5d5d5d/838383" },
-                        { tag: "Cloud Hosting", src: "https://dummyimage.com/1200x1200/5d5d5d/838383" },
-                        { tag: "Cybersecurity", src: "https://dummyimage.com/740x1200/5d5d5d/838383" },
-                        { tag: "Digital Marketing", src: "https://dummyimage.com/800x1200/5d5d5d/838383" },
-                        { tag: "ERP Systems", src: "https://dummyimage.com/1200x1200/5d5d5d/838383" },
-                        { tag: "AI Chatbots", src: "https://dummyimage.com/1200x900/5d5d5d/838383" },
-                        { tag: "Automation", src: "https://dummyimage.com/740x1200/5d5d5d/838383" },
-                        { tag: "Branding", src: "https://dummyimage.com/800x1200/5d5d5d/838383" },
-                        { tag: "IT Support", src: "https://dummyimage.com/1200x900/5d5d5d/838383" },
-                        { tag: "Data Backup", src: "https://dummyimage.com/1200x1200/5d5d5d/838383" },
-                        { tag: "IT Consulting", src: "https://dummyimage.com/1200x685/5d5d5d/838383" },
-                        { tag: "Networking", src: "https://dummyimage.com/1200x1200/5d5d5d/838383" },
-                        { tag: "SEO", src: "https://dummyimage.com/740x1200/5d5d5d/838383" },
-                        { tag: "Custom AI", src: "https://dummyimage.com/800x1200/5d5d5d/838383" },
-                      ].map((item, i) => (
-                        <div className="marquee__item item-imageblock" key={i}>
-                          <div className="marquee__tags">
-                            <span className="tag tag-s tag-medium-opposite mxd-scramble">{item.tag}</span>
-                          </div>
-                          <div className="marquee__image">
-                            <img src={item.src} alt="Innector service illustration" />
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+                  <ServiceMarquee set="managed" />
                   {/* Marquee Divider End */}
                 </div>
               </div>

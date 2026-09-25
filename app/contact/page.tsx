@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
+import ServiceMarquee from "@/components/ServiceMarquee";
 
 export const metadata: Metadata = {
   title: "Contact Us - Innector IT Solutions",
@@ -208,7 +209,12 @@ export default function ContactPage() {
       <div className="mxd-section blur-section">
         <div className="mxd-container fullwidth-container">
           <div className="mxd-divider">
-            <div className="mxd-divider__image divider-image-9 parallax-img"></div>
+            <div
+              className="mxd-divider__image parallax-img"
+              style={{ backgroundImage: "url(/images/pages/contact-band.webp)" }}
+              role="img"
+              aria-label="Two colleagues talking over a project at a desk"
+            ></div>
           </div>
         </div>
       </div>
@@ -262,8 +268,8 @@ export default function ContactPage() {
                           </ul>
                           <ul>
                             <li className="anim-uni-in-up">
-                              <a className="tag tag-s-mobile mxd-scramble" href="tel:+9779851118818">
-                                +977 985-111-8818
+                              <a className="tag tag-s-mobile mxd-scramble" href="tel:+9779705559159">
+                                +977 970-555-9159
                               </a>
                             </li>
                             <li className="anim-uni-in-up">
@@ -368,36 +374,7 @@ export default function ContactPage() {
                 {/* marquee */}
                 <div className="mxd-promo__marquee">
                   {/* Marquee Divider Start */}
-                  <div className="marquee marquee-left--gsap">
-                    <div className="marquee__toleft marquee__images">
-                      {[
-                        { tag: "Web Development", img: "https://dummyimage.com/1200x1200/5d5d5d/838383" },
-                        { tag: "Managed IT Services", img: "https://dummyimage.com/1200x685/5d5d5d/838383" },
-                        { tag: "Custom Software", img: "https://dummyimage.com/1200x1200/5d5d5d/838383" },
-                        { tag: "Mobile Apps", img: "https://dummyimage.com/740x1200/5d5d5d/838383" },
-                        { tag: "Digital Marketing", img: "https://dummyimage.com/800x1200/5d5d5d/838383" },
-                        { tag: "Cloud Solutions", img: "https://dummyimage.com/1200x1200/5d5d5d/838383" },
-                        { tag: "IT Infrastructure", img: "https://dummyimage.com/1200x900/5d5d5d/838383" },
-                        { tag: "Business Automation", img: "https://dummyimage.com/740x1200/5d5d5d/838383" },
-                        { tag: "AI Solutions", img: "https://dummyimage.com/800x1200/5d5d5d/838383" },
-                        { tag: "Corporate Branding", img: "https://dummyimage.com/1200x900/5d5d5d/838383" },
-                        { tag: "Web Development", img: "https://dummyimage.com/1200x1200/5d5d5d/838383" },
-                        { tag: "Managed IT Services", img: "https://dummyimage.com/1200x685/5d5d5d/838383" },
-                        { tag: "Custom Software", img: "https://dummyimage.com/1200x1200/5d5d5d/838383" },
-                        { tag: "Mobile Apps", img: "https://dummyimage.com/740x1200/5d5d5d/838383" },
-                        { tag: "Digital Marketing", img: "https://dummyimage.com/800x1200/5d5d5d/838383" },
-                      ].map((item, index) => (
-                        <div className="marquee__item item-imageblock" key={`${item.tag}-${index}`}>
-                          <div className="marquee__tags">
-                            <span className="tag tag-s tag-medium-opposite mxd-scramble">{item.tag}</span>
-                          </div>
-                          <div className="marquee__image">
-                            <img src={item.img} alt="Innector Service" />
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+                  <ServiceMarquee />
                   {/* Marquee Divider End */}
                 </div>
               </div>

@@ -57,8 +57,8 @@ export default function Footer() {
                                 </a>
                               </li>
                               <li>
-                                <a className="anim-uni-slide-down" href="tel:+9779851118818">
-                                  <span>+977 985-111-8818</span>
+                                <a className="anim-uni-slide-down" href="tel:+9779705559159">
+                                  <span>+977 970-555-9159</span>
                                 </a>
                               </li>
                             </ul>

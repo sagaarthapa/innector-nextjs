@@ -1,4 +1,5 @@
 import { blogPosts } from "@/lib/blog-posts";
+import ServiceMarquee from "@/components/ServiceMarquee";
 
 const featuredPost = blogPosts[0];
 const remainingPosts = blogPosts.slice(1);
@@ -371,36 +372,7 @@ export default function BlogPage() {
                 <div className="mxd-promo__marquee">
 
                   {/* Marquee Divider Start */}
-                  <div className="marquee marquee-left--gsap">
-                    <div className="marquee__toleft marquee__images">
-                      {[
-                        "ERP Systems",
-                        "Cloud Hosting",
-                        "Web Development",
-                        "Mobile Apps",
-                        "Digital Marketing",
-                        "Cybersecurity",
-                        "Managed IT",
-                        "Branding",
-                        "Software Development",
-                        "UI/UX Design",
-                        "Networking",
-                        "E-commerce",
-                        "Data Analytics",
-                        "IT Consulting",
-                        "Tech Support",
-                      ].map((label, idx) => (
-                        <div className="marquee__item item-imageblock" key={`${label}-${idx}`}>
-                          <div className="marquee__tags">
-                            <span className="tag tag-s tag-medium-opposite mxd-scramble">{label}</span>
-                          </div>
-                          <div className="marquee__image">
-                            <img src="https://dummyimage.com/1200x1200/5d5d5d/838383" alt="Innector Service" />
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+                  <ServiceMarquee />
                   {/* Marquee Divider End */}
 
                 </div>

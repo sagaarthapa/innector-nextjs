@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { notFound } from "next/navigation";
 import { getPostBySlug, getRelatedPosts, getLinkedPosts } from "@/lib/blog-posts";
+import ServiceMarquee from "@/components/ServiceMarquee";
 
 export function generateStaticParams() {
   return getLinkedPosts().map((post) => ({ slug: post.slug }));
@@ -230,7 +231,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
                   </div>
                 </div>
                 <div className="mxd-article-author__quote">
-                  <p className="mxd-article__normal">Written by the Innector team in Kathmandu &mdash; we help SMBs plan, implement,
+                  <p className="mxd-article__normal">Written by the Innector team in Kathmandu. We help SMBs plan, implement,
                     and support ERP, cloud, and digital marketing projects. Have a question about this article? <a href="/contact">Get in touch</a>.</p>
                 </div>
               </div>
@@ -387,36 +388,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
                 <div className="mxd-promo__marquee">
 
                   {/* Marquee Divider Start */}
-                  <div className="marquee marquee-left--gsap">
-                    <div className="marquee__toleft marquee__images">
-                      {[
-                        "ERP Systems",
-                        "Cloud Hosting",
-                        "Web Development",
-                        "Mobile Apps",
-                        "Digital Marketing",
-                        "Cybersecurity",
-                        "Managed IT",
-                        "Branding",
-                        "Software Development",
-                        "UI/UX Design",
-                        "Networking",
-                        "E-commerce",
-                        "Data Analytics",
-                        "IT Consulting",
-                        "Tech Support",
-                      ].map((label, idx) => (
-                        <div className="marquee__item item-imageblock" key={`${label}-${idx}`}>
-                          <div className="marquee__tags">
-                            <span className="tag tag-s tag-medium-opposite mxd-scramble">{label}</span>
-                          </div>
-                          <div className="marquee__image">
-                            <img src="https://dummyimage.com/1200x1200/5d5d5d/838383" alt="Innector Service" />
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+                  <ServiceMarquee />
                   {/* Marquee Divider End */}
 
                 </div>

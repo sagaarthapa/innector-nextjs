@@ -103,7 +103,7 @@ export default function TrialForm() {
           <i className="ph-fill ph-smiley-wink reply__icon"></i>
           <p className="reply__title">Spot secured!</p>
           <span className="reply__text">
-            Thanks for signing up — our team will reach out to schedule your onboarding call.
+            Thanks for signing up. Our team will reach out to schedule your onboarding call.
           </span>
         </div>
         {/* Reply Messages End */}

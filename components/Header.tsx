@@ -17,13 +17,11 @@ export default function Header() {
             className="mxd-logo__image theme-logo--light"
             src="/images/innector/innector-logo-black.svg"
             alt="Innector"
-            style={{ height: "42px", width: "auto" }}
           />
           <img
             className="mxd-logo__image theme-logo--dark"
             src="/images/innector/innector-logo-white.svg"
             alt="Innector"
-            style={{ height: "42px", width: "auto" }}
           />
         </a>
       </div>

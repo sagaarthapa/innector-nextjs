@@ -1,3 +1,6 @@
+import TechStack from "@/components/TechStack";
+import ServiceMarquee from "@/components/ServiceMarquee";
+
 export default function ServicesPage() {
   return (
     <>
@@ -128,11 +131,10 @@ export default function ServicesPage() {
                       </div>
                     </div>
                     <p className="t-large t-bold services-card__descr">
-                      Every business needs a visually appealing, highly functional, and user-friendly website.
+                      Every business needs a visually appealing, highly functional, and user-friendly website
                       <span>
                         {" "}
-                        We build sites that communicate your core values, products and services, with custom
-                        design, responsive development, e-commerce and CMS builds, and ongoing maintenance.
+                        to communicate its core values, products, services, and brand persona.
                       </span>
                     </p>
                   </div>
@@ -167,12 +169,10 @@ export default function ServicesPage() {
                       </div>
                     </div>
                     <p className="t-large t-bold services-card__descr">
-                      Create a mobile app for your business that personalizes the customer experience.
+                      Create a mobile app for your business that personalizes the customer experience
                       <span>
                         {" "}
-                        From native iOS and Android builds to cross-platform solutions, App Store optimization and
-                        ongoing maintenance, we make it easier for your audience to access your products and
-                        services.
+                        and makes it easier for your audience to access your products and services.
                       </span>
                     </p>
                   </div>
@@ -207,11 +207,10 @@ export default function ServicesPage() {
                       </div>
                     </div>
                     <p className="t-large t-bold services-card__descr">
-                      Our corporate branding experts guide you every step of the way.
+                      Our corporate branding experts will guide you every step of the way
                       <span>
                         {" "}
-                        From brand strategy and logo design to visual identity, guidelines and positioning, we help
-                        you create a distinctive brand image that resonates with your audience.
+                        and will help you create a distinctive brand image that resonates with your audience.
                       </span>
                     </p>
                   </div>
@@ -246,16 +245,15 @@ export default function ServicesPage() {
                       </div>
                     </div>
                     <p className="t-large t-bold services-card__descr">
-                      Bespoke software solutions that help your business stand out.
+                      Bespoke software solutions that help your business stand out
                       <span>
                         {" "}
-                        ERP systems, CRM solutions, business process automation, database management and software
-                        integration — built around innovative practices that meet your unique business needs.
+                        and adhere to innovative practices that meet your unique business needs.
                       </span>
                     </p>
                   </div>
                   <div className="services-card__image">
-                    <img src="/images/innector/customsoftware.jpg" alt="Custom software development workspace" />
+                    <img src="/images/services/custom-software.webp" alt="Code and dashboards on monitors in a software workspace" />
                     <div className="services-card__cover"></div>
                   </div>
                 </div>
@@ -285,12 +283,10 @@ export default function ServicesPage() {
                       </div>
                     </div>
                     <p className="t-large t-bold services-card__descr">
-                      Our IT experts identify your specific IT needs.
+                      Our IT experts will identify your specific IT needs
                       <span>
                         {" "}
-                        From network setup and cloud migration to server management, security implementation and
-                        ongoing support, we help you set up, upgrade and maintain your infrastructure for optimal
-                        performance.
+                        and help you setup, upgrade, and maintain your IT infrastructure for optimal performance.
                       </span>
                     </p>
                   </div>
@@ -325,12 +321,10 @@ export default function ServicesPage() {
                       </div>
                     </div>
                     <p className="t-large t-bold services-card__descr">
-                      We employ the latest digital marketing techniques.
+                      Employ the latest digital marketing techniques to make a lasting impression on your audience
                       <span>
                         {" "}
-                        SEO, social media marketing, pay-per-click advertising, content marketing and email
-                        campaigns — built to make a lasting impression on your audience and amplify your online
-                        presence.
+                        and amplify your online presence.
                       </span>
                     </p>
                   </div>
@@ -354,9 +348,9 @@ export default function ServicesPage() {
                       </div>
                       <div className="services-card__tags">
                         <div className="tags-column">
-                          <span className="tag tag-s-mobile mxd-scramble">24/7 Support Automation</span>
+                          <span className="tag tag-s-mobile mxd-scramble">24/7 Customer Support Automation</span>
                           <span className="tag tag-s-mobile mxd-scramble">Multi-language Chat Support</span>
-                          <span className="tag tag-s-mobile mxd-scramble">WhatsApp &amp; Social Integration</span>
+                          <span className="tag tag-s-mobile mxd-scramble">WhatsApp &amp; Social Media Integration</span>
                         </div>
                         <div className="tags-column">
                           <span className="tag tag-s-mobile mxd-scramble">Custom Training on Your Data</span>
@@ -365,11 +359,10 @@ export default function ServicesPage() {
                       </div>
                     </div>
                     <p className="t-large t-bold services-card__descr">
-                      Transform customer engagement with intelligent chatbots.
+                      Transform customer engagement with intelligent chatbots that provide 24/7 support,
                       <span>
                         {" "}
-                        24/7 support automation, multi-language chat, WhatsApp and social media integration, and
-                        custom training on your data — answering queries instantly with personalized experiences.
+                        answer queries instantly, and deliver personalized experiences.
                       </span>
                     </p>
                   </div>
@@ -398,7 +391,7 @@ export default function ServicesPage() {
                         <div className="tags-column">
                           <span className="tag tag-s-mobile mxd-scramble">Workflow Automation Design</span>
                           <span className="tag tag-s-mobile mxd-scramble">Document Processing &amp; OCR</span>
-                          <span className="tag tag-s-mobile mxd-scramble">Communication Automation</span>
+                          <span className="tag tag-s-mobile mxd-scramble">Email &amp; Communication Automation</span>
                         </div>
                         <div className="tags-column">
                           <span className="tag tag-s-mobile mxd-scramble">Data Entry Automation</span>
@@ -407,11 +400,10 @@ export default function ServicesPage() {
                       </div>
                     </div>
                     <p className="t-large t-bold services-card__descr">
-                      Streamline operations and eliminate repetitive tasks with intelligent automation.
+                      Streamline operations and eliminate repetitive tasks with intelligent automation
                       <span>
                         {" "}
-                        Workflow automation design, document processing and OCR, communication automation and
-                        system integrations that save time, reduce errors, and boost productivity.
+                        that saves time, reduces errors, and boosts productivity.
                       </span>
                     </p>
                   </div>
@@ -435,13 +427,13 @@ export default function ServicesPage() {
                       </div>
                       <div className="services-card__tags">
                         <div className="tags-column">
-                          <span className="tag tag-s-mobile mxd-scramble">Custom AI Applications</span>
+                          <span className="tag tag-s-mobile mxd-scramble">Custom AI Application Development</span>
                           <span className="tag tag-s-mobile mxd-scramble">Machine Learning Models</span>
                           <span className="tag tag-s-mobile mxd-scramble">Computer Vision &amp; Image Recognition</span>
                         </div>
                         <div className="tags-column">
                           <span className="tag tag-s-mobile mxd-scramble">Natural Language Processing</span>
-                          <span className="tag tag-s-mobile mxd-scramble">AI Recommendation Engines</span>
+                          <span className="tag tag-s-mobile mxd-scramble">AI-Powered Recommendation Engines</span>
                         </div>
                       </div>
                     </div>
@@ -449,15 +441,14 @@ export default function ServicesPage() {
                       Build powerful AI-driven applications tailored to your unique business needs.
                       <span>
                         {" "}
-                        Custom AI applications, machine learning models, computer vision, natural language
-                        processing and recommendation engines — from image recognition and beyond.
+                        From recommendation systems to image recognition and beyond.
                       </span>
                     </p>
                   </div>
                   <div className="services-card__image">
                     <img
-                      src="/img/services/1200x980_cpb06.webp"
-                      alt="Custom AI development"
+                      src="/images/services/custom-ai.webp"
+                      alt="A robot with a camera for a head, representing custom AI development"
                     />
                     <div className="services-card__cover"></div>
                   </div>
@@ -573,98 +564,32 @@ export default function ServicesPage() {
       <div className="mxd-section blur-section">
         <div className="mxd-container fullwidth-container">
           <div className="mxd-divider">
-            <div className="mxd-divider__image divider-image-6 parallax-img"></div>
+            <div
+              className="mxd-divider__image parallax-img"
+              style={{ backgroundImage: "url(/images/services/process-divider.webp)" }}
+              role="img"
+              aria-label="Source code on a laptop screen"
+            ></div>
           </div>
         </div>
       </div>
       {/* Section - Parallax Divider Image End */}
 
-      {/* Section - Technologies We Work With Start (Clients component reused) */}
-      <div className="mxd-section blur-section padding-top-title padding-bottom-t-medium">
-        <div className="mxd-container grid-l-container">
-          <div className="mxd-block">
-            <div className="container-fluid p-0">
-              <div className="row g-0">
-                <div className="col-12 col-xl-4 mxd-grid-item">
-                  <div className="mxd-section-title pre-grid-xl-mobile">
-                    <div className="container-fluid p-0">
-                      <div className="row g-0">
-                        <div className="col-12">
-                          <div className="mxd-section-title__title">
-                            <h2 className="reveal-type">
-                              Technologies
-                              <br />
-                              we work with
-                            </h2>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-12 col-xl-8">
-                  <div className="mxd-clients">
-                    <div className="mxd-clients__row">
-                      <div className="container-fluid p-0">
-                        <div className="row g-0">
-                          <div className="col-12 col-lg-4 mxd-clients__item mxd-grid-item animate-card-3">
-                            <div className="mxd-clients__logo">
-                              <img src="/images/innector/odoologo.png" alt="Odoo ERP" />
-                            </div>
-                            <div className="mxd-clients__descr">
-                              <p className="t-medium">
-                                All-in-one open source ERP platform for finance, sales, inventory and operations.
-                              </p>
-                            </div>
-                          </div>
-                          <div className="col-12 col-lg-4 mxd-clients__item mxd-grid-item animate-card-3">
-                            <div className="mxd-clients__logo">
-                              <img src="/images/innector/erpnext-logo.png" alt="ERPNext" />
-                            </div>
-                            <div className="mxd-clients__descr">
-                              <p className="t-medium">Modern open source ERP built for growing businesses.</p>
-                            </div>
-                          </div>
-                          <div className="col-12 col-lg-4 mxd-clients__item mxd-grid-item animate-card-3">
-                            <div className="mxd-clients__logo">
-                              <img src="/images/innector/dolibarr_logo.svg" alt="Dolibarr" />
-                            </div>
-                            <div className="mxd-clients__descr">
-                              <p className="t-medium">Simple, flexible open source ERP &amp; CRM software.</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="mxd-clients__row">
-                      <div className="container-fluid p-0">
-                        <div className="row g-0">
-                          <div className="col-12 col-lg-4 mxd-clients__item mxd-grid-item animate-card-3">
-                            <div className="mxd-clients__logo">
-                              <img src="/images/innector/easyerp-logo.png" alt="EasyERP" />
-                            </div>
-                            <div className="mxd-clients__descr">
-                              <p className="t-medium">Lightweight ERP for streamlined business management.</p>
-                            </div>
-                          </div>
-                          <div className="col-12 col-lg-4 mxd-clients__item mxd-grid-item animate-card-3">
-                            <div className="mxd-clients__logo">
-                              <img src="/images/innector/logomixerp-.svg" alt="MixERP" />
-                            </div>
-                            <div className="mxd-clients__descr">
-                              <p className="t-medium">Open source ERP built for SMB operations.</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      {/* Section - Technologies We Work With: the same stack as the home page */}
+      <TechStack
+        title={
+          <>
+            Technologies
+            <br />
+            we work with
+          </>
+        }
+        aside={
+          <>
+            We stay current with <span>the latest technologies and frameworks</span>
+          </>
+        }
+      />
       {/* Section - Technologies We Work With End */}
 
       {/* Section - Blog Preview Grid Plus Title Start */}
@@ -786,40 +711,12 @@ export default function ServicesPage() {
                       <h2 className="reveal-type opposite">Ready to Transform Your Business?</h2>
                     </a>
                   </div>
+                  <p className="about-cta__lead anim-uni-in-up">Let&apos;s discuss your project and create something amazing together</p>
                 </div>
                 {/* marquee */}
                 <div className="mxd-promo__marquee">
                   {/* Marquee Divider Start */}
-                  <div className="marquee marquee-left--gsap">
-                    <div className="marquee__toleft marquee__images">
-                      {[
-                        { tag: "Web Development", src: "https://dummyimage.com/1200x1200/5d5d5d/838383" },
-                        { tag: "Mobile Apps", src: "https://dummyimage.com/1200x685/5d5d5d/838383" },
-                        { tag: "Cloud Hosting", src: "https://dummyimage.com/1200x1200/5d5d5d/838383" },
-                        { tag: "Cybersecurity", src: "https://dummyimage.com/740x1200/5d5d5d/838383" },
-                        { tag: "Digital Marketing", src: "https://dummyimage.com/800x1200/5d5d5d/838383" },
-                        { tag: "ERP Systems", src: "https://dummyimage.com/1200x1200/5d5d5d/838383" },
-                        { tag: "AI Chatbots", src: "https://dummyimage.com/1200x900/5d5d5d/838383" },
-                        { tag: "Automation", src: "https://dummyimage.com/740x1200/5d5d5d/838383" },
-                        { tag: "Branding", src: "https://dummyimage.com/800x1200/5d5d5d/838383" },
-                        { tag: "IT Support", src: "https://dummyimage.com/1200x900/5d5d5d/838383" },
-                        { tag: "Data Backup", src: "https://dummyimage.com/1200x1200/5d5d5d/838383" },
-                        { tag: "IT Consulting", src: "https://dummyimage.com/1200x685/5d5d5d/838383" },
-                        { tag: "Networking", src: "https://dummyimage.com/1200x1200/5d5d5d/838383" },
-                        { tag: "SEO", src: "https://dummyimage.com/740x1200/5d5d5d/838383" },
-                        { tag: "Custom AI", src: "https://dummyimage.com/800x1200/5d5d5d/838383" },
-                      ].map((item, i) => (
-                        <div className="marquee__item item-imageblock" key={i}>
-                          <div className="marquee__tags">
-                            <span className="tag tag-s tag-medium-opposite mxd-scramble">{item.tag}</span>
-                          </div>
-                          <div className="marquee__image">
-                            <img src={item.src} alt="Innector service illustration" />
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+                  <ServiceMarquee />
                   {/* Marquee Divider End */}
                 </div>
               </div>
