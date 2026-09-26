@@ -1,5 +1,9 @@
 import { blogPosts } from "@/lib/blog-posts";
 import ServiceMarquee from "@/components/ServiceMarquee";
+import type { Metadata } from "next";
+import { SEO } from "@/lib/seo";
+
+export const metadata: Metadata = SEO.blog;
 
 const featuredPost = blogPosts[0];
 const remainingPosts = blogPosts.slice(1);
@@ -106,7 +110,7 @@ export default function BlogPage() {
                   href={`/blog/${featuredPost.slug}`}
                 >
                   <div className="post-featured__thumb">
-                    <img src={featuredPost.image} alt={featuredPost.title} />
+                    <img loading="lazy" decoding="async" src={featuredPost.image} alt={featuredPost.title} />
                     <div className="post-featured__cover"></div>
                   </div>
                   <div className="post-featured__content">
@@ -220,7 +224,7 @@ export default function BlogPage() {
                     <li className="recent-post__item" key={post.slug}>
                       <div className="recent-post__thumb">
                         <a href={post.linked ? `/blog/${post.slug}` : "/contact"}>
-                          <img src={post.image} alt={post.title} />
+                          <img loading="lazy" decoding="async" src={post.image} alt={post.title} />
                         </a>
                       </div>
                       <div className="recent-post__content">
@@ -243,7 +247,7 @@ export default function BlogPage() {
               {/* promo */}
               <div className="mxd-sidebar__widget widget-ad">
                 <a className="widget__image" href="/contact">
-                  <img src="/images/innector/bannerfallback.jpg" alt="Talk to Innector" />
+                  <img loading="lazy" decoding="async" src="/images/innector/bannerfallback.webp" alt="Talk to Innector" />
                 </a>
                 <div className="widget__tags">
                   <span className="tag tag-m tag-bg permanent">Free Consultation</span>

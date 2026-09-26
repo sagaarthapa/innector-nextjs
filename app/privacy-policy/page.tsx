@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
+import { SEO } from "@/lib/seo";
 import type { ReactNode } from "react";
 
-export const metadata: Metadata = {
-  title: "Privacy Policy - Innector IT Solutions",
-  description:
-    "Privacy Policy - Innector IT Solutions. Learn how we collect, use, and protect your personal information.",
-};
+export const metadata: Metadata = SEO.privacy;
 
 type PolicySection = {
   title: string;
@@ -256,8 +253,8 @@ export default function PrivacyPolicyPage() {
         <div className="mxd-container fullwidth-container">
           <div className="mxd-divider">
             <div
-              className="mxd-divider__image parallax-img"
-              style={{ backgroundImage: "url(/images/pages/privacy-band.webp)" }}
+              className="mxd-divider__image parallax-img band-image"
+              style={{ "--band": "url(/images/pages/privacy-band.webp)", "--band-sm": "url(/images/pages/privacy-band-sm.webp)" } as React.CSSProperties}
               role="img"
               aria-label="A padlock resting on a laptop keyboard"
             ></div>

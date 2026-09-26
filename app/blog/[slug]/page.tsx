@@ -2,6 +2,15 @@ import type { ReactNode } from "react";
 import { notFound } from "next/navigation";
 import { getPostBySlug, getRelatedPosts, getLinkedPosts } from "@/lib/blog-posts";
 import ServiceMarquee from "@/components/ServiceMarquee";
+import type { Metadata } from "next";
+import { POST_SEO } from "@/lib/seo";
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
+  // the old site's own title and description for each article; a post without an entry falls back to its own title/excerpt
+  return POST_SEO[slug] ?? (post ? { title: `${post.title} | Innector IT Solutions`, description: post.excerpt } : {});
+}
 
 export function generateStaticParams() {
   return getLinkedPosts().map((post) => ({ slug: post.slug }));
@@ -200,7 +209,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
 
                 {/* Article Thumb Start */}
                 <div className="mxd-article__thumb loading-item">
-                  <img src={post.image} alt={post.title} />
+                  <img loading="lazy" decoding="async" src={post.image} alt={post.title} />
                 </div>
                 {/* Article Thumb End */}
 
@@ -217,7 +226,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
               <div className="mxd-article-author">
                 <div className="mxd-article-author__data">
                   <a className="mxd-article-author__avatar" href="/about">
-                    <img src="/images/innector/innectorgoldenlogo.png" alt="Innector Team" />
+                    <img loading="lazy" decoding="async" src="/images/innector/innectorgoldenlogo.png" alt="Innector Team" />
                   </a>
                   <div className="mxd-article-author__info">
                     <h4 className="mxd-article-author__name">
@@ -335,7 +344,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
                           data-cursor-text={related.linked ? "Read Post" : "Contact Us"}
                           href={related.linked ? `/blog/${related.slug}` : "/contact"}
                         >
-                          <img src={related.image} alt={related.title} />
+                          <img loading="lazy" decoding="async" src={related.image} alt={related.title} />
                         </a>
                         <div className="mxd-blog-item__caption">
                           <div className="mxd-blog-item__title">

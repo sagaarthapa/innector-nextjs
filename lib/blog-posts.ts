@@ -26,7 +26,7 @@ export const blogPosts: BlogPost[] = [
     title: "What is ERP and why is it important for businesses",
     excerpt:
       "Enterprise Resource Planning (ERP) business management software enables a company to use a set of connected applications. ERP systems automate and simplify operations, resulting in a leaner, more precise, and productive organization.",
-    image: "/images/innector/erp-nepal-scaled.jpg",
+    image: "/images/innector/erp-nepal-scaled.webp",
     date: "January 15, 2024",
     tags: ["ERP", "Software"],
     readTime: "6 min read",
@@ -77,7 +77,7 @@ export const blogPosts: BlogPost[] = [
     title: "Top 5 open source ERP for 2022",
     excerpt:
       "Enterprise resource planning (ERP) is a type of business process management software that coordinates and combines a company's finances, supply chain, operations, commerce, reporting, manufacturing, and human resource functions.",
-    image: "/images/innector/erp-image.jpg",
+    image: "/images/innector/erp-image.webp",
     date: "January 10, 2024",
     tags: ["ERP"],
     readTime: "7 min read",
@@ -137,7 +137,7 @@ export const blogPosts: BlogPost[] = [
     title: "Digital Marketing Trends in 2024",
     excerpt:
       "Discover the latest digital marketing trends that will shape the industry in 2024. From AI-powered campaigns to personalization strategies, learn how to stay ahead of the competition.",
-    image: "/images/innector/digitalmarketing.jpg",
+    image: "/images/innector/digitalmarketing.webp",
     date: "January 5, 2024",
     tags: ["Digital Marketing"],
     readTime: "9 min read",
@@ -236,7 +236,7 @@ export const blogPosts: BlogPost[] = [
     title: "Building Cross-Platform Mobile Apps",
     excerpt:
       "Learn about the benefits of cross-platform mobile app development and how to choose the right framework for your project. Compare React Native, Flutter, and other solutions.",
-    image: "/images/innector/mobile-app.jpg",
+    image: "/images/innector/mobile-app.webp",
     date: "December 28, 2023",
     tags: ["Mobile Development"],
     linked: false,
@@ -246,7 +246,7 @@ export const blogPosts: BlogPost[] = [
     title: "Custom Software vs Off-the-Shelf Solutions",
     excerpt:
       "Explore the pros and cons of custom software development versus purchasing off-the-shelf solutions. Make an informed decision for your business needs.",
-    image: "/images/innector/customsoftware.jpg",
+    image: "/images/innector/customsoftware.webp",
     date: "December 20, 2023",
     tags: ["Software Development"],
     linked: false,
@@ -256,7 +256,7 @@ export const blogPosts: BlogPost[] = [
     title: "Cloud Migration Strategy for Small Businesses",
     excerpt:
       "A comprehensive guide to cloud migration for small businesses. Learn about planning, implementation, and best practices for a successful transition to the cloud.",
-    image: "/images/innector/datacenter.jpg",
+    image: "/images/innector/datacenter.webp",
     date: "December 15, 2023",
     tags: ["Cloud Computing"],
     linked: false,
@@ -266,7 +266,7 @@ export const blogPosts: BlogPost[] = [
     title: "Building a Strong Brand Identity Online",
     excerpt:
       "Discover how to create a compelling brand identity that resonates with your target audience and stands out in the digital marketplace.",
-    image: "/images/innector/innectorbranding.jpg",
+    image: "/images/innector/innectorbranding.webp",
     date: "December 10, 2023",
     tags: ["Branding"],
     linked: false,

@@ -1,5 +1,9 @@
 import SectionIcon from "@/components/SectionIcon";
 import CoreValues from "@/components/CoreValues";
+import type { Metadata } from "next";
+import { SEO } from "@/lib/seo";
+
+export const metadata: Metadata = SEO.about;
 
 /* About page. Every word of copy is from the old site's about.html (innector-bootstrap-main): Our Story,
    the four numbers, Our Mission, Why Choose Us, Our Core Values (shared component) and the closing CTA.
@@ -97,28 +101,28 @@ export default function AboutPage() {
                     </div>
                     {/* banners */}
                     <div className="headline-banner-01 landscape image-01">
-                      <img src="/images/about/hero-01-servers.webp" alt="Server infrastructure" />
+                      <img loading="lazy" decoding="async" src="/images/about/hero-01-servers.webp" alt="Server infrastructure" />
                     </div>
                     <div className="headline-banner-01 portrait image-02">
-                      <img src="/images/about/hero-02-webdev.webp" alt="Web development" />
+                      <img loading="lazy" decoding="async" src="/images/about/hero-02-webdev.webp" alt="Web development" />
                     </div>
                     <div className="headline-banner-01 landscape image-03">
-                      <img src="/images/about/hero-03-coding.webp" alt="Developers collaborating on code" />
+                      <img loading="lazy" decoding="async" src="/images/about/hero-03-coding.webp" alt="Developers collaborating on code" />
                     </div>
                     <div className="headline-banner-01 portrait image-04">
-                      <img src="/images/about/hero-04-laptop.webp" alt="Analytics dashboard" />
+                      <img loading="lazy" decoding="async" src="/images/about/hero-04-laptop.webp" alt="Analytics dashboard" />
                     </div>
                     <div className="headline-banner-02 portrait image-05">
-                      <img src="/images/about/hero-05-handshake.webp" alt="A handshake between business partners" />
+                      <img loading="lazy" decoding="async" src="/images/about/hero-05-handshake.webp" alt="A handshake between business partners" />
                     </div>
                     <div className="headline-banner-02 landscape image-06">
-                      <img src="/images/about/hero-06-earth.webp" alt="The Earth at night, connected by city lights" />
+                      <img loading="lazy" decoding="async" src="/images/about/hero-06-earth.webp" alt="The Earth at night, connected by city lights" />
                     </div>
                     <div className="headline-banner-02 portrait image-07">
-                      <img src="/images/about/hero-07-towers.webp" alt="Corporate towers" />
+                      <img loading="lazy" decoding="async" src="/images/about/hero-07-towers.webp" alt="Corporate towers" />
                     </div>
                     <div className="headline-banner-02 landscape image-08">
-                      <img src="/images/about/hero-08-highfive.webp" alt="Colleagues celebrating a success" />
+                      <img loading="lazy" decoding="async" src="/images/about/hero-08-highfive.webp" alt="Colleagues celebrating a success" />
                     </div>
                   </div>
                 </div>
@@ -197,8 +201,8 @@ export default function AboutPage() {
         <div className="mxd-container fullwidth-container">
           <div className="mxd-divider">
             <div
-              className="mxd-divider__image parallax-img"
-              style={{ backgroundImage: "url(/images/about/office-wide.webp)" }}
+              className="mxd-divider__image parallax-img band-image"
+              style={{ "--band": "url(/images/about/office-wide.webp)", "--band-sm": "url(/images/about/office-wide-sm.webp)" } as React.CSSProperties}
               role="img"
               aria-label="A busy open-plan office of software engineers"
             ></div>
@@ -238,7 +242,7 @@ export default function AboutPage() {
               <div className="row g-0 about-story">
                 <div className="col-12 col-xl-6 mxd-grid-item">
                   <div className="about-figure about-figure--story anim-uni-in-up">
-                    <img src="/images/about/story-team.webp" width={1600} height={1067} alt="The Innector team collaborating around laptops" />
+                    <img loading="lazy" decoding="async" src="/images/about/story-team.webp" width={1600} height={1067} alt="The Innector team collaborating around laptops" />
                   </div>
                 </div>
                 <div className="col-12 col-xl-6 mxd-grid-item">
@@ -289,8 +293,8 @@ export default function AboutPage() {
         <div className="mxd-container fullwidth-container">
           <div className="mxd-divider">
             <div
-              className="mxd-divider__image parallax-img"
-              style={{ backgroundImage: "url(/images/about/global-night.webp)" }}
+              className="mxd-divider__image parallax-img band-image"
+              style={{ "--band": "url(/images/about/global-night.webp)", "--band-sm": "url(/images/about/global-night-sm.webp)" } as React.CSSProperties}
               role="img"
               aria-label="The Earth at night, lit by city lights"
             ></div>
@@ -339,7 +343,7 @@ export default function AboutPage() {
 
           <div className="mxd-block">
             <div className="about-figure about-figure--wide anim-uni-in-up">
-              <img src="/images/about/mission-team.webp" width={1600} height={1067} alt="A team planning a project together at a whiteboard of sticky notes" />
+              <img loading="lazy" decoding="async" src="/images/about/mission-team.webp" width={1600} height={1067} alt="A team planning a project together at a whiteboard of sticky notes" />
             </div>
           </div>
         </div>
@@ -356,7 +360,7 @@ export default function AboutPage() {
               <div className="row g-0">
                 <div className="col-12 col-xl-4 mxd-grid-item why-choose__media">
                   <div className="about-figure about-figure--tall anim-uni-in-up">
-                    <img src="/images/about/why-handshake.webp" width={1400} height={1750} alt="Two business partners shaking hands" />
+                    <img loading="lazy" decoding="async" src="/images/about/why-handshake.webp" width={1400} height={1750} alt="Two business partners shaking hands" />
                   </div>
                 </div>
                 <div className="col-12 col-xl-8 mxd-grid-item">
@@ -421,7 +425,7 @@ export default function AboutPage() {
                           <span className="tag tag-s tag-medium-opposite mxd-scramble">Digital Marketing</span>
                         </div>
                         <div className="marquee__image">
-                          <img src="/images/innector/digitalmarketing.jpg" alt="Innector digital marketing" />
+                          <img loading="lazy" decoding="async" src="/images/innector/digitalmarketing.webp" alt="Innector digital marketing" />
                         </div>
                       </div>
                       <div className="marquee__item item-imageblock">
@@ -429,7 +433,7 @@ export default function AboutPage() {
                           <span className="tag tag-s tag-medium-opposite mxd-scramble">Corporate Branding</span>
                         </div>
                         <div className="marquee__image">
-                          <img src="/images/innector/innectorbranding.jpg" alt="Innector corporate branding" />
+                          <img loading="lazy" decoding="async" src="/images/innector/innectorbranding.webp" alt="Innector corporate branding" />
                         </div>
                       </div>
                       <div className="marquee__item item-imageblock">
@@ -437,7 +441,7 @@ export default function AboutPage() {
                           <span className="tag tag-s tag-medium-opposite mxd-scramble">Custom Software</span>
                         </div>
                         <div className="marquee__image">
-                          <img src="/images/innector/customsoftware.jpg" alt="Innector custom software" />
+                          <img loading="lazy" decoding="async" src="/images/innector/customsoftware.webp" alt="Innector custom software" />
                         </div>
                       </div>
                       <div className="marquee__item item-imageblock">
@@ -445,7 +449,7 @@ export default function AboutPage() {
                           <span className="tag tag-s tag-medium-opposite mxd-scramble">IT Infrastructure</span>
                         </div>
                         <div className="marquee__image">
-                          <img src="/images/innector/datacenter.jpg" alt="Innector IT infrastructure" />
+                          <img loading="lazy" decoding="async" src="/images/innector/datacenter.webp" alt="Innector IT infrastructure" />
                         </div>
                       </div>
                       <div className="marquee__item item-imageblock">
@@ -453,7 +457,7 @@ export default function AboutPage() {
                           <span className="tag tag-s tag-medium-opposite mxd-scramble">Mobile App Development</span>
                         </div>
                         <div className="marquee__image">
-                          <img src="/images/innector/mobile-app.jpg" alt="Innector mobile app development" />
+                          <img loading="lazy" decoding="async" src="/images/innector/mobile-app.webp" alt="Innector mobile app development" />
                         </div>
                       </div>
                       <div className="marquee__item item-imageblock">
@@ -461,7 +465,7 @@ export default function AboutPage() {
                           <span className="tag tag-s tag-medium-opposite mxd-scramble">ERP Systems</span>
                         </div>
                         <div className="marquee__image">
-                          <img src="/images/innector/erp-image.jpg" alt="Innector ERP systems" />
+                          <img loading="lazy" decoding="async" src="/images/innector/erp-image.webp" alt="Innector ERP systems" />
                         </div>
                       </div>
                       <div className="marquee__item item-imageblock">
@@ -469,7 +473,7 @@ export default function AboutPage() {
                           <span className="tag tag-s tag-medium-opposite mxd-scramble">Custom AI Development</span>
                         </div>
                         <div className="marquee__image">
-                          <img src="/images/innector/brain-g216ffd9b8_1920-1024x780.jpg" alt="Innector custom AI development" />
+                          <img loading="lazy" decoding="async" src="/images/innector/brain-g216ffd9b8_1920-1024x780.webp" alt="Innector custom AI development" />
                         </div>
                       </div>
                       <div className="marquee__item item-imageblock">
@@ -477,7 +481,7 @@ export default function AboutPage() {
                           <span className="tag tag-s tag-medium-opposite mxd-scramble">Digital Marketing</span>
                         </div>
                         <div className="marquee__image">
-                          <img src="/images/innector/digitalmarketing.jpg" alt="Innector digital marketing" />
+                          <img loading="lazy" decoding="async" src="/images/innector/digitalmarketing.webp" alt="Innector digital marketing" />
                         </div>
                       </div>
                       <div className="marquee__item item-imageblock">
@@ -485,7 +489,7 @@ export default function AboutPage() {
                           <span className="tag tag-s tag-medium-opposite mxd-scramble">Corporate Branding</span>
                         </div>
                         <div className="marquee__image">
-                          <img src="/images/innector/innectorbranding.jpg" alt="Innector corporate branding" />
+                          <img loading="lazy" decoding="async" src="/images/innector/innectorbranding.webp" alt="Innector corporate branding" />
                         </div>
                       </div>
                       <div className="marquee__item item-imageblock">
@@ -493,7 +497,7 @@ export default function AboutPage() {
                           <span className="tag tag-s tag-medium-opposite mxd-scramble">Custom Software</span>
                         </div>
                         <div className="marquee__image">
-                          <img src="/images/innector/customsoftware.jpg" alt="Innector custom software" />
+                          <img loading="lazy" decoding="async" src="/images/innector/customsoftware.webp" alt="Innector custom software" />
                         </div>
                       </div>
                       <div className="marquee__item item-imageblock">
@@ -501,7 +505,7 @@ export default function AboutPage() {
                           <span className="tag tag-s tag-medium-opposite mxd-scramble">IT Infrastructure</span>
                         </div>
                         <div className="marquee__image">
-                          <img src="/images/innector/datacenter.jpg" alt="Innector IT infrastructure" />
+                          <img loading="lazy" decoding="async" src="/images/innector/datacenter.webp" alt="Innector IT infrastructure" />
                         </div>
                       </div>
                       <div className="marquee__item item-imageblock">
@@ -509,7 +513,7 @@ export default function AboutPage() {
                           <span className="tag tag-s tag-medium-opposite mxd-scramble">Mobile App Development</span>
                         </div>
                         <div className="marquee__image">
-                          <img src="/images/innector/mobile-app.jpg" alt="Innector mobile app development" />
+                          <img loading="lazy" decoding="async" src="/images/innector/mobile-app.webp" alt="Innector mobile app development" />
                         </div>
                       </div>
                       <div className="marquee__item item-imageblock">
@@ -517,7 +521,7 @@ export default function AboutPage() {
                           <span className="tag tag-s tag-medium-opposite mxd-scramble">ERP Systems</span>
                         </div>
                         <div className="marquee__image">
-                          <img src="/images/innector/erp-image.jpg" alt="Innector ERP systems" />
+                          <img loading="lazy" decoding="async" src="/images/innector/erp-image.webp" alt="Innector ERP systems" />
                         </div>
                       </div>
                       <div className="marquee__item item-imageblock">
@@ -525,7 +529,7 @@ export default function AboutPage() {
                           <span className="tag tag-s tag-medium-opposite mxd-scramble">Custom AI Development</span>
                         </div>
                         <div className="marquee__image">
-                          <img src="/images/innector/brain-g216ffd9b8_1920-1024x780.jpg" alt="Innector custom AI development" />
+                          <img loading="lazy" decoding="async" src="/images/innector/brain-g216ffd9b8_1920-1024x780.webp" alt="Innector custom AI development" />
                         </div>
                       </div>
                     </div>

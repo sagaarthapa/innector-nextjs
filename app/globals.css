@@ -610,3 +610,16 @@ html body {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
+
+
+/* Full-bleed photo bands (About, Services, Managed IT, Contact, Privacy Policy): a ~1000px file below 768px and the
+   full 2400px file from tablets up (the big one was ~240-270 KB for a 390px-wide phone screen). Both URLs come from the
+   element's inline style (--band / --band-sm). */
+.band-image {
+  background-image: var(--band-sm);
+}
+@media only screen and (min-width: 768px) {
+  .band-image {
+    background-image: var(--band);
+  }
+}

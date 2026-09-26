@@ -6,14 +6,15 @@ export default function Preloader() {
         <div className="mxd-loader__top">
           <span>Innector IT Solutions</span>
         </div>
+        {/* 400x400 WebP thumbnails (about 10 KB each): this strip is only 200px wide and each frame shows for 0.14 s */}
         <div className="mxd-loader__images">
-          <img src="/images/innector/brain-g216ffd9b8_1920-1024x780.jpg" alt="Innector" />
-          <img src="/images/innector/datacenter.jpg" alt="Innector" />
-          <img src="/images/innector/customsoftware.jpg" alt="Innector" />
-          <img src="/images/innector/digitalmarketing.jpg" alt="Innector" />
-          <img src="/images/innector/mobile-app.jpg" alt="Innector" />
-          <img src="/images/innector/innectorbranding.jpg" alt="Innector" />
-          <img src="/images/innector/erp-image.jpg" alt="Innector" />
+          <img src="/images/loader/brain.webp" width={200} height={200} alt="" />
+          <img src="/images/loader/datacenter.webp" width={200} height={200} alt="" />
+          <img src="/images/loader/custom-software.webp" width={200} height={200} alt="" />
+          <img src="/images/loader/digital-marketing.webp" width={200} height={200} alt="" />
+          <img src="/images/loader/mobile-app.webp" width={200} height={200} alt="" />
+          <img src="/images/loader/branding.webp" width={200} height={200} alt="" />
+          <img src="/images/loader/erp.webp" width={200} height={200} alt="" />
         </div>
         <div className="mxd-loader__bottom">
           <div className="mxd-loader__count">

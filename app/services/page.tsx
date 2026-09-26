@@ -1,5 +1,9 @@
 import TechStack from "@/components/TechStack";
 import ServiceMarquee from "@/components/ServiceMarquee";
+import type { Metadata } from "next";
+import { SEO } from "@/lib/seo";
+
+export const metadata: Metadata = SEO.services;
 
 export default function ServicesPage() {
   return (
@@ -25,7 +29,7 @@ export default function ServicesPage() {
             <div className="mxd-block loading-wrap">
               <div className="inner-headline fullheight">
                 <div className="inner-headline__bg">
-                  <img src="/images/innector/customsoftware.jpg" alt="Innector software development" />
+                  <img fetchPriority="high" decoding="async" src="/images/innector/customsoftware.webp" alt="Innector software development" />
                   <div className="inner-headline__cover"></div>
                 </div>
                 <div className="mxd-container grid-l-container">
@@ -139,7 +143,7 @@ export default function ServicesPage() {
                     </p>
                   </div>
                   <div className="services-card__image">
-                    <img src="/images/stock/web-development.jpg" alt="Web development" />
+                    <img loading="lazy" decoding="async" src="/images/stock/web-development.webp" alt="Web development" />
                     <div className="services-card__cover"></div>
                   </div>
                 </div>
@@ -177,7 +181,7 @@ export default function ServicesPage() {
                     </p>
                   </div>
                   <div className="services-card__image">
-                    <img src="/images/innector/mobile-app.jpg" alt="Mobile application interface on a smartphone" />
+                    <img loading="lazy" decoding="async" src="/images/innector/mobile-app.webp" alt="Mobile application interface on a smartphone" />
                     <div className="services-card__cover"></div>
                   </div>
                 </div>
@@ -215,7 +219,7 @@ export default function ServicesPage() {
                     </p>
                   </div>
                   <div className="services-card__image">
-                    <img src="/images/innector/innectorbranding.jpg" alt="Corporate branding and identity design work" />
+                    <img loading="lazy" decoding="async" src="/images/innector/innectorbranding.webp" alt="Corporate branding and identity design work" />
                     <div className="services-card__cover"></div>
                   </div>
                 </div>
@@ -253,7 +257,7 @@ export default function ServicesPage() {
                     </p>
                   </div>
                   <div className="services-card__image">
-                    <img src="/images/services/custom-software.webp" alt="Code and dashboards on monitors in a software workspace" />
+                    <img loading="lazy" decoding="async" src="/images/services/custom-software.webp" alt="Code and dashboards on monitors in a software workspace" />
                     <div className="services-card__cover"></div>
                   </div>
                 </div>
@@ -291,7 +295,7 @@ export default function ServicesPage() {
                     </p>
                   </div>
                   <div className="services-card__image">
-                    <img src="/images/innector/datacenter.jpg" alt="IT infrastructure and data center hardware" />
+                    <img loading="lazy" decoding="async" src="/images/innector/datacenter.webp" alt="IT infrastructure and data center hardware" />
                     <div className="services-card__cover"></div>
                   </div>
                 </div>
@@ -329,7 +333,7 @@ export default function ServicesPage() {
                     </p>
                   </div>
                   <div className="services-card__image">
-                    <img src="/images/innector/digitalmarketing.jpg" alt="Digital marketing strategy and analytics" />
+                    <img loading="lazy" decoding="async" src="/images/innector/digitalmarketing.webp" alt="Digital marketing strategy and analytics" />
                     <div className="services-card__cover"></div>
                   </div>
                 </div>
@@ -367,8 +371,8 @@ export default function ServicesPage() {
                     </p>
                   </div>
                   <div className="services-card__image">
-                    <img
-                      src="/images/stock/ai-chatbot.jpg"
+                    <img loading="lazy" decoding="async"
+                      src="/images/stock/ai-chatbot.webp"
                       alt="AI-powered chatbots"
                     />
                     <div className="services-card__cover"></div>
@@ -408,7 +412,7 @@ export default function ServicesPage() {
                     </p>
                   </div>
                   <div className="services-card__image">
-                    <img src="/images/stock/process-automation.jpg" alt="Business process automation" />
+                    <img loading="lazy" decoding="async" src="/images/stock/process-automation.webp" alt="Business process automation" />
                     <div className="services-card__cover"></div>
                   </div>
                 </div>
@@ -446,7 +450,7 @@ export default function ServicesPage() {
                     </p>
                   </div>
                   <div className="services-card__image">
-                    <img
+                    <img loading="lazy" decoding="async"
                       src="/images/services/custom-ai.webp"
                       alt="A robot with a camera for a head, representing custom AI development"
                     />
@@ -565,8 +569,8 @@ export default function ServicesPage() {
         <div className="mxd-container fullwidth-container">
           <div className="mxd-divider">
             <div
-              className="mxd-divider__image parallax-img"
-              style={{ backgroundImage: "url(/images/services/process-divider.webp)" }}
+              className="mxd-divider__image parallax-img band-image"
+              style={{ "--band": "url(/images/services/process-divider.webp)", "--band-sm": "url(/images/services/process-divider-sm.webp)" } as React.CSSProperties}
               role="img"
               aria-label="Source code on a laptop screen"
             ></div>
@@ -645,7 +649,7 @@ export default function ServicesPage() {
                         data-cursor-text="Read Post"
                         href="/blog/erp-importance"
                       >
-                        <img src="/images/innector/erp-nepal-scaled.jpg" alt="ERP System Dashboard" />
+                        <img loading="lazy" decoding="async" src="/images/innector/erp-nepal-scaled.webp" alt="ERP System Dashboard" />
                       </a>
                       <div className="mxd-blog-item__caption">
                         <div className="mxd-blog-item__title">
@@ -668,7 +672,7 @@ export default function ServicesPage() {
                         data-cursor-text="Read Post"
                         href="/blog/top-5-open-source-erp"
                       >
-                        <img src="/images/innector/erp-image.jpg" alt="Open Source ERP Systems" />
+                        <img loading="lazy" decoding="async" src="/images/innector/erp-image.webp" alt="Open Source ERP Systems" />
                       </a>
                       <div className="mxd-blog-item__caption">
                         <div className="mxd-blog-item__title">

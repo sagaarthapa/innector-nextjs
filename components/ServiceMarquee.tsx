@@ -51,7 +51,7 @@ export default function ServiceMarquee({ set = "services" }: { set?: "services" 
               <span className="tag tag-s tag-medium-opposite mxd-scramble">{item.tag}</span>
             </div>
             <div className="marquee__image">
-              <img src={item.src} width={item.w} height={item.h} alt={item.alt} />
+              <img loading="lazy" decoding="async" src={item.src} width={item.w} height={item.h} alt={item.alt} />
             </div>
           </div>
         ))}

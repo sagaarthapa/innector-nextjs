@@ -1,18 +1,20 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import "./globals.css";
 import Preloader from "@/components/Preloader";
 import MenuOverlay from "@/components/MenuOverlay";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
+import AppScripts from "@/components/AppScripts";
 import { SITE_URL } from "@/lib/site";
+import { versioned } from "@/lib/assets";
+import { SEO } from "@/lib/seo";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "IT Solutions Company In Nepal - Innector",
-  description:
-    "Innector was established in 2018. As an IT solutions provider in Kathmandu, Nepal, our IT services encompass a wide range of technologies and digital marketing solutions.",
+  // default for any page that does not set its own (each page reads its title and description from lib/seo.ts)
+  title: SEO.home.title,
+  description: SEO.home.description,
   // Google's favicon guidelines: square, a multiple of 48px (48/96/192 below), stable URLs,
   // and a /favicon.ico at the site root.
   icons: {
@@ -38,9 +40,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f0f0f" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <link rel="stylesheet" type="text/css" href="/css/loader.css" precedence="low" />
-        <link rel="stylesheet" type="text/css" href="/css/plugins.css" precedence="medium" />
-        <link rel="stylesheet" type="text/css" href="/css/main.css" precedence="high" />
+        {/* minified copies (npm run assets rebuilds them from the readable sources); ?v= is a content hash, see lib/assets.ts */}
+        <link rel="stylesheet" type="text/css" href={versioned("/css/loader.min.css")} precedence="low" />
+        <link rel="stylesheet" type="text/css" href={versioned("/css/plugins.min.css")} precedence="medium" />
+        <link rel="stylesheet" type="text/css" href={versioned("/css/icons.min.css")} precedence="medium" />
+        <link rel="stylesheet" type="text/css" href={versioned("/css/main.min.css")} precedence="high" />
+        {/* the two self-hosted fonts are needed for the first paint: start fetching them with the HTML, not after main.css */}
+        <link rel="preload" href="/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        {/* the scripts are injected after hydration; a preload lets them download in parallel with it */}
+        <link rel="preload" href={versioned("/js/libs.min.js")} as="script" />
+        <link rel="preload" href={versioned("/js/app.min.js")} as="script" />
       </head>
       <body suppressHydrationWarning>
         <Preloader />
@@ -54,8 +64,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Footer />
         <CustomCursor />
 
-        <Script src="/js/libs.min.js" strategy="afterInteractive" />
-        <Script src="/js/app.js" strategy="afterInteractive" />
+        <AppScripts libs={versioned("/js/libs.min.js")} app={versioned("/js/app.min.js")} />
       </body>
     </html>
   );

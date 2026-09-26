@@ -82,6 +82,16 @@ function mxdBaseInit() {
     ScrollTrigger.refresh();
   });
 
+  // Images below the fold are loading="lazy" and change the page's height as they arrive, which moves every
+  // ScrollTrigger start/end (pins, stacks, parallax, reveals). Re-measure once a burst of them has finished loading.
+  let mxdLazyRefreshTimer = 0;
+  document.addEventListener("load", (e) => {
+    if (e.target && e.target.tagName === "IMG" && e.target.loading === "lazy") {
+      clearTimeout(mxdLazyRefreshTimer);
+      mxdLazyRefreshTimer = setTimeout(() => ScrollTrigger.refresh(), 250);
+    }
+  }, true);
+
   mxdLoader();
 
   let mxdNavigation = null;
@@ -122,6 +132,11 @@ function mxdBaseInit() {
     mxdTextScramble();
     mxdHoverSlideshow();
     mxdHeroBannersHover();
+    // The hover pictures in the inner-page heroes are loading="lazy" and stay hidden until hovered, so the browser would
+    // never start them and the first hover would show empty frames. Fetch them once the page is ready.
+    const mxdWarmBanners = () => document.querySelectorAll(".headline-banner-01 img, .headline-banner-02 img").forEach((img) => { img.loading = "eager"; });
+    if (document.documentElement.classList.contains("mxd-ready")) mxdWarmBanners();
+    else window.addEventListener("mxd-ready", mxdWarmBanners, { once: true });
   } else {
     document.getElementById("mxd-cursor").style.display = "none";
   }
@@ -152,10 +167,21 @@ if (document.readyState === "loading") {
 // --------------------------------------------- //
 // Base - Loader & Pages Transition Start
 // --------------------------------------------- //
+// Tells the rest of the page that the loading cover is done (or was skipped): components that should not compete with
+// the first paint for bandwidth (the hero video) wait for this. Sets html.mxd-ready and fires "mxd-ready" on window.
+function mxdReady() {
+  document.documentElement.classList.add("mxd-ready");
+  window.dispatchEvent(new Event("mxd-ready"));
+}
 // loader main
 function mxdLoader() {
-  const content = document.querySelector('body');
-  const imgLoad = imagesLoaded(content);
+  // The cover used to wait for imagesLoaded(document.body), i.e. for EVERY image on the page: on a phone connection it
+  // stayed up until the whole page had downloaded (5 s on fast 4G, 20+ s on slow 4G). It now waits only for the
+  // pictures the visitor sees first (its own tiny thumbnails and the hero background on inner pages) and never longer
+  // than MAX_IMAGE_WAIT; everything below the fold is loading="lazy". Do not widen this selector to lazy images: an image
+  // that has not started loading never fires "done".
+  const imgLoad = imagesLoaded(document.querySelectorAll('.mxd-loader img, .inner-headline__bg img'));
+  const MAX_IMAGE_WAIT = 2000; // ms
 
   function mxdSafeSessionGet(key) {
     try {
@@ -175,7 +201,7 @@ function mxdLoader() {
 
   const pageTransition = document.querySelector(".mxd-page-transition");
   const loader = document.querySelector(".mxd-loader");
-  if (!pageTransition || !loader) return;
+  if (!pageTransition || !loader) { mxdReady(); return; }
 
   const navEntry = performance.getEntriesByType("navigation")[0];
   const navType = navEntry ? navEntry.type : "navigate";
@@ -188,6 +214,7 @@ function mxdLoader() {
   if (!shouldShowLoader) {
     mxdPageTransition();
     pageAppearance();
+    mxdReady();
     return;
   }
 
@@ -201,7 +228,10 @@ function mxdLoader() {
   const loaderTime = 1.2;
 
   Promise.all([
-    new Promise(resolve => imgLoad.on("done", resolve)),
+    Promise.race([
+      new Promise(resolve => imgLoad.on("always", resolve)),
+      new Promise(resolve => setTimeout(resolve, MAX_IMAGE_WAIT))
+    ]),
     new Promise(resolve => setTimeout(resolve, loaderTime * 1000))
   ]).then(() => {
   gsap.timeline()
@@ -210,6 +240,7 @@ function mxdLoader() {
       loader.style.display = "none";
       mxdPageTransition();
       pageAppearance();
+      mxdReady();
     });
   });
 

@@ -2,6 +2,10 @@ import HeroVideoCycle from "@/components/HeroVideoCycle";
 import SectionIcon from "@/components/SectionIcon";
 import CoreValues from "@/components/CoreValues";
 import TechStack from "@/components/TechStack";
+import type { Metadata } from "next";
+import { SEO } from "@/lib/seo";
+
+export const metadata: Metadata = SEO.home;
 
 const missionAims: [string, string][] = [
   ["Deliver innovative digital solutions ", "to businesses worldwide."],
@@ -261,7 +265,7 @@ export default function Home() {
                           </p>
                         </div>
                         <div className="mxd-niche-cards__image absolute-desktop-bottom fill-space">
-                          <img src="/images/stock/enterprise-skyscraper.jpg" alt="Modern corporate skyscrapers" />
+                          <img loading="lazy" decoding="async" src="/images/stock/enterprise-skyscraper.webp" alt="Modern corporate skyscrapers" />
                         </div>
                       </div>
                     </div>
@@ -292,7 +296,7 @@ export default function Home() {
                                 </p>
                               </div>
                               <div className="mxd-niche-cards__image absolute-desktop-full">
-                                <img src="/img/illustrations/niche02.webp" alt="AI-powered solutions" />
+                                <img loading="lazy" decoding="async" src="/img/illustrations/niche02.webp" alt="AI-powered solutions" />
                                 <div className="mxd-niche-cards__gradient gradient-linear"></div>
                               </div>
                             </div>
@@ -319,7 +323,7 @@ export default function Home() {
                                 </p>
                               </div>
                               <div className="mxd-niche-cards__image absolute-desktop-full">
-                                <img src="/images/innector/bannerfallback.jpg" alt="Small and medium business team" />
+                                <img loading="lazy" decoding="async" src="/images/innector/bannerfallback.webp" alt="Small and medium business team" />
                                 <div className="mxd-niche-cards__gradient gradient-radial"></div>
                               </div>
                             </div>
@@ -346,7 +350,7 @@ export default function Home() {
                                 </p>
                               </div>
                               <div className="mxd-niche-cards__image absolute-desktop-aside">
-                                <img src="/images/stock/startup-team.jpg" alt="Young startup team working around a laptop" />
+                                <img loading="lazy" decoding="async" src="/images/stock/startup-team.webp" alt="Young startup team working around a laptop" />
                               </div>
                             </div>
                           </div>
@@ -514,7 +518,7 @@ export default function Home() {
                         <p className="mxd-cpb-list__name">Web development</p>
                       </div>
                       <div className="col-12 col-md-6 col-xl-4 mxd-grid-item mxd-cpb-list__image">
-                        <img src="/images/stock/web-development.jpg" alt="Web development" />
+                        <img loading="lazy" decoding="async" src="/images/stock/web-development.webp" alt="Web development" />
                       </div>
                       <div className="col-12 col-md-6 col-xl-4 mxd-cpb-list__data">
                         <div className="mxd-cpb-list__descr mxd-grid-item">
@@ -555,7 +559,7 @@ export default function Home() {
                         <p className="mxd-cpb-list__name">Mobile app development</p>
                       </div>
                       <div className="col-12 col-md-6 col-xl-4 mxd-grid-item mxd-cpb-list__image">
-                        <img src="/images/innector/mobile-app.jpg" alt="Mobile app development" />
+                        <img loading="lazy" decoding="async" src="/images/innector/mobile-app.webp" alt="Mobile app development" />
                       </div>
                       <div className="col-12 col-md-6 col-xl-4 mxd-cpb-list__data">
                         <div className="mxd-cpb-list__descr mxd-grid-item">
@@ -596,7 +600,7 @@ export default function Home() {
                         <p className="mxd-cpb-list__name">Corporate branding</p>
                       </div>
                       <div className="col-12 col-md-6 col-xl-4 mxd-grid-item mxd-cpb-list__image">
-                        <img src="/images/innector/innectorbranding.jpg" alt="Corporate branding" />
+                        <img loading="lazy" decoding="async" src="/images/innector/innectorbranding.webp" alt="Corporate branding" />
                       </div>
                       <div className="col-12 col-md-6 col-xl-4 mxd-cpb-list__data">
                         <div className="mxd-cpb-list__descr mxd-grid-item">
@@ -637,7 +641,7 @@ export default function Home() {
                         <p className="mxd-cpb-list__name">Custom software</p>
                       </div>
                       <div className="col-12 col-md-6 col-xl-4 mxd-grid-item mxd-cpb-list__image">
-                        <img src="/images/innector/customsoftware.jpg" alt="Custom software" />
+                        <img loading="lazy" decoding="async" src="/images/innector/customsoftware.webp" alt="Custom software" />
                       </div>
                       <div className="col-12 col-md-6 col-xl-4 mxd-cpb-list__data">
                         <div className="mxd-cpb-list__descr mxd-grid-item">
@@ -678,7 +682,7 @@ export default function Home() {
                         <p className="mxd-cpb-list__name">IT infrastructure setup</p>
                       </div>
                       <div className="col-12 col-md-6 col-xl-4 mxd-grid-item mxd-cpb-list__image">
-                        <img src="/images/innector/datacenter.jpg" alt="IT infrastructure setup" />
+                        <img loading="lazy" decoding="async" src="/images/innector/datacenter.webp" alt="IT infrastructure setup" />
                       </div>
                       <div className="col-12 col-md-6 col-xl-4 mxd-cpb-list__data">
                         <div className="mxd-cpb-list__descr mxd-grid-item">
@@ -719,7 +723,7 @@ export default function Home() {
                         <p className="mxd-cpb-list__name">Digital marketing</p>
                       </div>
                       <div className="col-12 col-md-6 col-xl-4 mxd-grid-item mxd-cpb-list__image">
-                        <img src="/images/innector/digitalmarketing.jpg" alt="Digital marketing" />
+                        <img loading="lazy" decoding="async" src="/images/innector/digitalmarketing.webp" alt="Digital marketing" />
                       </div>
                       <div className="col-12 col-md-6 col-xl-4 mxd-cpb-list__data">
                         <div className="mxd-cpb-list__descr mxd-grid-item">
@@ -760,7 +764,7 @@ export default function Home() {
                         <p className="mxd-cpb-list__name">AI-powered chatbots</p>
                       </div>
                       <div className="col-12 col-md-6 col-xl-4 mxd-grid-item mxd-cpb-list__image">
-                        <img src="/images/stock/ai-chatbot.jpg" alt="AI-powered chatbots" />
+                        <img loading="lazy" decoding="async" src="/images/stock/ai-chatbot.webp" alt="AI-powered chatbots" />
                       </div>
                       <div className="col-12 col-md-6 col-xl-4 mxd-cpb-list__data">
                         <div className="mxd-cpb-list__descr mxd-grid-item">
@@ -801,7 +805,7 @@ export default function Home() {
                         <p className="mxd-cpb-list__name">Business process automation</p>
                       </div>
                       <div className="col-12 col-md-6 col-xl-4 mxd-grid-item mxd-cpb-list__image">
-                        <img src="/images/stock/process-automation.jpg" alt="Business process automation" />
+                        <img loading="lazy" decoding="async" src="/images/stock/process-automation.webp" alt="Business process automation" />
                       </div>
                       <div className="col-12 col-md-6 col-xl-4 mxd-cpb-list__data">
                         <div className="mxd-cpb-list__descr mxd-grid-item">
@@ -842,7 +846,7 @@ export default function Home() {
                         <p className="mxd-cpb-list__name">Custom AI development</p>
                       </div>
                       <div className="col-12 col-md-6 col-xl-4 mxd-grid-item mxd-cpb-list__image">
-                        <img src="/img/services/1200x980_cpb06.webp" alt="Custom AI development" />
+                        <img loading="lazy" decoding="async" src="/img/services/1200x980_cpb06.webp" alt="Custom AI development" />
                       </div>
                       <div className="col-12 col-md-6 col-xl-4 mxd-cpb-list__data">
                         <div className="mxd-cpb-list__descr mxd-grid-item">
@@ -900,7 +904,7 @@ export default function Home() {
                             key={`${round}-${client.logo}`}
                             aria-hidden={round === 1 ? true : undefined}
                           >
-                            <img src={`/images/clients/${client.logo}`} alt={round === 1 ? "" : client.name} />
+                            <img loading="lazy" decoding="async" src={`/images/clients/${client.logo}`} alt={round === 1 ? "" : client.name} />
                           </div>
                         ))
                       )}
@@ -966,7 +970,7 @@ export default function Home() {
                           >
                             {/* hover frames (mxdHoverSlideshow needs at least one) */}
                             {(study.more?.length ? study.more.map((m) => `${CASE_DIR}/${m}.webp`) : [src]).map((frame) => (
-                              <img
+                              <img loading="lazy" decoding="async"
                                 className="mxd-img-anim__absolute"
                                 key={frame}
                                 src={frame}
@@ -975,7 +979,7 @@ export default function Home() {
                                 alt=""
                               />
                             ))}
-                            <img
+                            <img loading="lazy" decoding="async"
                               className="mxd-img-anim__main"
                               src={src}
                               width={study.w}
@@ -1026,7 +1030,7 @@ export default function Home() {
                                 href="/services"
                               >
                                 {worksPreview.layers.map((slug) => (
-                                  <img
+                                  <img loading="lazy" decoding="async"
                                     className="mxd-img-anim__absolute centered-y"
                                     key={slug}
                                     src={`${CASE_DIR}/preview/${slug}.webp`}
@@ -1035,7 +1039,7 @@ export default function Home() {
                                     alt=""
                                   />
                                 ))}
-                                <img
+                                <img loading="lazy" decoding="async"
                                   className="mxd-img-anim__main"
                                   src={`${CASE_DIR}/preview/${worksPreview.main}.webp`}
                                   width={800}
@@ -1133,7 +1137,7 @@ export default function Home() {
                   <div className="row g-0 mxd-blog-grid__gallery">
                     <div className="col-12 col-lg-6 mxd-blog-item animate-card-3">
                       <a className="mxd-blog-item__media active-cursor-permanent" data-cursor-text="Read Post" href="/blog/erp-importance">
-                        <img src="/images/innector/erp-nepal-scaled.jpg" alt="What is ERP and why is it important for businesses" />
+                        <img loading="lazy" decoding="async" src="/images/innector/erp-nepal-scaled.webp" alt="What is ERP and why is it important for businesses" />
                       </a>
                       <div className="mxd-blog-item__caption">
                         <div className="mxd-blog-item__title">
@@ -1150,7 +1154,7 @@ export default function Home() {
                     </div>
                     <div className="col-12 col-lg-6 mxd-blog-item animate-card-3">
                       <a className="mxd-blog-item__media active-cursor-permanent" data-cursor-text="Read Post" href="/blog/top-5-open-source-erp">
-                        <img src="/images/innector/erp-image.jpg" alt="Top 5 open source ERP for 2022" />
+                        <img loading="lazy" decoding="async" src="/images/innector/erp-image.webp" alt="Top 5 open source ERP for 2022" />
                       </a>
                       <div className="mxd-blog-item__caption">
                         <div className="mxd-blog-item__title">

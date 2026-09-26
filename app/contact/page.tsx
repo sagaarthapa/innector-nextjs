@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
+import { SEO } from "@/lib/seo";
 import ContactForm from "@/components/ContactForm";
 import ServiceMarquee from "@/components/ServiceMarquee";
 
-export const metadata: Metadata = {
-  title: "Contact Us - Innector IT Solutions",
-  description:
-    "Contact Innector IT Solutions for managed IT services & remote support. Serving SMBs in USA, Canada, Australia, Dubai & Qatar. 24/7 support available.",
-};
+export const metadata: Metadata = SEO.contact;
 
 const socialArrow = (
   <svg
@@ -210,8 +207,8 @@ export default function ContactPage() {
         <div className="mxd-container fullwidth-container">
           <div className="mxd-divider">
             <div
-              className="mxd-divider__image parallax-img"
-              style={{ backgroundImage: "url(/images/pages/contact-band.webp)" }}
+              className="mxd-divider__image parallax-img band-image"
+              style={{ "--band": "url(/images/pages/contact-band.webp)", "--band-sm": "url(/images/pages/contact-band-sm.webp)" } as React.CSSProperties}
               role="img"
               aria-label="Two colleagues talking over a project at a desk"
             ></div>

@@ -1,5 +1,9 @@
 import TrialForm from "@/components/TrialForm";
 import ServiceMarquee from "@/components/ServiceMarquee";
+import type { Metadata } from "next";
+import { SEO } from "@/lib/seo";
+
+export const metadata: Metadata = SEO.managedIt;
 
 export default function ManagedItServicesPage() {
   return (
@@ -25,7 +29,7 @@ export default function ManagedItServicesPage() {
             <div className="mxd-block loading-wrap">
               <div className="inner-headline fullheight">
                 <div className="inner-headline__bg">
-                  <img src="/images/innector/datacenter.jpg" alt="Innector managed IT services" />
+                  <img fetchPriority="high" decoding="async" src="/images/innector/datacenter.webp" alt="Innector managed IT services" />
                   <div className="inner-headline__cover"></div>
                 </div>
                 <div className="mxd-container grid-l-container">
@@ -207,7 +211,7 @@ export default function ManagedItServicesPage() {
                     </p>
                   </div>
                   <div className="services-card__image">
-                    <img src="/images/stock/web-development.jpg" alt="Web design, development and maintenance" />
+                    <img loading="lazy" decoding="async" src="/images/stock/web-development.webp" alt="Web design, development and maintenance" />
                     <div className="services-card__cover"></div>
                   </div>
                 </div>
@@ -241,7 +245,7 @@ export default function ManagedItServicesPage() {
                     </p>
                   </div>
                   <div className="services-card__image">
-                    <img src="/images/innector/datacenter.jpg" alt="Data center server hardware" />
+                    <img loading="lazy" decoding="async" src="/images/innector/datacenter.webp" alt="Data center server hardware" />
                     <div className="services-card__cover"></div>
                   </div>
                 </div>
@@ -278,7 +282,7 @@ export default function ManagedItServicesPage() {
                     </p>
                   </div>
                   <div className="services-card__image">
-                    <img src="/images/innector/bannerfallback.jpg" alt="Business email and domain management" />
+                    <img loading="lazy" decoding="async" src="/images/innector/bannerfallback.webp" alt="Business email and domain management" />
                     <div className="services-card__cover"></div>
                   </div>
                 </div>
@@ -312,7 +316,7 @@ export default function ManagedItServicesPage() {
                     </p>
                   </div>
                   <div className="services-card__image">
-                    <img src="/images/innector/digitalmarketing.jpg" alt="SEO and analytics dashboard" />
+                    <img loading="lazy" decoding="async" src="/images/innector/digitalmarketing.webp" alt="SEO and analytics dashboard" />
                     <div className="services-card__cover"></div>
                   </div>
                 </div>
@@ -346,7 +350,7 @@ export default function ManagedItServicesPage() {
                     </p>
                   </div>
                   <div className="services-card__image">
-                    <img src="/images/innector/innectorbranding.jpg" alt="Graphics and digital marketing design" />
+                    <img loading="lazy" decoding="async" src="/images/innector/innectorbranding.webp" alt="Graphics and digital marketing design" />
                     <div className="services-card__cover"></div>
                   </div>
                 </div>
@@ -379,7 +383,7 @@ export default function ManagedItServicesPage() {
                     </p>
                   </div>
                   <div className="services-card__image">
-                    <img src="/images/innector/erp-image.jpg" alt="Security and data backup concept" />
+                    <img loading="lazy" decoding="async" src="/images/innector/erp-image.webp" alt="Security and data backup concept" />
                     <div className="services-card__cover"></div>
                   </div>
                 </div>
@@ -415,7 +419,7 @@ export default function ManagedItServicesPage() {
                     </p>
                   </div>
                   <div className="services-card__image">
-                    <img src="/images/innector/datacenter.jpg" alt="PC and server technical support" />
+                    <img loading="lazy" decoding="async" src="/images/innector/datacenter.webp" alt="PC and server technical support" />
                     <div className="services-card__cover"></div>
                   </div>
                 </div>
@@ -449,7 +453,7 @@ export default function ManagedItServicesPage() {
                     </p>
                   </div>
                   <div className="services-card__image">
-                    <img src="/images/innector/customsoftware.jpg" alt="HR and payroll web application" />
+                    <img loading="lazy" decoding="async" src="/images/innector/customsoftware.webp" alt="HR and payroll web application" />
                     <div className="services-card__cover"></div>
                   </div>
                 </div>
@@ -482,7 +486,7 @@ export default function ManagedItServicesPage() {
                     </p>
                   </div>
                   <div className="services-card__image">
-                    <img src="/images/innector/bannerfallback.jpg" alt="IT consulting meeting" />
+                    <img loading="lazy" decoding="async" src="/images/innector/bannerfallback.webp" alt="IT consulting meeting" />
                     <div className="services-card__cover"></div>
                   </div>
                 </div>
@@ -515,8 +519,8 @@ export default function ManagedItServicesPage() {
                     </p>
                   </div>
                   <div className="services-card__image">
-                    <img
-                      src="/images/stock/ai-chatbot.jpg"
+                    <img loading="lazy" decoding="async"
+                      src="/images/stock/ai-chatbot.webp"
                       alt="Artificial intelligence chatbot concept"
                     />
                     <div className="services-card__cover"></div>
@@ -551,7 +555,7 @@ export default function ManagedItServicesPage() {
                     </p>
                   </div>
                   <div className="services-card__image">
-                    <img src="/images/stock/process-automation.jpg" alt="Business process automation" />
+                    <img loading="lazy" decoding="async" src="/images/stock/process-automation.webp" alt="Business process automation" />
                     <div className="services-card__cover"></div>
                   </div>
                 </div>
@@ -587,7 +591,7 @@ export default function ManagedItServicesPage() {
                     </p>
                   </div>
                   <div className="services-card__image">
-                    <img
+                    <img loading="lazy" decoding="async"
                       src="/img/services/1200x980_cpb06.webp"
                       alt="Machine learning and custom AI development"
                     />
@@ -622,8 +626,8 @@ export default function ManagedItServicesPage() {
         <div className="mxd-container fullwidth-container">
           <div className="mxd-divider">
             <div
-              className="mxd-divider__image parallax-img"
-              style={{ backgroundImage: "url(/images/pages/managed-it-band.webp)" }}
+              className="mxd-divider__image parallax-img band-image"
+              style={{ "--band": "url(/images/pages/managed-it-band.webp)", "--band-sm": "url(/images/pages/managed-it-band-sm.webp)" } as React.CSSProperties}
               role="img"
               aria-label="A support team working together at a shared table"
             ></div>
@@ -930,7 +934,7 @@ export default function ManagedItServicesPage() {
                         data-cursor-text="Read Post"
                         href="/blog/erp-importance"
                       >
-                        <img src="/images/innector/erp-nepal-scaled.jpg" alt="ERP System Dashboard" />
+                        <img loading="lazy" decoding="async" src="/images/innector/erp-nepal-scaled.webp" alt="ERP System Dashboard" />
                       </a>
                       <div className="mxd-blog-item__caption">
                         <div className="mxd-blog-item__title">
@@ -953,7 +957,7 @@ export default function ManagedItServicesPage() {
                         data-cursor-text="Read Post"
                         href="/blog/top-5-open-source-erp"
                       >
-                        <img src="/images/innector/erp-image.jpg" alt="Open Source ERP Systems" />
+                        <img loading="lazy" decoding="async" src="/images/innector/erp-image.webp" alt="Open Source ERP Systems" />
                       </a>
                       <div className="mxd-blog-item__caption">
                         <div className="mxd-blog-item__title">
