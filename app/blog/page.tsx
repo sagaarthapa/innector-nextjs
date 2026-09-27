@@ -7,19 +7,18 @@ import { breadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = SEO.blog;
 
+// blogPosts is empty right now (see lib/blog-posts.ts) - the old ERP/digital-marketing articles were retired. Every
+// list below is derived from it so the page degrades to a clean empty state automatically instead of crashing on
+// blogPosts[0] being undefined, and picks new posts up with no further change here once they exist.
 const featuredPost = blogPosts[0];
 const remainingPosts = blogPosts.slice(1);
-
-const recentPosts = [blogPosts[1], blogPosts[2], blogPosts[3]];
-
-const categories = [
-  { name: "ERP", count: 2 },
-  { name: "Digital Marketing", count: 1 },
-  { name: "Mobile Development", count: 1 },
-  { name: "Software Development", count: 1 },
-  { name: "Cloud Computing", count: 1 },
-  { name: "Branding", count: 1 },
-];
+const recentPosts = [blogPosts[1], blogPosts[2], blogPosts[3]].filter((post): post is (typeof blogPosts)[number] => Boolean(post));
+const categories = Array.from(
+  blogPosts.reduce((map, post) => {
+    post.tags?.forEach((tag) => map.set(tag, (map.get(tag) ?? 0) + 1));
+    return map;
+  }, new Map<string, number>())
+).map(([name, count]) => ({ name, count }));
 
 export default function BlogPage() {
   return (
@@ -67,22 +66,23 @@ export default function BlogPage() {
                         <div className="row g-0">
                           <div className="col-12 col-xl-8 mxd-grid-item">
                             <div className="inner-headline__title pre-subtitle-large loading-item">
-                              <h1 className="large">Blog<sup>({blogPosts.length})</sup></h1>
+                              <h1 className="large">Blog{blogPosts.length > 0 && <sup>({blogPosts.length})</sup>}</h1>
                             </div>
                             <div className="inner-headline__subtitle loading-item">
-                              <p>Insights, trends, and tips from the world of technology <span>and digital marketing.</span></p>
+                              <p>Insights for businesses <span>choosing who builds their next project.</span></p>
                             </div>
                           </div>
-                          <div className="col-12 col-xl-4 mxd-grid-item">
-                            <div className="inner-headline__tags align-end-desktop tags-large-subtitle">
-                              <a className="loading-item" href="#0"><span className="tag tag-m meta-tag mxd-scramble">ERP</span></a>
-                              <a className="loading-item" href="#0"><span className="tag tag-m meta-tag mxd-scramble">Digital Marketing</span></a>
-                              <a className="loading-item" href="#0"><span className="tag tag-m meta-tag mxd-scramble">Cloud Computing</span></a>
-                              <a className="loading-item" href="#0"><span className="tag tag-m meta-tag mxd-scramble">Software Development</span></a>
-                              <a className="loading-item" href="#0"><span className="tag tag-m meta-tag mxd-scramble">Mobile Development</span></a>
-                              <a className="loading-item" href="#0"><span className="tag tag-m meta-tag mxd-scramble">Branding</span></a>
+                          {categories.length > 0 && (
+                            <div className="col-12 col-xl-4 mxd-grid-item">
+                              <div className="inner-headline__tags align-end-desktop tags-large-subtitle">
+                                {categories.map((cat) => (
+                                  <a className="loading-item" href="#0" key={cat.name}>
+                                    <span className="tag tag-m meta-tag mxd-scramble">{cat.name}</span>
+                                  </a>
+                                ))}
+                              </div>
                             </div>
-                          </div>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -104,85 +104,96 @@ export default function BlogPage() {
 
             {/* Posts Container Start */}
             <div className="mxd-posts-container mxd-grid-item">
-
-              {/* Featured Post Start */}
-              <article className="mxd-post post-featured">
-                <a
-                  className="post-featured__container active-cursor-permanent"
-                  data-cursor-text="Read Post"
-                  href={`/blog/${featuredPost.slug}`}
-                >
-                  <div className="post-featured__thumb">
-                    <img loading="lazy" decoding="async" src={featuredPost.image} alt={featuredPost.title} />
-                    <div className="post-featured__cover"></div>
-                  </div>
-                  <div className="post-featured__content">
-                    <div className="post-featured__meta">
-                      <div className="post-featured__data">
-                        <span className="tag tag-s-mobile tag-permanent mxd-scramble">{featuredPost.date}</span>
-                        <span className="tag tag-s-mobile tag-permanent mxd-scramble">{featuredPost.readTime}</span>
-                      </div>
-                      <div className="post-featured__categories">
-                        {featuredPost.tags?.map((tag) => (
-                          <span key={tag} className="tag tag-s-mobile tag-permanent mxd-scramble">{tag}</span>
-                        ))}
-                      </div>
-                    </div>
-                    <div className="post-featured__info">
-                      <h2 className="post-featured__title permanent">{featuredPost.title}</h2>
-                      <div className="post-featured__excerpt">
-                        <p className="t-medium t-permanent">{featuredPost.excerpt}</p>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </article>
-              {/* Featured Post End */}
-
-              {/* Regular Posts Group Start */}
-              <div className="mxd-posts-list">
-                {remainingPosts.map((post) => (
-                  <article className="mxd-post post-simple" key={post.slug}>
-                    <div className="post-simple__divider top"></div>
+              {featuredPost ? (
+                <>
+                  {/* Featured Post Start */}
+                  <article className="mxd-post post-featured">
                     <a
-                      className="post-simple__container active-cursor-image active-cursor-permanent"
-                      data-cursor-image={post.image}
-                      data-cursor-text={post.linked ? "Read Post" : "Contact Us"}
-                      href={post.linked ? `/blog/${post.slug}` : "/contact"}
+                      className="post-featured__container active-cursor-permanent"
+                      data-cursor-text="Read Post"
+                      href={`/blog/${featuredPost.slug}`}
                     >
-                      <div className="container-fluid px-0 post-simple__inner">
-                        <div className="row gx-0">
-                          <div className="col-12">
-                            <div className="post-simple__meta">
-                              {post.tags?.map((tag) => (
-                                <span key={tag} className="meta-tag comma-tag">{tag}</span>
-                              ))}
-                              <span className="meta-time">{post.readTime ?? "3 min read"}</span>
-                            </div>
+                      <div className="post-featured__thumb">
+                        <img loading="lazy" decoding="async" src={featuredPost.image} alt={featuredPost.title} />
+                        <div className="post-featured__cover"></div>
+                      </div>
+                      <div className="post-featured__content">
+                        <div className="post-featured__meta">
+                          <div className="post-featured__data">
+                            <span className="tag tag-s-mobile tag-permanent mxd-scramble">{featuredPost.date}</span>
+                            <span className="tag tag-s-mobile tag-permanent mxd-scramble">{featuredPost.readTime}</span>
                           </div>
-                          <div className="col-12 col-xxl-7">
-                            <div className="post-simple__title">
-                              <h3>{post.title}</h3>
-                              <div className="post-simple__data">
-                                <span className="meta-author comma-tag">Innector Team</span>
-                                <span className="meta-date">{post.date}</span>
-                              </div>
-                            </div>
+                          <div className="post-featured__categories">
+                            {featuredPost.tags?.map((tag) => (
+                              <span key={tag} className="tag tag-s-mobile tag-permanent mxd-scramble">{tag}</span>
+                            ))}
                           </div>
-                          <div className="col-12 col-xxl-5">
-                            <div className="post-simple__excerpt">
-                              <p className="t-medium">{post.excerpt}</p>
-                            </div>
+                        </div>
+                        <div className="post-featured__info">
+                          <h2 className="post-featured__title permanent">{featuredPost.title}</h2>
+                          <div className="post-featured__excerpt">
+                            <p className="t-medium t-permanent">{featuredPost.excerpt}</p>
                           </div>
                         </div>
                       </div>
                     </a>
-                    <div className="post-simple__divider bottom"></div>
                   </article>
-                ))}
-              </div>
-              {/* Regular Posts Group End */}
+                  {/* Featured Post End */}
 
+                  {/* Regular Posts Group Start */}
+                  <div className="mxd-posts-list">
+                    {remainingPosts.map((post) => (
+                      <article className="mxd-post post-simple" key={post.slug}>
+                        <div className="post-simple__divider top"></div>
+                        <a
+                          className="post-simple__container active-cursor-image active-cursor-permanent"
+                          data-cursor-image={post.image}
+                          data-cursor-text={post.linked ? "Read Post" : "Contact Us"}
+                          href={post.linked ? `/blog/${post.slug}` : "/contact"}
+                        >
+                          <div className="container-fluid px-0 post-simple__inner">
+                            <div className="row gx-0">
+                              <div className="col-12">
+                                <div className="post-simple__meta">
+                                  {post.tags?.map((tag) => (
+                                    <span key={tag} className="meta-tag comma-tag">{tag}</span>
+                                  ))}
+                                  <span className="meta-time">{post.readTime ?? "3 min read"}</span>
+                                </div>
+                              </div>
+                              <div className="col-12 col-xxl-7">
+                                <div className="post-simple__title">
+                                  <h3>{post.title}</h3>
+                                  <div className="post-simple__data">
+                                    <span className="meta-author comma-tag">Innector Team</span>
+                                    <span className="meta-date">{post.date}</span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="col-12 col-xxl-5">
+                                <div className="post-simple__excerpt">
+                                  <p className="t-medium">{post.excerpt}</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </a>
+                        <div className="post-simple__divider bottom"></div>
+                      </article>
+                    ))}
+                  </div>
+                  {/* Regular Posts Group End */}
+                </>
+              ) : (
+                /* Empty state: the old articles are retired, new ones (built around the "hire a company or
+                   freelancer" keyword cluster) haven't been written yet. */
+                <div className="mxd-post post-featured" style={{ textAlign: "center", padding: "6rem 2rem" }}>
+                  <p className="t-bold t-large">New articles are on the way.</p>
+                  <p className="t-medium" style={{ marginTop: "1.2rem" }}>
+                    In the meantime, <a href="/contact">get in touch</a> and we&apos;ll answer your questions directly.
+                  </p>
+                </div>
+              )}
             </div>
             {/* Posts Container End */}
 
@@ -201,51 +212,56 @@ export default function BlogPage() {
                 </div>
               </div>
 
-              {/* categories widget */}
-              <div className="mxd-sidebar__widget">
-                <div className="widget__title">
-                  <p>/ Discover</p>
+              {/* categories widget - derived from actual post tags now (see categories above), so it's hidden
+                  entirely rather than showing fake counts while there are no posts to categorize */}
+              {categories.length > 0 && (
+                <div className="mxd-sidebar__widget">
+                  <div className="widget__title">
+                    <p>/ Discover</p>
+                  </div>
+                  <ul className="widget__categories">
+                    {categories.map((cat) => (
+                      <li className="categories__item" key={cat.name}>
+                        <a href="#0" className="categories__link">{cat.name}
+                          <span>{String(cat.count).padStart(2, "0")}</span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <ul className="widget__categories">
-                  {categories.map((cat) => (
-                    <li className="categories__item" key={cat.name}>
-                      <a href="#0" className="categories__link">{cat.name}
-                        <span>{String(cat.count).padStart(2, "0")}</span>
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              )}
 
               {/* recent posts */}
-              <div className="mxd-sidebar__widget">
-                <div className="widget__title">
-                  <p>/ Latest posts</p>
+              {recentPosts.length > 0 && (
+                <div className="mxd-sidebar__widget">
+                  <div className="widget__title">
+                    <p>/ Latest posts</p>
+                  </div>
+                  <ul className="widget__recent-posts">
+                    {recentPosts.map((post) => (
+                      <li className="recent-post__item" key={post.slug}>
+                        <div className="recent-post__thumb">
+                          <a href={post.linked ? `/blog/${post.slug}` : "/contact"}>
+                            <img loading="lazy" decoding="async" src={post.image} alt={post.title} />
+                          </a>
+                        </div>
+                        <div className="recent-post__content">
+                          <div className="recent-post__meta">
+                            {post.tags?.map((tag) => (
+                              <a href="#0" key={tag}>
+                                <span className="meta-tag tag-s comma-tag mxd-scramble">{tag}</span>
+                              </a>
+                            ))}
+                          </div>
+                          <div className="recent-post__title">
+                            <a href={post.linked ? `/blog/${post.slug}` : "/contact"}>{post.title}</a>
+                          </div>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <ul className="widget__recent-posts">
-                  {recentPosts.map((post) => (
-                    <li className="recent-post__item" key={post.slug}>
-                      <div className="recent-post__thumb">
-                        <a href={post.linked ? `/blog/${post.slug}` : "/contact"}>
-                          <img loading="lazy" decoding="async" src={post.image} alt={post.title} />
-                        </a>
-                      </div>
-                      <div className="recent-post__content">
-                        <div className="recent-post__meta">
-                          {post.tags?.map((tag) => (
-                            <a href="#0" key={tag}>
-                              <span className="meta-tag tag-s comma-tag mxd-scramble">{tag}</span>
-                            </a>
-                          ))}
-                        </div>
-                        <div className="recent-post__title">
-                          <a href={post.linked ? `/blog/${post.slug}` : "/contact"}>{post.title}</a>
-                        </div>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              )}
 
               {/* promo */}
               <div className="mxd-sidebar__widget widget-ad">
@@ -263,8 +279,8 @@ export default function BlogPage() {
                   <p>/ About</p>
                 </div>
                 <div className="widget__descr">
-                  <p className="t-small">Innector shares practical IT and digital marketing
-                    <span>insights to help SMBs work smarter and grow faster.</span>
+                  <p className="t-small">Innector shares practical insights for businesses worldwide
+                    <span>choosing the right partner to build their next project.</span>
                   </p>
                 </div>
               </div>
