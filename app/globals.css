@@ -142,6 +142,36 @@ html[color-scheme="dark"] .marquee__item.item-logoblock.item-clientlogo.item-cli
 .mxd-promo.mxd-gravity-section.accent {
   background-color: var(--brand-teal);
 }
+/* On phones, app.js skips the Matter.js physics for this section entirely (see mxdGravity) and adds
+   html.mxd-gravity-flat instead: 14 falling/draggable bodies simulated every frame is heavy on a phone CPU, and the
+   template only reserved room for them to fall into via .mxd-promo__wrap's own padding (13.4rem top + 34rem bottom -
+   about 470px of empty space). Lay the same tags out as a small static row instead, heading/button first and the
+   tags as a supporting line below. Keyed off the class app.js sets (deviceType() === "mobile"), not a width media
+   query, so it can't disagree with the JS check - a phone in landscape is often wider than a typical breakpoint. */
+html.mxd-gravity-flat .mxd-gravity-section .mxd-promo__wrap {
+  display: flex;
+  flex-direction: column;
+  padding: 6rem 0 5rem 0;
+}
+html.mxd-gravity-flat .mxd-gravity-section .mxd-promo__content {
+  order: 1;
+}
+html.mxd-gravity-flat .mxd-gravity-section .object-container {
+  order: 2;
+  position: static;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-top: 3.2rem;
+}
+html.mxd-gravity-flat .mxd-gravity-section .object {
+  position: static;
+  padding: 0.8rem 1.2rem;
+}
+html.mxd-gravity-flat .mxd-gravity-section .object p {
+  font-size: 1.1rem;
+}
 .menu-letters {
   position: absolute;
   inset: 0;

@@ -1068,6 +1068,15 @@ function mxdSmoothScroll() {
 function mxdGravity() {
   const sections = document.querySelectorAll(".mxd-gravity-section");
   if (!sections.length) return;
+  // The physics simulation (Matter.js: 14 falling/draggable bodies, a runner ticking every frame) is heavy on a
+  // phone CPU and only really makes sense with a real mouse (drag-to-throw). Mobile only, not tablet (not reported
+  // as a problem there, and it doubles as a touch-drag toy on a bigger screen). The class - not a width media query
+  // - is what the CSS in globals.css keys off of: a phone rotated to landscape is still often wider than a typical
+  // "mobile" breakpoint, and the two would disagree if the CSS used one instead of matching this exact check.
+  if (deviceType() === "mobile") {
+    document.documentElement.classList.add("mxd-gravity-flat");
+    return;
+  }
 
   const animateOnScroll = true;
 
