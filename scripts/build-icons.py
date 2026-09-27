@@ -1,15 +1,16 @@
 #!/usr/bin/env python3
 """One-off: cut the Phosphor icon font down to the icons this site actually uses.
 
-Why: public/css/plugins.css carried all 9,162 icon rules for six weights (659 KB of the file's 936 KB) and the browser
+Why: theme-src/plugins.css carried all 9,162 icon rules for six weights (659 KB of the file's 936 KB) and the browser
 downloaded 130-150 KB of woff2 for every weight used, for about 25 icons.
 
 What it does (run from the project root, needs `pip install fonttools brotli`):
-  1. collects every  ph-<name>  used in app/, components/, lib/ and public/js/app.js
+  1. collects every  ph-<name>  used in app/, components/, lib/ and theme-src/app.js
   2. keeps three weights (regular, fill, bold: the only ones used) and subsets each font to those glyphs
         -> public/fonts/phosphor.woff2, phosphor-fill.woff2, phosphor-bold.woff2  (a few KB each)
-  3. writes public/css/icons.css (the @font-face + .ph / .ph-fill / .ph-bold rules + one :before rule per icon)
-  4. removes the whole "Phosphor Icons" section from public/css/plugins.css
+  3. writes theme-src/icons.css (the @font-face + .ph / .ph-fill / .ph-bold rules + one :before rule per icon) -
+     npm run assets then minifies it into public/css/icons.min.css, the copy actually served
+  4. removes the whole "Phosphor Icons" section from theme-src/plugins.css
 
 The original fonts stay in public/fonts/Phosphor/ (unreferenced afterwards) so this can be re-run when an icon is added:
 add the class in the code, run the script again (step 4 is skipped once the section is gone; it then only refreshes 1-3
@@ -19,7 +20,7 @@ import json, re, subprocess, sys
 from pathlib import Path
 
 ROOT = Path(".")
-CSS = ROOT / "public/css/plugins.css"
+CSS = ROOT / "theme-src/plugins.css"
 MAP = ROOT / "scripts/phosphor-map.json"          # {"regular": {"name": "e000"}, "fill": {...}, "bold": {...}}
 SRC_FONTS = {"regular": "Phosphor", "fill": "Phosphor-Fill", "bold": "Phosphor-Bold"}
 OUT_FONTS = {"regular": "phosphor", "fill": "phosphor-fill", "bold": "phosphor-bold"}
@@ -32,7 +33,7 @@ for base in ("app", "components", "lib"):
     for p in (ROOT / base).rglob("*"):
         if p.suffix in (".tsx", ".ts"):
             used |= set(re.findall(r"\bph-([a-z0-9]+(?:-[a-z0-9]+)*)", p.read_text(encoding="utf-8")))
-used |= set(re.findall(r"\bph-([a-z0-9]+(?:-[a-z0-9]+)*)", (ROOT / "public/js/app.js").read_text(encoding="utf-8")))
+used |= set(re.findall(r"\bph-([a-z0-9]+(?:-[a-z0-9]+)*)", (ROOT / "theme-src/app.js").read_text(encoding="utf-8")))
 weights = {"bold", "fill", "light", "thin", "duotone", "regular"}
 used = sorted(u for u in used if u not in weights)
 print(f"{len(used)} icons in use:", ", ".join(used))
@@ -82,7 +83,7 @@ for w in CLASS:
     parts.append(".%s {\n%s}" % (CLASS[w], BASE % FAMILY[w]))
     for n in used:
         parts.append('.%s.ph-%s:before {\n  content: "\\%s";\n}' % (CLASS[w], n, glyphs[w][n]))
-(ROOT / "public/css/icons.css").write_text("\n".join(parts) + "\n", encoding="utf-8")
+(ROOT / "theme-src/icons.css").write_text("\n".join(parts) + "\n", encoding="utf-8")
 
 # ---- 4. strip the section from plugins.css (once)
 a = css.find("/* ------------------------------------------------*/\n/* Phosphor Icons Start */")

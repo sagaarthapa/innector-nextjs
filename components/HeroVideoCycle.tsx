@@ -56,7 +56,7 @@ export default function HeroVideoCycle() {
       }
     };
 
-    // wait for app.js to say the loading cover is done or skipped ("mxd-ready", see mxdReady() in public/js/app.js), but
+    // wait for app.js to say the loading cover is done or skipped ("mxd-ready", see mxdReady() in theme-src/app.js), but
     // never more than 12 s (e.g. if that script failed to load)
     const start = () => {
       if (stopped) return;
