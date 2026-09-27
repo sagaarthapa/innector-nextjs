@@ -78,23 +78,14 @@ export const SEO = {
 } as const;
 
 /* Blog articles, by slug (see lib/blog-posts.ts). Each uses its own article image for the share preview instead of
-   the site-wide default, since that is what a link to the article should actually look like when shared. */
+   the site-wide default, since that is what a link to the article should actually look like when shared.
+   (The 3 old ERP/digital-marketing entries that used to live here are gone along with the articles themselves - see
+   next.config.ts redirects() for where their URLs now go.) */
 export const POST_SEO: Record<string, Metadata> = {
-  "erp-importance": meta(
-    "/blog/erp-importance",
-    "What is ERP and Why is it Important for Businesses | Innector IT Solutions",
-    "Discover why ERP systems are crucial for business growth. Learn how Enterprise Resource Planning software helps SMBs streamline operations, reduce costs & improve efficiency.",
-    `${SITE_URL}/images/innector/erp-nepal-scaled.webp`
-  ),
-  "top-5-open-source-erp": meta(
-    "/blog/top-5-open-source-erp",
-    "Top 5 Open Source ERP Solutions for SMBs | Innector IT Solutions",
-    "Compare the top 5 open source ERP solutions for SMBs. Expert review of Odoo, ERPNext, Dolibarr & more. Find the best free ERP system for your business needs.",
-    `${SITE_URL}/images/innector/erp-image.webp`
-  ),
-  "digital-marketing-trends": meta(
-    "/blog/digital-marketing-trends",
-    "Digital Marketing Trends for SMBs | Innector IT Solutions",
-    "Stay ahead with the latest digital marketing trends for SMBs. Expert insights on SEO, social media, content marketing, and strategies to grow your online presence."
+  "freelancer-or-company": meta(
+    "/blog/freelancer-or-company",
+    "Freelancer vs. Company: How to Choose | Innector",
+    "Freelancer or company? A simple guide to the real differences, the risks, and how to choose the right partner for your project - anywhere in the world.",
+    `${SITE_URL}/images/blog/freelancer-or-company.webp`
   ),
 };
