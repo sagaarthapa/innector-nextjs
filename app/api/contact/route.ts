@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { sendNotification } from "@/lib/email";
+import { sendNotification, sendAcknowledgement, escapeHtml } from "@/lib/email";
 
 type ContactPayload = {
   firstName?: string;
@@ -39,12 +39,21 @@ export async function POST(request: NextRequest) {
     receivedAt: new Date().toISOString(),
   });
 
-  await sendNotification(`New contact form message from ${firstName} ${lastName}`, email, [
-    ["Name", `${firstName} ${lastName}`],
-    ["Email", email],
-    ["Phone", phone],
-    ["Company", company],
-    ["Message", message],
+  await Promise.all([
+    sendNotification(`New contact form message from ${firstName} ${lastName}`, email, [
+      ["Name", `${firstName} ${lastName}`],
+      ["Email", email],
+      ["Phone", phone],
+      ["Company", company],
+      ["Message", message],
+    ]),
+    sendAcknowledgement(
+      email,
+      "We've received your message - Innector",
+      `Hi ${escapeHtml(firstName)},`,
+      `<p>Thanks for reaching out to Innector. We've received your message and our team will get back to you as soon as possible.</p>
+<p style="margin-top:16px;padding:12px 16px;background:#f5f5f0;border-radius:6px;color:#575960">${escapeHtml(message).replace(/\n/g, "<br/>")}</p>`
+    ),
   ]);
 
   return NextResponse.json({ ok: true });

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { sendNotification } from "@/lib/email";
+import { sendNotification, sendAcknowledgement, escapeHtml } from "@/lib/email";
 
 type TrialPayload = {
   fullName?: string;
@@ -41,13 +41,21 @@ export async function POST(request: NextRequest) {
     receivedAt: new Date().toISOString(),
   });
 
-  await sendNotification(`New 15-day trial signup from ${fullName}`, businessEmail, [
-    ["Name", fullName],
-    ["Business email", businessEmail],
-    ["Company", companyName],
-    ["Country", country],
-    ["Phone", phone],
-    ["Challenge", challenge],
+  await Promise.all([
+    sendNotification(`New 15-day trial signup from ${fullName}`, businessEmail, [
+      ["Name", fullName],
+      ["Business email", businessEmail],
+      ["Company", companyName],
+      ["Country", country],
+      ["Phone", phone],
+      ["Challenge", challenge],
+    ]),
+    sendAcknowledgement(
+      businessEmail,
+      "Your 15-day trial request - Innector",
+      `Hi ${escapeHtml(fullName)},`,
+      `<p>Thanks for requesting a 15-day trial with Innector for <strong>${escapeHtml(companyName)}</strong>. Our team will get back to you as soon as possible to get you started.</p>`
+    ),
   ]);
 
   return NextResponse.json({ ok: true });
