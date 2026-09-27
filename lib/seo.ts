@@ -174,4 +174,28 @@ export const POST_SEO: Record<string, Metadata> = {
     "A simple, judgment-free guide for non-technical founders hiring a developer for the first time - no coding knowledge required.",
     `${SITE_URL}/images/blog/non-technical-founder-guide-to-hiring-a-developer.webp`
   ),
+  "what-to-look-for-when-hiring-a-development-company": articleMeta(
+    "what-to-look-for-when-hiring-a-development-company",
+    "Hiring a Development Company: What to Look For | Innector",
+    "What to look for when hiring for web development, mobile apps, ERP, branding, marketing, or AI - one checklist per real service.",
+    `${SITE_URL}/images/blog/what-to-look-for-when-hiring-a-development-company.webp`
+  ),
+  "monthly-it-retainer-vs-one-time-project": articleMeta(
+    "monthly-it-retainer-vs-one-time-project",
+    "IT Retainer vs. One-Time Project | Innector",
+    "A one-time project and an ongoing IT retainer solve different problems. Here's how to tell which one your business actually needs.",
+    `${SITE_URL}/images/blog/monthly-it-retainer-vs-one-time-project.webp`
+  ),
+  "outsourcing-your-project-to-a-remote-it-company": articleMeta(
+    "outsourcing-your-project-to-a-remote-it-company",
+    "How to Outsource to a Remote IT Company | Innector",
+    "What outsourcing actually means, whether the common worries about it are real, and how to make hiring a remote IT company work.",
+    `${SITE_URL}/images/blog/outsourcing-your-project-to-a-remote-it-company.webp`
+  ),
+  "who-should-build-your-project": articleMeta(
+    "who-should-build-your-project",
+    "Who Should Build Your Project? | Innector",
+    "Freelancer, company, dedicated team, or something else? Answer a few honest questions and find the right guide for your situation.",
+    `${SITE_URL}/images/blog/who-should-build-your-project.webp`
+  ),
 };
