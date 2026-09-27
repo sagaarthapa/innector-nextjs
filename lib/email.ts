@@ -7,7 +7,11 @@ const NOTIFY_TO = process.env.CONTACT_NOTIFY_EMAIL || "info@innector.net";
 // email, both for the internal notification and the acknowledgement the sender gets back.
 const FROM = "Innector <info@innector.net>";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Built lazily inside send(), not here: newer versions of the SDK throw synchronously if the key is empty, and Next
+// evaluates this module's top level while collecting route data at build time - before Vercel's env vars are what
+// they will be at runtime for some build steps - so constructing it eagerly could fail the build itself rather than
+// just this one send.
+let resend: Resend | undefined;
 
 // Field values are attacker-controlled (anyone can POST to the form endpoints), so they're escaped before going into
 // an HTML email body. Exported so callers can safely interpolate a name/company into an acknowledgement's greeting
@@ -31,6 +35,7 @@ async function send(to: string, subject: string, html: string, replyTo?: string)
     return false;
   }
   try {
+    resend ??= new Resend(process.env.RESEND_API_KEY);
     const { error } = await resend.emails.send({ from: FROM, to, replyTo, subject, html });
     if (error) {
       console.error("Resend failed to send:", error);
