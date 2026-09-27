@@ -1,7 +1,9 @@
 import SectionIcon from "@/components/SectionIcon";
 import CoreValues from "@/components/CoreValues";
+import JsonLd from "@/components/JsonLd";
 import type { Metadata } from "next";
 import { SEO } from "@/lib/seo";
+import { breadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = SEO.about;
 
@@ -63,6 +65,7 @@ function SectionHeading({ n, title }: { n: string; title: string }) {
 export default function AboutPage() {
   return (
     <>
+      <JsonLd data={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "About Us", path: "/about" }])} />
       {/* Blur Effect Start */}
       <div className="blur-container">
         <div className="blur-layer blur-1"></div>
@@ -101,28 +104,28 @@ export default function AboutPage() {
                     </div>
                     {/* banners */}
                     <div className="headline-banner-01 landscape image-01">
-                      <img loading="lazy" decoding="async" src="/images/about/hero-01-servers.webp" alt="Server infrastructure" />
+                      <img loading="lazy" decoding="async" width={960} height={720} src="/images/about/hero-01-servers.webp" alt="Server infrastructure" />
                     </div>
                     <div className="headline-banner-01 portrait image-02">
-                      <img loading="lazy" decoding="async" src="/images/about/hero-02-webdev.webp" alt="Web development" />
+                      <img loading="lazy" decoding="async" width={840} height={1050} src="/images/about/hero-02-webdev.webp" alt="Web development" />
                     </div>
                     <div className="headline-banner-01 landscape image-03">
-                      <img loading="lazy" decoding="async" src="/images/about/hero-03-coding.webp" alt="Developers collaborating on code" />
+                      <img loading="lazy" decoding="async" width={960} height={720} src="/images/about/hero-03-coding.webp" alt="Developers collaborating on code" />
                     </div>
                     <div className="headline-banner-01 portrait image-04">
-                      <img loading="lazy" decoding="async" src="/images/about/hero-04-laptop.webp" alt="Analytics dashboard" />
+                      <img loading="lazy" decoding="async" width={840} height={1050} src="/images/about/hero-04-laptop.webp" alt="Analytics dashboard" />
                     </div>
                     <div className="headline-banner-02 portrait image-05">
-                      <img loading="lazy" decoding="async" src="/images/about/hero-05-handshake.webp" alt="A handshake between business partners" />
+                      <img loading="lazy" decoding="async" width={840} height={1050} src="/images/about/hero-05-handshake.webp" alt="A handshake between business partners" />
                     </div>
                     <div className="headline-banner-02 landscape image-06">
-                      <img loading="lazy" decoding="async" src="/images/about/hero-06-earth.webp" alt="The Earth at night, connected by city lights" />
+                      <img loading="lazy" decoding="async" width={960} height={720} src="/images/about/hero-06-earth.webp" alt="The Earth at night, connected by city lights" />
                     </div>
                     <div className="headline-banner-02 portrait image-07">
-                      <img loading="lazy" decoding="async" src="/images/about/hero-07-towers.webp" alt="Corporate towers" />
+                      <img loading="lazy" decoding="async" width={840} height={1050} src="/images/about/hero-07-towers.webp" alt="Corporate towers" />
                     </div>
                     <div className="headline-banner-02 landscape image-08">
-                      <img loading="lazy" decoding="async" src="/images/about/hero-08-highfive.webp" alt="Colleagues celebrating a success" />
+                      <img loading="lazy" decoding="async" width={960} height={720} src="/images/about/hero-08-highfive.webp" alt="Colleagues celebrating a success" />
                     </div>
                   </div>
                 </div>

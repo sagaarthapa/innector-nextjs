@@ -1,13 +1,18 @@
 import TrialForm from "@/components/TrialForm";
 import ServiceMarquee from "@/components/ServiceMarquee";
+import JsonLd from "@/components/JsonLd";
 import type { Metadata } from "next";
 import { SEO } from "@/lib/seo";
+import { breadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = SEO.managedIt;
 
 export default function ManagedItServicesPage() {
   return (
     <>
+      <JsonLd
+        data={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Managed IT Services", path: "/managed-it-services" }])}
+      />
       {/* Blur Effect Start */}
       <div className="blur-container">
         <div className="blur-layer blur-1"></div>

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { SEO } from "@/lib/seo";
 import type { ReactNode } from "react";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = SEO.privacy;
 
@@ -173,6 +175,7 @@ const sections: PolicySection[] = [
 export default function PrivacyPolicyPage() {
   return (
     <div className="mxd-page-content inner-page-content">
+      <JsonLd data={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Privacy Policy", path: "/privacy-policy" }])} />
       {/* Blur Effect Start */}
       <div className="blur-container">
         <div className="blur-layer blur-1"></div>

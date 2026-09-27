@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { SEO } from "@/lib/seo";
 import ContactForm from "@/components/ContactForm";
 import ServiceMarquee from "@/components/ServiceMarquee";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbSchema, faqSchema } from "@/lib/schema";
 
 export const metadata: Metadata = SEO.contact;
 
@@ -64,6 +66,8 @@ const faqs = [
 export default function ContactPage() {
   return (
     <div className="mxd-page-content inner-page-content">
+      <JsonLd data={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Contact", path: "/contact" }])} />
+      <JsonLd data={faqSchema(faqs)} />
       {/* Blur Effect Start */}
       <div className="blur-container">
         <div className="blur-layer blur-1"></div>

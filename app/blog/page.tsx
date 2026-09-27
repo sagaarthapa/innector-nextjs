@@ -1,7 +1,9 @@
 import { blogPosts } from "@/lib/blog-posts";
 import ServiceMarquee from "@/components/ServiceMarquee";
+import JsonLd from "@/components/JsonLd";
 import type { Metadata } from "next";
 import { SEO } from "@/lib/seo";
+import { breadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = SEO.blog;
 
@@ -22,6 +24,7 @@ const categories = [
 export default function BlogPage() {
   return (
     <div className="mxd-page-content inner-page-content">
+      <JsonLd data={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Blog", path: "/blog" }])} />
       {/* Blur Effect Start */}
       <div className="blur-container">
         <div className="blur-layer blur-1"></div>

@@ -7,15 +7,17 @@ import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
 import AppScripts from "@/components/AppScripts";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import JsonLd from "@/components/JsonLd";
 import { SITE_URL } from "@/lib/site";
 import { versioned } from "@/lib/assets";
 import { SEO } from "@/lib/seo";
+import { organizationSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  // default for any page that does not set its own (each page reads its title and description from lib/seo.ts)
-  title: SEO.home.title,
-  description: SEO.home.description,
+  // default for any page that does not set its own metadata export (title, description, canonical, OG/Twitter tags -
+  // every page currently does set its own via lib/seo.ts, but this is what a page added without one would fall back to)
+  ...SEO.home,
   // Google's favicon guidelines: square, a multiple of 48px (48/96/192 below), stable URLs,
   // and a /favicon.ico at the site root.
   icons: {
@@ -41,6 +43,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f0f0f" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        {/* Identifies the business (name, logo, phone, address, service area, social profiles) to search engines on
+            every page - what lets a business panel or a rich result show up for the company itself. */}
+        <JsonLd data={organizationSchema} />
         {/* minified copies (npm run assets rebuilds them from the readable sources); ?v= is a content hash, see lib/assets.ts */}
         <link rel="stylesheet" type="text/css" href={versioned("/css/loader.min.css")} precedence="low" />
         <link rel="stylesheet" type="text/css" href={versioned("/css/plugins.min.css")} precedence="medium" />

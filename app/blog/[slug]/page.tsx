@@ -2,8 +2,10 @@ import type { ReactNode } from "react";
 import { notFound } from "next/navigation";
 import { getPostBySlug, getRelatedPosts, getLinkedPosts } from "@/lib/blog-posts";
 import ServiceMarquee from "@/components/ServiceMarquee";
+import JsonLd from "@/components/JsonLd";
 import type { Metadata } from "next";
 import { POST_SEO } from "@/lib/seo";
+import { breadcrumbSchema } from "@/lib/schema";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
@@ -148,6 +150,13 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
 
   return (
     <div className="mxd-page-content inner-page-content">
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Blog", path: "/blog" },
+          { name: post.title, path: `/blog/${post.slug}` },
+        ])}
+      />
 
       {/* Section - Blog Article Start */}
       <div className="mxd-section blur-section">
