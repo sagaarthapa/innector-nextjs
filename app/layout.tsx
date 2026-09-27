@@ -11,7 +11,7 @@ import JsonLd from "@/components/JsonLd";
 import { SITE_URL } from "@/lib/site";
 import { versioned } from "@/lib/assets";
 import { SEO } from "@/lib/seo";
-import { organizationSchema } from "@/lib/schema";
+import { organizationSchema, websiteSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -46,6 +46,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Identifies the business (name, logo, phone, address, service area, social profiles) to search engines on
             every page - what lets a business panel or a rich result show up for the company itself. */}
         <JsonLd data={organizationSchema} />
+        <JsonLd data={websiteSchema} />
         {/* minified copies (npm run assets rebuilds them from the readable sources); ?v= is a content hash, see lib/assets.ts */}
         <link rel="stylesheet" type="text/css" href={versioned("/css/loader.min.css")} precedence="low" />
         <link rel="stylesheet" type="text/css" href={versioned("/css/plugins.min.css")} precedence="medium" />

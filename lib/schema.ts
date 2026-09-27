@@ -46,6 +46,21 @@ export const organizationSchema = {
   sameAs: SOCIAL_LINKS,
 };
 
+// A separate WebSite node (distinct from the LocalBusiness node above): identifies the site itself, published by the
+// business. This is the schema type that a "sitelinks search box" would hang off of via a SearchAction - deliberately
+// left out here, since the blog's search box (app/blog/page.tsx) is decorative (action="#0"), not a real search
+// endpoint; claiming one that does not work would be worse than not claiming one. This alone doesn't cause Google to
+// show sitelinks either - nothing does, that part is entirely algorithmic - it's just one more standard, honest
+// signal for how the site identifies itself.
+export const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${SITE_URL}/#website`,
+  name: "Innector",
+  url: SITE_URL,
+  publisher: { "@id": `${SITE_URL}/#organization` },
+};
+
 export function breadcrumbSchema(items: { name: string; path: string }[]) {
   return {
     "@context": "https://schema.org",
