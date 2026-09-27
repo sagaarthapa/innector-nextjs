@@ -30,6 +30,9 @@ const nextConfig: NextConfig = {
       toBlog("/blog/erp-importance"),
       toBlog("/blog/top-5-open-source-erp"),
       toBlog("/blog/digital-marketing-trends"),
+      // slug improved for SEO (was too short/generic) right after this article first went live - real redirect to
+      // its replacement, not to the index, since one actually exists this time.
+      { source: "/blog/hmis-case-study", destination: "/blog/hospital-management-software-case-study", permanent: true },
     ];
   },
 };

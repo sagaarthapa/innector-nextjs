@@ -154,13 +154,13 @@ export const blogPosts: BlogPost[] = [
       "## Red Flags to Watch For",
       "- No real examples of past work, or examples that seem copied from somewhere else\n- Pressure to pay the full amount immediately\n- Vague answers to direct questions\n- No willingness to let you test their work first\n- Communication that suddenly slows down after you've paid",
       "## See This In Action: A Real Example",
-      "Reading a checklist is one thing. Seeing a real, complex project actually built is another. [Take a look at HMIS, a full hospital management system we built](/blog/hmis-case-study), to see the kind of work these questions should uncover.",
+      "Reading a checklist is one thing. Seeing a real, complex project actually built is another. [Take a look at HMIS, a full hospital management system we built](/blog/hospital-management-software-case-study), to see the kind of work these questions should uncover.",
       "## Conclusion",
       "Outsourcing isn't risky because a company is far away. It's risky when a company can't, or won't, answer simple questions clearly. [Read our full guide on choosing between a freelancer and a company](/blog/freelancer-or-company), or [get in touch](/contact) and ask us these exact 10 questions yourself.",
     ],
   },
   {
-    slug: "hmis-case-study",
+    slug: "hospital-management-software-case-study",
     title: "How We Built HMIS: A Real Hospital Management Software Project",
     excerpt:
       "A real look at HMIS, a complete Hospital Management Information System built by Innector, covering everything from patient appointments to a mobile app. Proof of what we can build, not just a promise.",

@@ -106,8 +106,8 @@ export const POST_SEO: Record<string, Metadata> = {
     "10 simple questions that separate a trustworthy outsourcing partner from a risky one, wherever in the world you're hiring from.",
     `${SITE_URL}/images/blog/how-to-evaluate-an-outsourcing-company.webp`
   ),
-  "hmis-case-study": meta(
-    "/blog/hmis-case-study",
+  "hospital-management-software-case-study": meta(
+    "/blog/hospital-management-software-case-study",
     "HMIS Case Study: Hospital Software | Innector",
     "A real look at HMIS, a complete hospital management system built by Innector, from patient records to a mobile app.",
     `${SITE_URL}/images/case-studies/hmis.webp`
