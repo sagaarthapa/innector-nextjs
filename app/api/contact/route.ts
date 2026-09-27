@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { sendNotification } from "@/lib/email";
 
 type ContactPayload = {
   firstName?: string;
@@ -38,7 +39,13 @@ export async function POST(request: NextRequest) {
     receivedAt: new Date().toISOString(),
   });
 
-  // TODO: wire up real email delivery here (e.g. Resend, Nodemailer, SMTP) once credentials are available.
+  await sendNotification(`New contact form message from ${firstName} ${lastName}`, email, [
+    ["Name", `${firstName} ${lastName}`],
+    ["Email", email],
+    ["Phone", phone],
+    ["Company", company],
+    ["Message", message],
+  ]);
 
   return NextResponse.json({ ok: true });
 }

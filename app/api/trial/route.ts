@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { sendNotification } from "@/lib/email";
 
 type TrialPayload = {
   fullName?: string;
@@ -40,7 +41,14 @@ export async function POST(request: NextRequest) {
     receivedAt: new Date().toISOString(),
   });
 
-  // TODO: wire up real email delivery / CRM lead capture here (e.g. Resend, Nodemailer, SMTP) once credentials are available.
+  await sendNotification(`New 15-day trial signup from ${fullName}`, businessEmail, [
+    ["Name", fullName],
+    ["Business email", businessEmail],
+    ["Company", companyName],
+    ["Country", country],
+    ["Phone", phone],
+    ["Challenge", challenge],
+  ]);
 
   return NextResponse.json({ ok: true });
 }
