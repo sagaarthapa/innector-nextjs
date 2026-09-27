@@ -13540,6 +13540,9 @@ form textarea:required:valid {
 .mxd-project-item__media {
   position: relative;
   overflow: hidden;
+  /* The project screenshots are device mockups on a transparent background (each one used to bake in its own flat
+     colour, so the grid looked inconsistent card to card). One shared, theme-aware colour shows through instead. */
+  background-color: var(--base-tint);
 }
 .mxd-project-item__media img {
   display: block;

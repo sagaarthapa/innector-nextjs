@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
 import AppScripts from "@/components/AppScripts";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 import { SITE_URL } from "@/lib/site";
 import { versioned } from "@/lib/assets";
 import { SEO } from "@/lib/seo";
@@ -71,6 +72,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <CustomCursor />
 
         <AppScripts libs={versioned("/js/libs.min.js")} app={versioned("/js/app.min.js")} />
+        <GoogleAnalytics />
       </body>
     </html>
   );
