@@ -647,3 +647,144 @@ html body {
     background-image: var(--band);
   }
 }
+
+/* Selected projects lightbox (components/ProjectsGrid.tsx): clicking a project card no longer navigates anywhere -
+   it opens the same image full-size over the current page, with prev/next to step through every project. The two
+   trigger elements are <button>s reusing .mxd-project-item__media / .project-name-s (same classes the template's own
+   CSS already styles them with), tag-qualified here so the reset only touches these buttons, not any <a> elsewhere
+   that happens to share a class name. */
+button.mxd-project-item__media {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  appearance: none;
+  cursor: pointer;
+}
+button.project-name-s {
+  display: inline;
+  padding: 0;
+  border: 0;
+  background: none;
+  appearance: none;
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+}
+
+.mxd-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 8rem;
+  background-color: rgba(15, 15, 15, 0.92);
+  animation: mxd-lightbox-fade 0.25s ease;
+}
+@keyframes mxd-lightbox-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.mxd-lightbox__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.6rem;
+  max-width: 100%;
+}
+.mxd-lightbox__image {
+  display: block;
+  max-width: 100%;
+  max-height: 70vh;
+  width: auto;
+  height: auto;
+  border-radius: 0.6rem;
+  object-fit: contain;
+  background-color: var(--base-tint);
+}
+.mxd-lightbox__caption {
+  text-align: center;
+  color: var(--nl-white);
+}
+.mxd-lightbox__caption h3 {
+  font: normal 700 2rem/1.2 var(--_font-default);
+  margin: 0 0 0.8rem 0;
+}
+.mxd-lightbox__tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-bottom: 0.8rem;
+}
+.mxd-lightbox__counter {
+  font: normal 500 1.3rem/1 var(--_font-accent);
+  letter-spacing: 0.05rem;
+  color: var(--nl-white-06);
+}
+.mxd-lightbox__close,
+.mxd-lightbox__arrow {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.08);
+  color: var(--nl-white);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.mxd-lightbox__close:hover,
+.mxd-lightbox__arrow:hover {
+  background-color: rgba(255, 255, 255, 0.18);
+}
+.mxd-lightbox__close {
+  top: 2rem;
+  right: 2rem;
+  width: 4.4rem;
+  height: 4.4rem;
+}
+.mxd-lightbox__arrow {
+  top: 50%;
+  width: 5.2rem;
+  height: 5.2rem;
+  transform: translateY(-50%);
+}
+.mxd-lightbox__arrow--prev {
+  left: 2rem;
+}
+.mxd-lightbox__arrow--next {
+  right: 2rem;
+}
+@media only screen and (max-width: 767px) {
+  .mxd-lightbox {
+    padding: 2rem 1.2rem;
+  }
+  .mxd-lightbox__image {
+    max-height: 50vh;
+  }
+  .mxd-lightbox__close {
+    top: 1.2rem;
+    right: 1.2rem;
+    width: 3.6rem;
+    height: 3.6rem;
+  }
+  .mxd-lightbox__arrow {
+    width: 4rem;
+    height: 4rem;
+  }
+  .mxd-lightbox__arrow--prev {
+    left: 0.6rem;
+  }
+  .mxd-lightbox__arrow--next {
+    right: 0.6rem;
+  }
+}

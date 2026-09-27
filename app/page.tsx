@@ -2,6 +2,7 @@ import HeroVideoCycle from "@/components/HeroVideoCycle";
 import SectionIcon from "@/components/SectionIcon";
 import CoreValues from "@/components/CoreValues";
 import TechStack from "@/components/TechStack";
+import ProjectsGrid from "@/components/ProjectsGrid";
 import type { Metadata } from "next";
 import { SEO } from "@/lib/seo";
 import { versioned } from "@/lib/assets";
@@ -969,53 +970,7 @@ export default function Home() {
             <div className="mxd-block">
               <div className="mxd-projects-grid">
                 <div className="container-fluid p-0">
-                  <div className="row g-0 mxd-projects-grid__gallery">
-                    {caseStudies.map((study) => {
-                      const src = `${CASE_DIR}/${study.image}.webp`;
-                      return (
-                        <div className="col-12 col-md-6 col-xl-4 mxd-project-item animate-card-3" key={study.title}>
-                          <a
-                            className="mxd-project-item__media mxd-img-anim active-cursor-permanent"
-                            data-cursor-text="View Work"
-                            href="/services"
-                          >
-                            {/* hover frames (mxdHoverSlideshow needs at least one) */}
-                            {(study.more?.length ? study.more.map((m) => `${CASE_DIR}/${m}.webp`) : [src]).map((frame) => (
-                              <img loading="lazy" decoding="async"
-                                className="mxd-img-anim__absolute"
-                                key={frame}
-                                src={frame}
-                                width={study.w}
-                                height={study.h}
-                                alt=""
-                              />
-                            ))}
-                            <img loading="lazy" decoding="async"
-                              className="mxd-img-anim__main"
-                              src={src}
-                              width={study.w}
-                              height={study.h}
-                              alt={`${study.title} website`}
-                            />
-                          </a>
-                          <div className="mxd-project-item__caption">
-                            <div className="mxd-project-item__name">
-                              <a className="project-name-s" href="/services">
-                                {study.title}
-                              </a>
-                            </div>
-                            <div className="mxd-project-item__tags">
-                              {study.tags.map((tag) => (
-                                <span className="tag tag-s tag-medium mxd-scramble" key={tag}>
-                                  {tag}
-                                </span>
-                              ))}
-                            </div>
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
+                  <ProjectsGrid projects={caseStudies} caseDir={CASE_DIR} />
                   <div className="row g-0">
                     {/* all projects link */}
                     <div className="mxd-object-link">
