@@ -23,17 +23,20 @@ const clientBenefits: [string, string][] = [
   ["Guaranteed ", "results"],
 ];
 
-// `color`: full-colour badge artwork that has to stay as supplied; the rest are wordmarks that the
-// marquee flattens to a single-colour silhouette.
-const clients: { logo: string; name: string; color?: boolean }[] = [
+// Every logo is flattened to the same single-colour silhouette by the marquee's CSS (filter: invert), so the strip
+// reads as one consistent set instead of a mix of colours and one-offs - a couple of entries used to keep their own
+// colours here, which was the inconsistency this note replaces.
+const clients: { logo: string; name: string }[] = [
   { logo: "wurth.png", name: "Würth" },
-  { logo: "grass-tunes.png", name: "Grass Tunes", color: true },
+  { logo: "grass-tunes.png", name: "Grass Tunes" },
   { logo: "acec.png", name: "ACEC" },
   { logo: "trend-qa.png", name: "Trend.QA" },
-  { logo: "candy-station.png", name: "Candy Station", color: true },
+  { logo: "candy-station.png", name: "Candy Station" },
   { logo: "qgec.png", name: "QGEC" },
   { logo: "numen.png", name: "Numen" },
   { logo: "global-enterprises.png", name: "Global Enterprises" },
+  { logo: "gurkha-employment.png", name: "Gurkha Employment" },
+  { logo: "naaz.png", name: "Naaz" },
 ];
 
 // "Selected projects": the client sites shown in the grid. Images live in public/images/case-studies
@@ -908,7 +911,7 @@ export default function Home() {
                       {[0, 1].flatMap((round) =>
                         clients.map((client) => (
                           <div
-                            className={`marquee__item item-logoblock item-clientlogo${client.color ? " item-clientlogo--color" : ""}`}
+                            className="marquee__item item-logoblock item-clientlogo"
                             key={`${round}-${client.logo}`}
                             aria-hidden={round === 1 ? true : undefined}
                           >

@@ -11,10 +11,11 @@ export const metadata: Metadata = SEO.about;
    the four numbers, Our Mission, Why Choose Us, Our Core Values (shared component) and the closing CTA.
    Photos are royalty-free Unsplash images, prepared as WebP in public/images/about/. */
 
+// Kept under 100 and consistent with "established in 2018" below (~8 years, not the 20+ this used to claim).
 const stats: { n: string; caption: string }[] = [
-  { n: "250+", caption: "Projects Completed" },
-  { n: "200+", caption: "Happy Clients" },
-  { n: "20+", caption: "Years Experience" },
+  { n: "50+", caption: "Projects Completed" },
+  { n: "40+", caption: "Happy Clients" },
+  { n: "8+", caption: "Years Experience" },
   { n: "24/7", caption: "Support Available" },
 ];
 

@@ -106,12 +106,6 @@ html[color-scheme="dark"] img.theme-logo--dark {
 html[color-scheme="dark"] .marquee__item.item-logoblock.item-clientlogo img {
   filter: brightness(0);
 }
-/* Full-colour badges (Grass Tunes, Candy Station) keep their own colours on either band. */
-.marquee__item.item-logoblock.item-clientlogo.item-clientlogo--color img,
-html[color-scheme="dark"] .marquee__item.item-logoblock.item-clientlogo.item-clientlogo--color img {
-  filter: none;
-  opacity: 1;
-}
 
 /* The "Selected projects" section is pinned: the parallax divider after it slides over the pinned content
    as you scroll, so it needs more room below "All Works" than the stock padding-bottom-default
