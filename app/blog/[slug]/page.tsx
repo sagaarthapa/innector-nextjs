@@ -254,8 +254,12 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
               {/* Article Author Start */}
               <div className="mxd-article-author">
                 <div className="mxd-article-author__data">
+                  {/* .mxd-article-author__avatar is a circular 100-130px frame with object-fit: cover, built for a
+                      square headshot. innectorgoldenlogo.png is the full horizontal wordmark (231x40) - cover-cropped
+                      into a circle it reduces to an unreadable sliver off-center. The favicon mark is the same brand
+                      accent glyph exported square, so it actually fits the frame it's placed in. */}
                   <a className="mxd-article-author__avatar" href="/about">
-                    <img loading="lazy" decoding="async" src="/images/innector/innectorgoldenlogo.png" alt="Innector Team" />
+                    <img loading="lazy" decoding="async" src="/favicon/android-chrome-512x512.png" alt="Innector Team" />
                   </a>
                   <div className="mxd-article-author__info">
                     <h4 className="mxd-article-author__name">
