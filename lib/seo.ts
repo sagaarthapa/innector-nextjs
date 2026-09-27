@@ -88,4 +88,28 @@ export const POST_SEO: Record<string, Metadata> = {
     "Freelancer or company? A simple guide to the real differences, the risks, and how to choose the right partner for your project - anywhere in the world.",
     `${SITE_URL}/images/blog/freelancer-or-company.webp`
   ),
+  "try-before-you-hire": meta(
+    "/blog/try-before-you-hire",
+    "Try Before You Hire: 15-Day Trial | Innector",
+    "Why a 15-day trial beats a sales pitch when hiring anyone. See how Innector's risk-free trial works, and what it actually proves.",
+    `${SITE_URL}/images/blog/try-before-you-hire.webp`
+  ),
+  "risks-of-hiring-a-freelancer": meta(
+    "/blog/risks-of-hiring-a-freelancer",
+    "5 Risks of Hiring a Freelancer | Innector",
+    "The 5 biggest risks of hiring a freelancer for your project, in plain language, and simple ways to protect yourself.",
+    `${SITE_URL}/images/blog/risks-of-hiring-a-freelancer.webp`
+  ),
+  "how-to-evaluate-an-outsourcing-company": meta(
+    "/blog/how-to-evaluate-an-outsourcing-company",
+    "How to Evaluate an Outsourcing Company | Innector",
+    "10 simple questions that separate a trustworthy outsourcing partner from a risky one, wherever in the world you're hiring from.",
+    `${SITE_URL}/images/blog/how-to-evaluate-an-outsourcing-company.webp`
+  ),
+  "hmis-case-study": meta(
+    "/blog/hmis-case-study",
+    "HMIS Case Study: Hospital Software | Innector",
+    "A real look at HMIS, a complete hospital management system built by Innector, from patient records to a mobile app.",
+    `${SITE_URL}/images/case-studies/hmis.webp`
+  ),
 };

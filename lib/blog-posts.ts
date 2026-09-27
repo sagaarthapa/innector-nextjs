@@ -47,7 +47,7 @@ export const blogPosts: BlogPost[] = [
       "## The Problems That Can Happen With Freelancers",
       "Freelancers can be great, but hiring one also comes with risks:",
       "- They may disappear before the project is finished\n- They may miss deadlines, with no one to hold them to it\n- If they get sick, go on holiday, or get busy with another client, your project simply stops\n- One person can't be an expert at everything - design, coding, security, and testing are all different skills\n- If something breaks after they leave, you may have no one left to call",
-      "This is exactly why so many people search for a safer alternative to freelance marketplaces like Upwork or Fiverr.",
+      "This is exactly why so many people search for a safer alternative to freelance marketplaces like Upwork or Fiverr. [See all 5 risks in detail, and how to avoid them](/blog/risks-of-hiring-a-freelancer).",
       "## The Good Things About Hiring a Company",
       "- It's a team, not one person, so work doesn't stop if someone is busy or sick\n- Different experts handle different parts of the job\n- Companies usually follow a real process to manage your project\n- It's easier to get support after the project is finished\n- You can look at their past work (a portfolio) before you decide",
       "## Wait, Isn't a Company Always More Expensive?",
@@ -61,12 +61,129 @@ export const blogPosts: BlogPost[] = [
       "## How to Check If a Company Is Trustworthy",
       "Before you hire anyone - a freelancer or a company - check for these signs:",
       "- Ask to see real projects they have built, not just claims\n- Ask exactly who will work on your project\n- Ask what happens if you're not happy with the work\n- See if they explain things in plain language, not confusing jargon\n- Check if they're willing to prove themselves before you fully commit",
+      "Outsourcing to a company overseas, or one you'll never meet in person, adds its own worries. [Here's a full checklist for evaluating an outsourcing partner](/blog/how-to-evaluate-an-outsourcing-company).",
       "## Why a Trial Period Solves the Biggest Worry",
       "The biggest fear when hiring anyone is simple: **what if they're not actually good?** Most companies ask you to trust them completely, upfront, before you've seen a single result.",
-      "That's why Innector offers a **15-day free trial** on managed IT services. Instead of asking you to believe our claims, we let you see real work first. If you like what you see, you continue. If not, you've lost nothing. [See how the 15-day trial works](/managed-it-services).",
+      "That's why Innector offers a **15-day free trial** on managed IT services. Instead of asking you to believe our claims, we let you see real work first. If you like what you see, you continue. If not, you've lost nothing. [Read more about why a trial beats a sales pitch](/blog/try-before-you-hire), or [see the 15-day trial details](/managed-it-services).",
       "## Conclusion",
       "There's no single right answer for everyone. A freelancer can be perfect for a small, simple task. A company or a dedicated team is usually the safer choice for anything bigger, or anything your business depends on.",
       "The real question isn't just \"freelancer or company\" - it's \"who can actually prove they'll deliver?\" [Talk to our team](/contact) about your project, or [try us for 15 days](/managed-it-services) and see for yourself.",
+    ],
+  },
+  {
+    slug: "try-before-you-hire",
+    title: "Try Before You Hire: Why a 15-Day Trial Beats a Sales Pitch",
+    excerpt:
+      "Anyone can promise great work. A trial period lets you see it first. Here's why testing a company before you commit is the smartest way to hire, and how Innector's 15-day free trial actually works.",
+    image: "/images/blog/try-before-you-hire.webp",
+    date: "September 27, 2026",
+    tags: ["Free Trial", "Hiring Guide", "Risk-Free"],
+    readTime: "3 min read",
+    linked: true,
+    content: [
+      "Hiring a company or a freelancer usually means one thing: you pay first, and hope the work is good. That's a scary way to make a decision. [What if they turn out to be one of the risky freelancers we cover here](/blog/risks-of-hiring-a-freelancer)? What if the company's promises don't match reality?",
+      "There's a simple fix: work with someone who lets you test them first.",
+      "## The Biggest Problem With Hiring Anyone",
+      "Every company says the same things. \"We're reliable.\" \"We're experts.\" \"You'll love the results.\" Words are cheap, and anyone can say them, whether they're true or not.",
+      "The real question isn't what a company says about itself. It's whether they're willing to **prove it before you pay for a full project**.",
+      "## Why \"Trust Me\" Isn't Good Enough",
+      "Think about it from your side. You're about to hand over your project, your time, and your money to someone you may have never met. A polished website or a confident sales call doesn't tell you how they'll actually perform.",
+      "A trial period changes the whole conversation. Instead of \"trust me,\" it becomes \"see for yourself.\"",
+      "## What a Trial Period Actually Proves",
+      "- How fast they respond to you\n- How clearly they explain things\n- Whether they actually understand your project\n- The real quality of their work, not just their portfolio\n- Whether you'd actually enjoy working with them long-term",
+      "## How Innector's 15-Day Free Trial Works",
+      "1. **You tell us about your project.** No long contracts, no upfront payment.\n2. **We get to work for 15 days.** You see real progress, not just promises.\n3. **You decide.** If you're happy, you continue with us. If not, you simply walk away.",
+      "That's the entire process. [See the full details of the 15-day trial](/managed-it-services).",
+      "## What You Risk (Spoiler: Almost Nothing)",
+      "With most hiring decisions, you risk your money, your time, and your project's deadline, all before you know if the person or company is any good. With a trial period, you risk very little. You get real work, and you only continue if you're convinced.",
+      "## Trial vs. No Trial: Quick Comparison",
+      "TABLE:What Happens|Hiring Without a Trial|Hiring With a Trial\nWhen you see real work|After you've already paid|Before you fully commit\nRisk if it's a bad fit|High - money and time lost|Low - you simply walk away\nHow you judge them|Portfolio and promises|Actual, current work\nConfidence before committing|You're hoping|You've already seen it",
+      "## Questions to Ask About Any Trial Offer",
+      "- Is the trial actually free, with no hidden charges?\n- Do you get real work, or just a sales demo?\n- Is there any pressure or a contract hidden in the fine print?\n- Can you walk away with no penalty if you're not happy?",
+      "If the answer to any of these is unclear, ask before you start.",
+      "## Conclusion",
+      "A company confident in its own work has no reason to hide from a trial. If a business asks you to commit fully before showing you anything real, that's worth noticing. [Read the full guide to freelancer vs. company hiring](/blog/freelancer-or-company), or [start your 15-day free trial with Innector](/managed-it-services) and see the difference yourself.",
+    ],
+  },
+  {
+    slug: "risks-of-hiring-a-freelancer",
+    title: "5 Risks of Hiring a Freelancer for Your Project (and How to Avoid Them)",
+    excerpt:
+      "Freelancers can be a great choice for small tasks, but hiring one also comes with real risks. Here are the 5 biggest ones, in plain language, and how to protect yourself.",
+    image: "/images/blog/risks-of-hiring-a-freelancer.webp",
+    date: "September 27, 2026",
+    tags: ["Freelancers", "Hiring Guide", "Risk Management"],
+    readTime: "4 min read",
+    linked: true,
+    content: [
+      "Freelance marketplaces make it easy to hire someone in minutes. That speed is exactly why so many projects run into trouble later. Before you hire a freelancer, it helps to know exactly what can go wrong, and how to protect yourself. [For the full freelancer vs. company breakdown, start here](/blog/freelancer-or-company).",
+      "## Risk 1: They Disappear Before Finishing",
+      "This is often called \"ghosting.\" A freelancer takes your project, does some work, and then simply stops replying. No warning, no explanation. You're left with a half-finished project and no way to fix it.",
+      "## Risk 2: Missed Deadlines With No One to Answer To",
+      "A single freelancer has no manager checking their work and no team holding them accountable. If they're busy, distracted, or simply slower than expected, your deadline quietly slips, and there's little you can do about it.",
+      "## Risk 3: One Person, Limited Skills",
+      "Building a website or an app usually needs several different skills: design, coding, testing, and often marketing too. One freelancer is rarely great at all of these at once. Something usually suffers.",
+      "## Risk 4: No Backup If Something Goes Wrong",
+      "If a freelancer gets sick, goes on holiday, or simply gets busy with another client, your project stops completely. There's no one else to step in and keep things moving.",
+      "## Risk 5: No Support After the Project Ends",
+      "Once a freelancer is paid and gone, getting them to fix a bug or make a small update later can be difficult, or impossible if they've moved on to other work.",
+      "## How to Protect Yourself If You Still Want to Hire a Freelancer",
+      "- Ask for links to real, live projects they've completed, not just screenshots\n- Break the project into small, paid milestones instead of one big payment\n- Get everything in writing: deadlines, deliverables, and what happens if they miss them\n- Ask what backup plan exists if they become unavailable\n- Keep a copy of all project files and access, not just the freelancer",
+      "## A Safer Alternative: Try Before You Commit",
+      "None of these risks disappear just by hiring a company instead. The real fix is working with someone, freelancer or company, who's willing to prove their work **before** you fully commit. [See how a 15-day trial removes most of this risk entirely](/blog/try-before-you-hire).",
+      "## Conclusion",
+      "Freelancers aren't automatically a bad choice. For a small, simple task, one person can be perfect. But for anything your business depends on, it's worth knowing these risks first. [Talk to our team](/contact) about a safer way to get your project done.",
+    ],
+  },
+  {
+    slug: "how-to-evaluate-an-outsourcing-company",
+    title: "How to Evaluate an Outsourcing Company: 10 Questions to Ask Before You Hire",
+    excerpt:
+      "Outsourcing your project to a company you've never met can feel risky, especially across borders. Here are 10 simple questions that separate a trustworthy partner from a risky one.",
+    image: "/images/blog/how-to-evaluate-an-outsourcing-company.webp",
+    date: "September 27, 2026",
+    tags: ["Outsourcing", "Hiring Guide", "Global Business"],
+    readTime: "4 min read",
+    linked: true,
+    content: [
+      "More businesses today hire outside help from anywhere in the world, not just their own city. That opens up more choice, but it also means hiring a company you may never meet in person. Here's how to check if they're actually trustworthy before you sign anything.",
+      "## Why Outsourcing Feels Risky (and Why It Doesn't Have to)",
+      "The worry is simple: how do you trust a company you can't visit, run by people you've only spoken to on a video call? The good news is that a trustworthy company usually makes itself easy to check. A risky one avoids being checked at all.",
+      "## 10 Questions to Ask Before You Hire an Outsourcing Company",
+      "1. **Can I see real projects you've built?** A trustworthy company will happily show you finished, live work.\n2. **Who exactly will work on my project?** You want real names and real roles, not a vague \"our team.\"\n3. **How do you communicate, and how often?** Regular updates are a good sign. Silence between big \"reveals\" is not.\n4. **What happens if I'm not happy with the work?** There should be a clear answer, not a shrug.\n5. **Can I test your work before I fully commit?** [A company confident in its own work usually offers a trial](/blog/try-before-you-hire).\n6. **What's included in your price, and what costs extra?** Hidden costs are a common surprise later on.\n7. **How do you handle time zone differences?** A good outsourcing partner already has a clear answer to this.\n8. **What happens if a team member leaves?** Your project shouldn't depend entirely on one person.\n9. **Do you offer support after the project is finished?** Ask this before you start, not after something breaks.\n10. **Can you explain your process in simple terms?** If they can't explain it simply, that's worth noticing.",
+      "## Red Flags to Watch For",
+      "- No real examples of past work, or examples that seem copied from somewhere else\n- Pressure to pay the full amount immediately\n- Vague answers to direct questions\n- No willingness to let you test their work first\n- Communication that suddenly slows down after you've paid",
+      "## See This In Action: A Real Example",
+      "Reading a checklist is one thing. Seeing a real, complex project actually built is another. [Take a look at HMIS, a full hospital management system we built](/blog/hmis-case-study), to see the kind of work these questions should uncover.",
+      "## Conclusion",
+      "Outsourcing isn't risky because a company is far away. It's risky when a company can't, or won't, answer simple questions clearly. [Read our full guide on choosing between a freelancer and a company](/blog/freelancer-or-company), or [get in touch](/contact) and ask us these exact 10 questions yourself.",
+    ],
+  },
+  {
+    slug: "hmis-case-study",
+    title: "How We Built HMIS: A Real Hospital Management Software Project",
+    excerpt:
+      "A real look at HMIS, a complete Hospital Management Information System built by Innector, covering everything from patient appointments to a mobile app. Proof of what we can build, not just a promise.",
+    image: "/images/case-studies/hmis.webp",
+    date: "September 27, 2026",
+    tags: ["Case Study", "Healthcare Software", "Our Work"],
+    readTime: "3 min read",
+    linked: true,
+    content: [
+      "It's easy for any company to say \"we can build complex software.\" It's more convincing to simply show one. HMIS (Hospital Management Information System) is a real project built by Innector, and it's one of the more complete systems in our portfolio.",
+      "## What HMIS Actually Does",
+      "A hospital doesn't run on just one task. It needs to manage patients, doctors, appointments, medicine, billing, and emergencies, all at the same time, without mistakes. HMIS was built to bring all of that into one connected system.",
+      "## The Modules Inside HMIS",
+      "- **Appointments:** booking walk-in and scheduled patients, choosing a doctor and time slot\n- **Patient Records:** OPD (outpatient), IPD (inpatient), and full patient history in one place\n- **Emergency & Surgery:** fast-moving departments that need instant, reliable access to information\n- **Maternal & Child Health, and Community Health:** dedicated tools for specialized care\n- **Radiology and Laboratory:** connecting test results directly to patient records\n- **Pharmacy, Billing & Finance:** managing medicine stock and hospital payments in one system\n- **Blood Bank, TeleMedicine, and Logistics:** covering the full range of what a modern hospital needs",
+      "This isn't a simple form or a basic website. It's a full system with many connected parts, each one needing to work correctly, every time.",
+      "## The Mobile App: Access From Anywhere",
+      "Alongside the main system, HMIS includes its own mobile app, so staff can securely sign in and access what they need without being tied to a single desk or computer.",
+      "## Why This Project Matters",
+      "Anyone can claim to \"build software.\" Building a system this connected, where a mistake in one part (like billing or lab results) can affect patient care, takes real experience and a real process. This is exactly the kind of proof [our guide on evaluating an outsourcing company](/blog/how-to-evaluate-an-outsourcing-company) tells you to look for: not just words, but a real, working result.",
+      "## What This Means If You're Evaluating Us",
+      "If your own project is smaller than a hospital system, that's fine, most are. The point isn't that every project needs to be this complex. It's that a company capable of handling this level of detail can almost certainly handle yours.",
+      "## Conclusion",
+      "Real projects are the best proof of what a company can actually do. [See our full guide on choosing the right partner for your project](/blog/freelancer-or-company), or [get in touch](/contact) to talk about what you're trying to build.",
     ],
   },
 ];
@@ -79,8 +196,15 @@ export function getLinkedPosts(): BlogPost[] {
   return blogPosts.filter((post) => post.linked);
 }
 
-// Not yet tag-aware (a stub with no tags overlap would just fall through) - fine while blogPosts is empty; revisit
-// once new posts exist so a post's "related" section only surfaces genuinely related topics.
+// Tag-aware: posts sharing the most tags with the current one come first (a post with zero shared tags could still
+// fill a remaining slot rather than leave it empty, but never ranks above a genuine match).
 export function getRelatedPosts(currentSlug: string, count = 3): BlogPost[] {
-  return blogPosts.filter((post) => post.slug !== currentSlug).slice(0, count);
+  const current = getPostBySlug(currentSlug);
+  const currentTags = new Set(current?.tags ?? []);
+  return blogPosts
+    .filter((post) => post.slug !== currentSlug && post.linked)
+    .map((post) => ({ post, shared: post.tags?.filter((tag) => currentTags.has(tag)).length ?? 0 }))
+    .sort((a, b) => b.shared - a.shared)
+    .slice(0, count)
+    .map(({ post }) => post);
 }

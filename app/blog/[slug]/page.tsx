@@ -205,7 +205,10 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
                     ))}
                   </div>
                   <div className="mxd-article__title">
-                    <h2 className="small loading-split">{post.title}</h2>
+                    {/* The template's own CSS defines h1.small (5rem/7.5rem/9.5rem across breakpoints) but no
+                        h2.small at all - this was an <h2>, so "small" was a dead class and the page had no <h1>
+                        anywhere. Restoring the template's own intended tag fixes both at once. */}
+                    <h1 className="small loading-split">{post.title}</h1>
                   </div>
                   <div className="mxd-article__meta loading-item">
                     <div className="mxd-article__data">
