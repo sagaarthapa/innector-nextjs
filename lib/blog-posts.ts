@@ -14,13 +14,24 @@ export interface BlogPost {
   faqs?: { q: string; a: string }[];
 }
 
+const MONTH_NAMES = [
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December",
+];
+
 // ISO 8601 form of `date`, for anything machine-read (structured data, sitemap lastModified) - `date` itself stays
-// the human-readable string the page actually displays. Returns undefined rather than throwing on a post with no
-// date, or one written in a format Date.parse can't read.
+// the human-readable string the page actually displays. Parses "Month D, YYYY" by hand into Date.UTC() rather than
+// handing the string to Date.parse(): Date.parse reads a bare date string as *local* midnight, then .toISOString()
+// converts that to UTC - on a machine whose local time isn't UTC (this one runs in UTC+5:45), that silently shifts
+// the result back onto the previous calendar day, so the schema.org/Open Graph date would disagree with the date
+// actually printed on the page by almost a full day. Date.UTC() has no such ambiguity: the same input always
+// produces the same output, regardless of what timezone happens to run the build.
 export function postISODate(post?: BlogPost): string | undefined {
-  if (!post?.date) return undefined;
-  const parsed = Date.parse(post.date);
-  return Number.isNaN(parsed) ? undefined : new Date(parsed).toISOString();
+  const match = post?.date?.match(/^([A-Za-z]+)\s+(\d{1,2}),\s+(\d{4})$/);
+  if (!match) return undefined;
+  const month = MONTH_NAMES.indexOf(match[1]);
+  if (month === -1) return undefined;
+  return new Date(Date.UTC(Number(match[3]), month, Number(match[2]))).toISOString();
 }
 
 /**
@@ -71,9 +82,9 @@ export const blogPosts: BlogPost[] = [
       "## The Good Things About Hiring a Company",
       "- It's a team, not one person, so work doesn't stop if someone is busy or sick\n- Different experts handle different parts of the job\n- Companies usually follow a real process to manage your project\n- It's easier to get support after the project is finished\n- You can look at their past work (a portfolio) before you decide",
       "## Wait, Isn't a Company Always More Expensive?",
-      "Not always. Freelancers often charge by the hour, and small mistakes, missed deadlines, or work that has to be redone can quietly add up. A company's price can look higher at first, but it often already includes support, testing, and a finished result you can trust. **Cheaper doesn't always mean cheaper in the end.**",
+      "Not always. Freelancers often charge by the hour, and small mistakes, missed deadlines, or work that has to be redone can quietly add up. A company's price can look higher at first, but it often already includes support, testing, and a finished result you can trust. **Cheaper doesn't always mean cheaper in the end.** [See the full cost breakdown, with real numbers](/blog/true-cost-of-a-freelancer-vs-a-company).",
       "## A Third Option: A Dedicated Team",
-      "Many people think it's freelancer or company and nothing else. There's actually a third choice: a **dedicated team**. This means a small group of experts works only on your project, almost like your own in-house team, but without you having to hire, manage, or pay each person yourself. You get the personal focus of a freelancer with the backup and skills of a company.",
+      "Many people think it's freelancer or company and nothing else. There's actually a third choice: a **dedicated team**. This means a small group of experts works only on your project, almost like your own in-house team, but without you having to hire, manage, or pay each person yourself. You get the personal focus of a freelancer with the backup and skills of a company. There's actually a fourth option too, staff augmentation - [see how all 4 compare](/blog/dedicated-team-vs-staff-augmentation).",
       "## Quick Comparison",
       "TABLE:What You Get|Freelancer|Company|Dedicated Team\nTeam size|One person|Full team|Small focused group\nBackup if someone is busy|No|Yes|Yes\nDifferent skills covered|Rarely|Yes|Yes\nEasy to check past work|Sometimes|Usually|Usually\nBest for|Small, simple tasks|Full projects|Long-term work",
       "Still not sure which column fits your project? [Tell us about it](/contact) and we'll give you a straight answer, no pressure either way.",
@@ -231,6 +242,139 @@ export const blogPosts: BlogPost[] = [
       "Real projects are the best proof of what a company can actually do. [See our full guide on choosing the right partner for your project](/blog/freelancer-vs-company), or [get in touch](/contact) to talk about what you're trying to build.",
     ],
   },
+  {
+    slug: "true-cost-of-a-freelancer-vs-a-company",
+    title: "The True Cost of a Freelancer vs. a Company (With Real Numbers)",
+    excerpt:
+      "Freelancers look cheaper on paper. Here are real numbers for what a freelancer and a company actually cost, so you can compare the true price of your project before you decide.",
+    image: "/images/blog/true-cost-of-a-freelancer-vs-a-company.webp",
+    date: "September 4, 2026",
+    tags: ["Cost & Pricing", "Hiring Guide", "Freelancers"],
+    readTime: "3 min read",
+    linked: true,
+    faqs: [
+      { q: "Is a freelancer always cheaper than a company?", a: "Not always. A freelancer's hourly rate is often lower, but rework, missed deadlines, and no backup plan can quietly add to the real cost." },
+      { q: "Why do companies charge more per hour?", a: "That rate usually includes a project manager and a tester, not just the person writing the code, plus a backup plan if someone is unavailable." },
+      { q: "What does a typical project actually cost?", a: "It depends heavily on size. A small task might cost a few hundred dollars, while a full custom system can run into six figures." },
+      { q: "Is there a way to know the real price before I fully commit?", a: "Yes. A short paid trial period lets you see real work, and a real price, before you sign anything bigger." },
+      { q: "What does Innector charge?", a: "Managed IT services start at $999 a month, with a 15-day free trial so you can see the work before you pay for it." },
+    ],
+    content: [
+      "\"How much will this cost?\" is usually the first question, and the honest answer is: it depends on more than just the hourly rate you're quoted. [In our full freelancer vs. company guide](/blog/freelancer-vs-company), we touched on cost briefly. Here's the full breakdown, with real numbers, so you can compare the true price instead of just the sticker price.",
+      "## What a Freelancer Usually Charges",
+      "Rates vary a lot depending on a freelancer's experience and where they're based. As a broad range, a freelancer might charge anywhere from $15 to $100 an hour. A simple, well-defined task, like a small landing page, can genuinely be cheap this way.",
+      "## What a Company Usually Charges",
+      "A company or agency typically charges more per hour, often somewhere between $50 and $200, and a full project's price can run from a few thousand dollars for something small to well over $100,000 for a large custom system. That range is wide on purpose. Project size is what actually drives the number, not just who you hire.",
+      "## Why a Company Often Costs More Per Hour (and What That Number Hides)",
+      "As a rough industry rule, an agency's hourly rate runs about 1.5 to 2.5 times a solo freelancer's rate. That difference isn't just markup. It's usually paying for a project manager keeping things on track, someone testing the work before it reaches you, and a team that can cover for each other if one person is unavailable. A freelancer's lower rate doesn't include any of that. It's just one person's time.",
+      "## The Hidden Costs of \"Cheaper\" Freelancers",
+      "The quoted hourly rate is only part of the real cost. [The risks of hiring a freelancer](/blog/risks-of-hiring-a-freelancer) - missed deadlines, work that has to be redone, a project that stalls if they become unavailable - all cost you money too, just not in the original quote. A $30-an-hour freelancer who takes three times longer than expected, or disappears halfway through, can easily end up costing more than a company's higher rate would have.",
+      "## Comparing the Real Cost, Not Just the Rate",
+      "TABLE:What You're Paying For|Freelancer|Company\nTypical hourly rate|$15-$100|$50-$200\nProject management included|Rarely|Usually\nTesting/QA included|Rarely|Usually\nBackup if unavailable|No|Yes\nRisk of paying for rework|Higher|Lower",
+      "## What This Looks Like at Innector",
+      "Rather than a vague quote, Innector's managed IT services are a flat $999 a month, and you don't have to take that on faith - a [15-day free trial](/blog/try-before-you-hire) lets you see real work before committing to it. [See the full pricing details](/managed-it-services).",
+      "## So Which Actually Costs Less?",
+      "For a small, one-off task with a clear scope, a freelancer can genuinely be the cheaper choice. For anything larger, ongoing, or important enough that a mistake would be expensive, a company's higher hourly rate often works out cheaper overall, once you count the cost of things going wrong.",
+      "## Conclusion",
+      "The cheapest quote and the cheapest project aren't always the same thing. [Talk to our team](/contact) about your project and what it would actually cost, or [start with a 15-day free trial](/managed-it-services) and see the work before you commit to a price.",
+    ],
+  },
+  {
+    slug: "small-business-guide-to-hiring-an-it-partner",
+    title: "The Small Business Guide to Hiring an IT Partner",
+    excerpt:
+      "Hiring one in-house IT person can cost more than you'd think, and still leave gaps. Here's a simple guide for small businesses weighing an in-house hire, a freelancer, and a managed IT partner.",
+    image: "/images/blog/small-business-guide-to-hiring-an-it-partner.webp",
+    date: "September 14, 2026",
+    tags: ["Small Business", "Managed IT", "Hiring Guide"],
+    readTime: "2 min read",
+    linked: true,
+    faqs: [
+      { q: "Do I need a full-time IT person if I use a managed IT partner?", a: "Usually not. A managed IT partner is built to be your whole IT department, not a supplement to one." },
+      { q: "Isn't a full-time IT hire more reliable than an outside partner?", a: "One person still means one set of skills and one point of failure. A partner backed by a team can cover more ground and doesn't disappear if one person is sick or leaves." },
+      { q: "What if my business is very small?", a: "Small businesses are exactly who managed IT services are built for - it's a way to get a full team's coverage without a full-time salary." },
+      { q: "How much does Innector's managed IT service cost?", a: "A flat $999 a month, with a 15-day free trial before you commit to anything." },
+    ],
+    content: [
+      "Running a small business means wearing a lot of hats, and IT is usually the one nobody wants to wear. When something breaks, or you need a website updated, or your systems need securing, who do you actually call? Most small businesses land on one of three options: hire someone full-time, call a freelancer whenever something breaks, or use a managed IT partner. Here's how they actually compare.",
+      "## Option 1: Hire One IT Person Full-Time",
+      "This feels like the obvious choice, but the real cost is higher than most people expect. Once you add salary, benefits, and taxes, one in-house IT hire commonly costs $80,000 to $120,000 a year. And even then, you have one person's skills covering security, networks, software, and everything else IT touches. If they're out sick, on holiday, or simply don't know how to fix a particular problem, you're stuck.",
+      "## Option 2: Call a Freelancer Every Time Something Breaks",
+      "This can work for small, occasional problems, but it's reactive by nature - you only find out something's wrong after it's already a problem. [It also carries the same risks any freelancer hire does](/blog/risks-of-hiring-a-freelancer): availability isn't guaranteed, and there's no one keeping an eye on your systems in between calls.",
+      "## Option 3: A Managed IT Partner",
+      "A managed IT partner works proactively, watching for problems before they disrupt your business, for one predictable monthly cost. Industry-wide, managed IT services commonly run $100 to $200 per user per month - and in exchange, you get access to a whole team's worth of expertise, not just one person's.",
+      "## Comparing the Three",
+      "TABLE:What You Get|In-House Hire|Freelancer|Managed IT Partner\nTypical cost|$80k-$120k/year|Varies per job|Predictable monthly fee\nSkills covered|One person's|One person's|A full team's\nProactive or reactive|Reactive|Reactive|Proactive\nBackup if unavailable|No|No|Yes",
+      "## What This Looks Like at Innector",
+      "Innector's managed IT services are a flat $999 a month - no per-hire salary, no per-incident freelancer calls. [See what's included](/managed-it-services), or start with the [15-day free trial](/blog/try-before-you-hire) and see the work before committing to anything.",
+      "## Conclusion",
+      "For most small businesses, the real choice isn't \"can I afford IT help\" - it's which kind of help actually covers you completely. [Talk to our team](/contact) about what your business needs, or [see the freelancer vs. company breakdown](/blog/freelancer-vs-company) if you're deciding on a one-off project instead of ongoing support.",
+    ],
+  },
+  {
+    slug: "dedicated-team-vs-staff-augmentation",
+    title: "Freelancer, Agency, Dedicated Team, or Staff Augmentation? The 4 Options Explained",
+    excerpt:
+      "Freelancer vs. company isn't the whole picture. Here's the real difference between a dedicated team and staff augmentation, and how to tell which of the 4 hiring models actually fits your project.",
+    image: "/images/blog/dedicated-team-vs-staff-augmentation.webp",
+    date: "September 21, 2026",
+    tags: ["Dedicated Team", "Staff Augmentation", "Hiring Guide"],
+    readTime: "2 min read",
+    linked: true,
+    faqs: [
+      { q: "What's the difference between a dedicated team and staff augmentation?", a: "Staff augmentation adds people to your own team, under your own management. A dedicated team is a full, self-managed team assigned to your project." },
+      { q: "Can a non-technical founder use staff augmentation?", a: "Not easily - staff augmentation needs someone in-house to direct the technical work. A dedicated team or a company is usually a better fit without that." },
+      { q: "Which option is cheapest?", a: "It depends on the project, not the label. A dedicated team or company often costs less overall than staff augmentation without the in-house leadership to use it well." },
+      { q: "Do I need to pick just one model?", a: "No. Some businesses start with a dedicated team for the initial build, then use staff augmentation later once they have their own technical lead in place." },
+    ],
+    content: [
+      "Most guides to hiring, including [our own](/blog/freelancer-vs-company), frame this as freelancer vs. company. That's only half the picture. There are two more real options that a lot of comparisons miss entirely: a dedicated team and staff augmentation. Knowing the difference can save you from picking a model that was never going to fit your situation.",
+      "## A Quick Recap: Freelancer vs. Company",
+      "A freelancer is one person working alone. A company is a full team handling your project together. [Read the full breakdown here](/blog/freelancer-vs-company) if you haven't already.",
+      "## What Is Staff Augmentation?",
+      "Staff augmentation means hiring specific people to slot into *your own* existing team, working under *your* management. It's a good fit if you already have a manager or technical lead in-house and just need extra hands for a defined period. The catch: staff augmentation only works well if someone in-house can direct the work. Without that, you're paying for extra hands with no one steering them.",
+      "## What Is a Dedicated Team?",
+      "A dedicated team is a full team, at minimum a project manager, developers, and someone testing the work, assembled by an outside partner and assigned to your project. Unlike staff augmentation, the team manages itself. You explain what you need built; they figure out how to build it. This is the option our main guide briefly calls \"a third option\" - this is the deeper look at it.",
+      "## Which One Actually Fits You?",
+      "If you already have a strong technical team and just need more hands for a stretch, staff augmentation can work well. If you don't have anyone in-house who can manage developers day-to-day, or your project is large and likely to change as you go, a dedicated team (or a full company) is usually the safer fit.",
+      "## Comparing All 4 Options",
+      "TABLE:Model|Best For|Who Manages the Work|Needs Your Own Tech Lead?\nFreelancer|Small, simple tasks|You|Somewhat\nCompany|Full projects, start to finish|The company|No\nDedicated Team|Large or evolving projects|The team itself|No\nStaff Augmentation|Filling a skill gap in your own team|You|Yes",
+      "## Conclusion",
+      "\"Freelancer or company\" is a good starting question, but it isn't the only one. If you read that and thought \"none of these quite fit,\" a dedicated team is probably the answer. [Talk to our team](/contact) about your project, or [see how a 15-day trial lets you test a dedicated team before committing](/blog/try-before-you-hire).",
+    ],
+  },
+  {
+    slug: "non-technical-founder-guide-to-hiring-a-developer",
+    title: "A Non-Technical Founder's Guide to Hiring the Right Development Partner",
+    excerpt:
+      "Hiring a developer when you can't read code yourself is intimidating. Here's a simple, judgment-free guide to hiring the right partner, without needing to learn to code first.",
+    image: "/images/blog/non-technical-founder-guide-to-hiring-a-developer.webp",
+    date: "September 26, 2026",
+    tags: ["Non-Technical Founders", "Hiring Guide", "Startups"],
+    readTime: "2 min read",
+    linked: true,
+    faqs: [
+      { q: "Do I need to learn to code before hiring a developer?", a: "No. You need to be clear about what you're building and who it's for - that matters far more than technical skill." },
+      { q: "How do I know if the work is actually good if I can't read code?", a: "You likely can't judge the code itself, but you can judge whether it does what you asked, and whether the person explains their work clearly." },
+      { q: "What's the safest way to hire someone I can't technically vet?", a: "Start with a small paid or trial project before committing to anything bigger. Real, current work tells you more than any interview." },
+      { q: "Should I use staff augmentation if I'm not technical?", a: "Usually not - staff augmentation needs you to direct the technical work yourself. A company or a dedicated team is a better fit without in-house tech leadership." },
+    ],
+    content: [
+      "If you're hiring a developer and you can't read a line of code yourself, you're not alone, and it doesn't put you at a real disadvantage. Most people hiring a developer for the first time are in the exact same position. Here's how to do it well anyway.",
+      "## You Don't Need to Learn to Code First",
+      "It's tempting to think you need to understand the technical side before you can hire well. You don't. What actually matters is being completely clear about what you're building, who it's for, and what \"done\" looks like. That clarity, not technical skill, is what lets any developer or company do good work for you.",
+      "## Get Clear Before You Hire Anyone",
+      "Before you talk to anyone, write down plain answers to a few questions: What problem does this solve? Who is going to use it? What does it need to do on day one, versus what can wait? A page of clear notes will get you further than any amount of technical knowledge.",
+      "## The Real Risk Isn't Being Non-Technical - It's Not Being Able to Check the Work",
+      "The honest challenge for a non-technical founder isn't hiring itself, it's that you can't personally verify code quality after the fact. The fix isn't learning to code. It's choosing a partner willing to prove themselves before you're fully committed. [This is exactly why a trial period matters](/blog/try-before-you-hire) - it lets you judge real, working results instead of a technical explanation you can't check yourself.",
+      "## Your Options, Briefly",
+      "A freelancer, a company, and a dedicated team are all real options - [see the full comparison here](/blog/freelancer-vs-company). One option to be cautious of as a non-technical founder is staff augmentation, [covered in detail here](/blog/dedicated-team-vs-staff-augmentation) - it requires *you* to technically direct the work, which is the one thing you don't have yet.",
+      "## A Simple 4-Step Way to Hire Without Knowing Code",
+      "1. **Write down what you want, in plain language.** No technical terms required.\n2. **Ask to see real, live examples of past work**, not just a portfolio of screenshots.\n3. **Start with a small paid or trial project** before committing to anything bigger.\n4. **Judge how clearly they explain things back to you.** If you don't understand their answer, that's useful information, not a failure on your part.",
+      "## Conclusion",
+      "Not being technical doesn't mean you can't hire well, it just means you should hire someone willing to show you, not just tell you. [Talk to our team](/contact) in plain language about what you're building, or [start with a 15-day free trial](/managed-it-services) and see real work before you commit to anything bigger.",
+    ],
+  },
 ];
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
@@ -239,11 +383,13 @@ export function getPostBySlug(slug: string): BlogPost | undefined {
 
 // Newest first, by `date` - the listing page (featured post + the rest) and any future "recent posts" style list
 // read this, so a real publish-date spread (not everything dropped on the same day) actually shows up as one instead
-// of being silently ignored by array order. A post with no date sorts last rather than crashing on an invalid Date.
+// of being silently ignored by array order. Uses postISODate() (not a second, separate Date.parse call) so sorting
+// and the machine-readable date shown in structured data can never quietly disagree with each other. A post with no
+// date, or an unparseable one, sorts last rather than crashing.
 export function getLinkedPosts(): BlogPost[] {
   return blogPosts
     .filter((post) => post.linked)
-    .sort((a, b) => (b.date ? Date.parse(b.date) : 0) - (a.date ? Date.parse(a.date) : 0));
+    .sort((a, b) => (Date.parse(postISODate(b) ?? "") || 0) - (Date.parse(postISODate(a) ?? "") || 0));
 }
 
 // Tag-aware: posts sharing the most tags with the current one come first (a post with zero shared tags could still
@@ -254,7 +400,12 @@ export function getRelatedPosts(currentSlug: string, count = 3): BlogPost[] {
   return blogPosts
     .filter((post) => post.slug !== currentSlug && post.linked)
     .map((post) => ({ post, shared: post.tags?.filter((tag) => currentTags.has(tag)).length ?? 0 }))
-    .sort((a, b) => b.shared - a.shared)
+    // Ties (equal shared-tag count) go to the newer post, not whichever happened to be declared first in this file.
+    // Most posts here only share one broad tag ("Hiring Guide") with most other posts, so without this, "related"
+    // would always resolve to the same handful of oldest articles for any new post that doesn't also happen to pick
+    // up a second matching tag - burying genuinely relevant, deliberately cross-linked newer articles for no
+    // editorial reason, just array order.
+    .sort((a, b) => b.shared - a.shared || (Date.parse(postISODate(b.post) ?? "") || 0) - (Date.parse(postISODate(a.post) ?? "") || 0))
     .slice(0, count)
     .map(({ post }) => post);
 }

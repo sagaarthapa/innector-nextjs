@@ -150,4 +150,28 @@ export const POST_SEO: Record<string, Metadata> = {
     "Inside HMIS: a real Hospital Management Information System with 29+ modules built by Innector, from patient registration to national health reporting.",
     `${SITE_URL}/images/case-studies/hmis.webp`
   ),
+  "true-cost-of-a-freelancer-vs-a-company": articleMeta(
+    "true-cost-of-a-freelancer-vs-a-company",
+    "The True Cost of a Freelancer vs. Company | Innector",
+    "Real numbers for what a freelancer and a company actually cost - hourly rates, hidden costs, and how to compare the true price of your project.",
+    `${SITE_URL}/images/blog/true-cost-of-a-freelancer-vs-a-company.webp`
+  ),
+  "small-business-guide-to-hiring-an-it-partner": articleMeta(
+    "small-business-guide-to-hiring-an-it-partner",
+    "Small Business Guide to Hiring an IT Partner | Innector",
+    "In-house hire, freelancer, or managed IT partner? A simple small business guide comparing the real cost and coverage of each option.",
+    `${SITE_URL}/images/blog/small-business-guide-to-hiring-an-it-partner.webp`
+  ),
+  "dedicated-team-vs-staff-augmentation": articleMeta(
+    "dedicated-team-vs-staff-augmentation",
+    "Dedicated Team vs. Staff Augmentation | Innector",
+    "Freelancer vs. company isn't the whole picture. Compare all 4 hiring models - freelancer, company, dedicated team, and staff augmentation.",
+    `${SITE_URL}/images/blog/dedicated-team-vs-staff-augmentation.webp`
+  ),
+  "non-technical-founder-guide-to-hiring-a-developer": articleMeta(
+    "non-technical-founder-guide-to-hiring-a-developer",
+    "Non-Technical Founder's Guide to Hiring | Innector",
+    "A simple, judgment-free guide for non-technical founders hiring a developer for the first time - no coding knowledge required.",
+    `${SITE_URL}/images/blog/non-technical-founder-guide-to-hiring-a-developer.webp`
+  ),
 };

@@ -6,8 +6,15 @@ import ProjectsGrid from "@/components/ProjectsGrid";
 import type { Metadata } from "next";
 import { SEO } from "@/lib/seo";
 import { versioned } from "@/lib/assets";
+import { getLinkedPosts } from "@/lib/blog-posts";
 
 export const metadata: Metadata = SEO.home;
+
+// The 2 newest posts, not 2 hardcoded slugs - the "Recent insights" section below used to name 2 specific articles
+// directly, which meant it silently went stale (still showing the same 2 oldest posts) every time a newer one got
+// published. getLinkedPosts() is already sorted newest-first (see lib/blog-posts.ts), so this stays current on its
+// own as the blog grows.
+const homeRecentPosts = getLinkedPosts().slice(0, 2);
 
 const missionAims: [string, string][] = [
   ["Deliver innovative digital solutions ", "to businesses worldwide."],
@@ -1052,8 +1059,8 @@ export default function Home() {
       {/* Section - Tech Stack List & Title End */}
 
       {/* Section - Blog Preview Grid Plus Title Start: restored now that real cluster articles exist (was removed
-          when the old ERP articles it linked to were retired - see lib/blog-posts.ts). Featuring the pillar and the
-          15-day-trial article, Innector's sharpest differentiator. */}
+          when the old ERP articles it linked to were retired - see lib/blog-posts.ts). Shows the 2 newest posts
+          (homeRecentPosts above), so it never goes stale as new articles get published. */}
       <div className="mxd-section blur-section pinned-section padding-top-number padding-bottom-preview">
         <div className="pinned-section__inner">
           <div className="mxd-container grid-l-container">
@@ -1103,40 +1110,25 @@ export default function Home() {
               <div className="mxd-blog-grid">
                 <div className="container-fluid p-0">
                   <div className="row g-0 mxd-blog-grid__gallery">
-                    <div className="col-12 col-lg-6 mxd-blog-item animate-card-3">
-                      <a className="mxd-blog-item__media active-cursor-permanent" data-cursor-text="Read Post" href="/blog/freelancer-vs-company">
-                        <img loading="lazy" decoding="async" width={1200} height={750} src="/images/blog/freelancer-or-company.webp" alt="Freelancer vs. Company: How to Choose the Right Partner for Your Project" />
-                      </a>
-                      <div className="mxd-blog-item__caption">
-                        <div className="mxd-blog-item__title">
-                          <a className="blog-name-m" href="/blog/freelancer-vs-company">
-                            Freelancer vs. Company: How to Choose the Right Partner
-                          </a>
-                        </div>
-                        <div className="mxd-blog-item__tags">
-                          <span className="tag tag-s tag-medium mxd-scramble">Hiring Guide</span>
-                          <span className="tag tag-s tag-medium mxd-scramble">Freelancers</span>
-                          <span className="tag tag-s tag-medium mxd-scramble">Outsourcing</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-12 col-lg-6 mxd-blog-item animate-card-3">
-                      <a className="mxd-blog-item__media active-cursor-permanent" data-cursor-text="Read Post" href="/blog/try-before-you-hire">
-                        <img loading="lazy" decoding="async" width={1200} height={750} src="/images/blog/try-before-you-hire.webp" alt="Try Before You Hire: Why a 15-Day Trial Beats a Sales Pitch" />
-                      </a>
-                      <div className="mxd-blog-item__caption">
-                        <div className="mxd-blog-item__title">
-                          <a className="blog-name-m" href="/blog/try-before-you-hire">
-                            Try Before You Hire: Why a 15-Day Trial Beats a Sales Pitch
-                          </a>
-                        </div>
-                        <div className="mxd-blog-item__tags">
-                          <span className="tag tag-s tag-medium mxd-scramble">Free Trial</span>
-                          <span className="tag tag-s tag-medium mxd-scramble">Hiring Guide</span>
-                          <span className="tag tag-s tag-medium mxd-scramble">Risk-Free</span>
+                    {homeRecentPosts.map((post) => (
+                      <div className="col-12 col-lg-6 mxd-blog-item animate-card-3" key={post.slug}>
+                        <a className="mxd-blog-item__media active-cursor-permanent" data-cursor-text="Read Post" href={`/blog/${post.slug}`}>
+                          <img loading="lazy" decoding="async" width={1200} height={750} src={post.image} alt={post.title} />
+                        </a>
+                        <div className="mxd-blog-item__caption">
+                          <div className="mxd-blog-item__title">
+                            <a className="blog-name-m" href={`/blog/${post.slug}`}>
+                              {post.title}
+                            </a>
+                          </div>
+                          <div className="mxd-blog-item__tags">
+                            {post.tags?.map((tag) => (
+                              <span key={tag} className="tag tag-s tag-medium mxd-scramble">{tag}</span>
+                            ))}
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    ))}
                   </div>
                 </div>
               </div>
