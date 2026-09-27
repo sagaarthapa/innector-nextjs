@@ -109,7 +109,7 @@ export const POST_SEO: Record<string, Metadata> = {
   "hospital-management-software-case-study": meta(
     "/blog/hospital-management-software-case-study",
     "HMIS Case Study: Hospital Software | Innector",
-    "A real look at HMIS, a complete hospital management system built by Innector, from patient records to a mobile app.",
+    "Inside HMIS: a real Hospital Management Information System with 29+ modules built by Innector, from patient registration to national health reporting.",
     `${SITE_URL}/images/case-studies/hmis.webp`
   ),
 };
