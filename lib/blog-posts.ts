@@ -32,12 +32,12 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Trying to decide between hiring a freelancer or a company for your project? This simple guide walks you through the real differences, the risks, and how to pick the right partner - anywhere in the world.",
     image: "/images/blog/freelancer-or-company.webp",
-    date: "September 27, 2026",
+    date: "August 12, 2026",
     tags: ["Hiring Guide", "Freelancers", "Outsourcing"],
-    readTime: "4 min read",
+    readTime: "5 min read",
     linked: true,
     content: [
-      "You have a project. Maybe it's a new website, a mobile app, or software for your business. Now you need someone to build it. Should you hire one person (a freelancer) or a whole company? This is one of the biggest decisions you will make, and getting it wrong can cost you time and money.",
+      "You have a project. Maybe it's a new website, a mobile app, or software for your business. Now you need someone to build it. Should you hire one person (a freelancer) or a whole company? This freelancer vs. company decision is one of the biggest you will make, and getting it wrong can cost you time and money.",
       "This guide breaks it down in plain language, wherever in the world you're hiring from.",
       "## What Is a Freelancer? What Is a Company?",
       "A freelancer is one person who works alone. They take on projects and get paid for the work they do. Most freelancers work from home, by themselves.",
@@ -56,6 +56,7 @@ export const blogPosts: BlogPost[] = [
       "Many people think it's freelancer or company and nothing else. There's actually a third choice: a **dedicated team**. This means a small group of experts works only on your project, almost like your own in-house team, but without you having to hire, manage, or pay each person yourself. You get the personal focus of a freelancer with the backup and skills of a company.",
       "## Quick Comparison",
       "TABLE:What You Get|Freelancer|Company|Dedicated Team\nTeam size|One person|Full team|Small focused group\nBackup if someone is busy|No|Yes|Yes\nDifferent skills covered|Rarely|Yes|Yes\nEasy to check past work|Sometimes|Usually|Usually\nBest for|Small, simple tasks|Full projects|Long-term work",
+      "Still not sure which column fits your project? [Tell us about it](/contact) and we'll give you a straight answer, no pressure either way.",
       "## 5 Simple Questions to Help You Decide",
       "1. **How big is my project?** A small task may only need one freelancer. A full website or app usually needs a team.\n2. **What happens if something goes wrong?** If you need someone to fix it fast, a company is the safer choice.\n3. **Do I need more than one skill?** Design, coding, and marketing are different skills. A company already has all of them under one roof.\n4. **Will I need help after the project is done?** Freelancers often move on to the next job. Companies usually offer ongoing support.\n5. **Can I see real examples of their past work?** If the answer is no, that's a warning sign.",
       "## How to Check If a Company Is Trustworthy",
@@ -76,7 +77,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Anyone can promise great work. A trial period lets you see it first. Here's why testing a company before you commit is the smartest way to hire, and how Innector's 15-day free trial actually works.",
     image: "/images/blog/try-before-you-hire.webp",
-    date: "September 27, 2026",
+    date: "September 9, 2026",
     tags: ["Free Trial", "Hiring Guide", "Risk-Free"],
     readTime: "3 min read",
     linked: true,
@@ -111,9 +112,9 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Freelancers can be a great choice for small tasks, but hiring one also comes with real risks. Here are the 5 biggest ones, in plain language, and how to protect yourself.",
     image: "/images/blog/risks-of-hiring-a-freelancer.webp",
-    date: "September 27, 2026",
+    date: "August 26, 2026",
     tags: ["Freelancers", "Hiring Guide", "Risk Management"],
-    readTime: "4 min read",
+    readTime: "2 min read",
     linked: true,
     content: [
       "Freelance marketplaces make it easy to hire someone in minutes. That speed is exactly why so many projects run into trouble later. Before you hire a freelancer, it helps to know exactly what can go wrong, and how to protect yourself. [For the full freelancer vs. company breakdown, start here](/blog/freelancer-vs-company).",
@@ -141,12 +142,12 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Outsourcing your project to a company you've never met can feel risky, especially across borders. Here are 10 simple questions that separate a trustworthy partner from a risky one.",
     image: "/images/blog/how-to-evaluate-an-outsourcing-company.webp",
-    date: "September 27, 2026",
+    date: "September 18, 2026",
     tags: ["Outsourcing", "Hiring Guide", "Global Business"],
-    readTime: "4 min read",
+    readTime: "2 min read",
     linked: true,
     content: [
-      "More businesses today hire outside help from anywhere in the world, not just their own city. That opens up more choice, but it also means hiring a company you may never meet in person. Here's how to check if they're actually trustworthy before you sign anything.",
+      "More businesses today hire outside help from anywhere in the world, not just their own city. That opens up more choice, but it also means learning how to evaluate an outsourcing company you may never meet in person. Here's how to check if they're actually trustworthy before you sign anything.",
       "## Why Outsourcing Feels Risky (and Why It Doesn't Have to)",
       "The worry is simple: how do you trust a company you can't visit, run by people you've only spoken to on a video call? The good news is that a trustworthy company usually makes itself easy to check. A risky one avoids being checked at all.",
       "## 10 Questions to Ask Before You Hire an Outsourcing Company",
@@ -167,7 +168,7 @@ export const blogPosts: BlogPost[] = [
     image: "/images/case-studies/hmis.webp",
     date: "September 27, 2026",
     tags: ["Case Study", "Healthcare Software", "Our Work"],
-    readTime: "5 min read",
+    readTime: "4 min read",
     linked: true,
     content: [
       "It's easy for any company to say \"we can build complex software.\" It's more convincing to simply show one. HMIS (Hospital Management Information System) is a real system Innector built, with more than 29 connected modules that run a hospital's daily work from one screen: patient care, diagnostics, pharmacy, inventory, billing, insurance, accounting, and even national health reporting.",
@@ -204,8 +205,13 @@ export function getPostBySlug(slug: string): BlogPost | undefined {
   return blogPosts.find((post) => post.slug === slug);
 }
 
+// Newest first, by `date` - the listing page (featured post + the rest) and any future "recent posts" style list
+// read this, so a real publish-date spread (not everything dropped on the same day) actually shows up as one instead
+// of being silently ignored by array order. A post with no date sorts last rather than crashing on an invalid Date.
 export function getLinkedPosts(): BlogPost[] {
-  return blogPosts.filter((post) => post.linked);
+  return blogPosts
+    .filter((post) => post.linked)
+    .sort((a, b) => (b.date ? Date.parse(b.date) : 0) - (a.date ? Date.parse(a.date) : 0));
 }
 
 // Tag-aware: posts sharing the most tags with the current one come first (a post with zero shared tags could still

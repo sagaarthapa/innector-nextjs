@@ -1,4 +1,4 @@
-import { blogPosts } from "@/lib/blog-posts";
+import { getLinkedPosts } from "@/lib/blog-posts";
 import ServiceMarquee from "@/components/ServiceMarquee";
 import JsonLd from "@/components/JsonLd";
 import type { Metadata } from "next";
@@ -7,14 +7,15 @@ import { breadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = SEO.blog;
 
-// blogPosts is empty right now (see lib/blog-posts.ts) - the old ERP/digital-marketing articles were retired. Every
-// list below is derived from it so the page degrades to a clean empty state automatically instead of crashing on
-// blogPosts[0] being undefined, and picks new posts up with no further change here once they exist.
-const featuredPost = blogPosts[0];
-const remainingPosts = blogPosts.slice(1);
-const recentPosts = [blogPosts[1], blogPosts[2], blogPosts[3]].filter((post): post is (typeof blogPosts)[number] => Boolean(post));
+// getLinkedPosts() (not the raw blogPosts array) so this only ever lists real, clickable posts, newest-published
+// first. Every list below is derived from it so the page degrades to a clean empty state automatically instead of
+// crashing on blogPosts[0] being undefined whenever there are none.
+const posts = getLinkedPosts();
+const featuredPost = posts[0];
+const remainingPosts = posts.slice(1);
+const recentPosts = posts.slice(1, 4);
 const categories = Array.from(
-  blogPosts.reduce((map, post) => {
+  posts.reduce((map, post) => {
     post.tags?.forEach((tag) => map.set(tag, (map.get(tag) ?? 0) + 1));
     return map;
   }, new Map<string, number>())
@@ -66,7 +67,7 @@ export default function BlogPage() {
                         <div className="row g-0">
                           <div className="col-12 col-xl-8 mxd-grid-item">
                             <div className="inner-headline__title pre-subtitle-large loading-item">
-                              <h1 className="large">Blog{blogPosts.length > 0 && <sup>({blogPosts.length})</sup>}</h1>
+                              <h1 className="large">Blog{posts.length > 0 && <sup>({posts.length})</sup>}</h1>
                             </div>
                             <div className="inner-headline__subtitle loading-item">
                               <p>Insights for businesses <span>choosing who builds their next project.</span></p>
