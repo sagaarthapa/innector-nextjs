@@ -1051,9 +1051,102 @@ export default function Home() {
       />
       {/* Section - Tech Stack List & Title End */}
 
-      {/* Section - Blog Preview Grid Plus Title removed: it hard-linked the 2 now-retired ERP articles inside its
-          own pinned scroll section (gutting just the cards would leave an oddly-short pin with nothing to show).
-          Restore it once new cornerstone articles exist - /blog is still reachable from the header/footer nav. */}
+      {/* Section - Blog Preview Grid Plus Title Start: restored now that real cluster articles exist (was removed
+          when the old ERP articles it linked to were retired - see lib/blog-posts.ts). Featuring the pillar and the
+          15-day-trial article, Innector's sharpest differentiator. */}
+      <div className="mxd-section blur-section pinned-section padding-top-number padding-bottom-preview">
+        <div className="pinned-section__inner">
+          <div className="mxd-container grid-l-container">
+            {/* Block - Section Title v05 Start */}
+            <div className="mxd-block">
+              <div className="mxd-section-title pre-subtitle-s controls-bottom-mobile">
+                <div className="container-fluid p-0">
+                  <div className="row g-0">
+                    <div className="col-12 col-xl-4 mxd-grid-item">
+                      <div className="mxd-section-title__data top-number">
+                        <div className="mxd-section-title__number anim-uni-in-up">
+                          <span className="title-number">
+                            <SectionIcon />
+                            <span className="mxd-scramble">/06</span>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col-12 col-xl-6 mxd-grid-item">
+                      <div className="mxd-section-title__title pre-controls-mobile">
+                        <a className="active-cursor-accent" data-cursor-text="More Posts" href="/blog">
+                          <h2 className="mxd-split-lines">
+                            Recent
+                            <br />
+                            insights
+                          </h2>
+                        </a>
+                      </div>
+                    </div>
+                    <div className="col-12 col-xl-2 mxd-grid-item">
+                      <div className="mxd-section-title__data top-controls">
+                        <div className="mxd-section-title__controls justify-end anim-uni-in-up">
+                          <a className="btn btn-line btn-line-default" href="/blog">
+                            <span className="btn-caption mxd-scramble">All insights</span>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* Block - Section Title v05 End */}
+
+            {/* Block - Blog Preview Grid Start */}
+            <div className="mxd-block">
+              <div className="mxd-blog-grid">
+                <div className="container-fluid p-0">
+                  <div className="row g-0 mxd-blog-grid__gallery">
+                    <div className="col-12 col-lg-6 mxd-blog-item animate-card-3">
+                      <a className="mxd-blog-item__media active-cursor-permanent" data-cursor-text="Read Post" href="/blog/freelancer-vs-company">
+                        <img loading="lazy" decoding="async" width={1200} height={750} src="/images/blog/freelancer-or-company.webp" alt="Freelancer vs. Company: How to Choose the Right Partner for Your Project" />
+                      </a>
+                      <div className="mxd-blog-item__caption">
+                        <div className="mxd-blog-item__title">
+                          <a className="blog-name-m" href="/blog/freelancer-vs-company">
+                            Freelancer vs. Company: How to Choose the Right Partner
+                          </a>
+                        </div>
+                        <div className="mxd-blog-item__tags">
+                          <span className="tag tag-s tag-medium mxd-scramble">Hiring Guide</span>
+                          <span className="tag tag-s tag-medium mxd-scramble">Freelancers</span>
+                          <span className="tag tag-s tag-medium mxd-scramble">Outsourcing</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col-12 col-lg-6 mxd-blog-item animate-card-3">
+                      <a className="mxd-blog-item__media active-cursor-permanent" data-cursor-text="Read Post" href="/blog/try-before-you-hire">
+                        <img loading="lazy" decoding="async" width={1200} height={750} src="/images/blog/try-before-you-hire.webp" alt="Try Before You Hire: Why a 15-Day Trial Beats a Sales Pitch" />
+                      </a>
+                      <div className="mxd-blog-item__caption">
+                        <div className="mxd-blog-item__title">
+                          <a className="blog-name-m" href="/blog/try-before-you-hire">
+                            Try Before You Hire: Why a 15-Day Trial Beats a Sales Pitch
+                          </a>
+                        </div>
+                        <div className="mxd-blog-item__tags">
+                          <span className="tag tag-s tag-medium mxd-scramble">Free Trial</span>
+                          <span className="tag tag-s tag-medium mxd-scramble">Hiring Guide</span>
+                          <span className="tag tag-s tag-medium mxd-scramble">Risk-Free</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* Block - Blog Preview Grid End */}
+          </div>
+          <div className="pinned-section__trigger"></div>
+        </div>
+      </div>
+      {/* Section - Blog Preview Grid Plus Title End */}
 
       {/* Section - CTA with Matter.js Objects Start */}
       <div className="mxd-section">

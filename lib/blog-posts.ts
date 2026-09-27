@@ -27,7 +27,7 @@ export interface BlogPost {
 // deciding who should build their project is the reader, not a developer).
 export const blogPosts: BlogPost[] = [
   {
-    slug: "freelancer-or-company",
+    slug: "freelancer-vs-company",
     title: "Freelancer vs. Company: How to Choose the Right Partner for Your Project",
     excerpt:
       "Trying to decide between hiring a freelancer or a company for your project? This simple guide walks you through the real differences, the risks, and how to pick the right partner - anywhere in the world.",
@@ -102,7 +102,7 @@ export const blogPosts: BlogPost[] = [
       "- Is the trial actually free, with no hidden charges?\n- Do you get real work, or just a sales demo?\n- Is there any pressure or a contract hidden in the fine print?\n- Can you walk away with no penalty if you're not happy?",
       "If the answer to any of these is unclear, ask before you start.",
       "## Conclusion",
-      "A company confident in its own work has no reason to hide from a trial. If a business asks you to commit fully before showing you anything real, that's worth noticing. [Read the full guide to freelancer vs. company hiring](/blog/freelancer-or-company), or [start your 15-day free trial with Innector](/managed-it-services) and see the difference yourself.",
+      "A company confident in its own work has no reason to hide from a trial. If a business asks you to commit fully before showing you anything real, that's worth noticing. [Read the full guide to freelancer vs. company hiring](/blog/freelancer-vs-company), or [start your 15-day free trial with Innector](/managed-it-services) and see the difference yourself.",
     ],
   },
   {
@@ -116,7 +116,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "4 min read",
     linked: true,
     content: [
-      "Freelance marketplaces make it easy to hire someone in minutes. That speed is exactly why so many projects run into trouble later. Before you hire a freelancer, it helps to know exactly what can go wrong, and how to protect yourself. [For the full freelancer vs. company breakdown, start here](/blog/freelancer-or-company).",
+      "Freelance marketplaces make it easy to hire someone in minutes. That speed is exactly why so many projects run into trouble later. Before you hire a freelancer, it helps to know exactly what can go wrong, and how to protect yourself. [For the full freelancer vs. company breakdown, start here](/blog/freelancer-vs-company).",
       "## Risk 1: They Disappear Before Finishing",
       "This is often called \"ghosting.\" A freelancer takes your project, does some work, and then simply stops replying. No warning, no explanation. You're left with a half-finished project and no way to fix it.",
       "## Risk 2: Missed Deadlines With No One to Answer To",
@@ -156,7 +156,7 @@ export const blogPosts: BlogPost[] = [
       "## See This In Action: A Real Example",
       "Reading a checklist is one thing. Seeing a real, complex project actually built is another. [Take a look at HMIS, a full hospital management system we built](/blog/hospital-management-software-case-study), to see the kind of work these questions should uncover.",
       "## Conclusion",
-      "Outsourcing isn't risky because a company is far away. It's risky when a company can't, or won't, answer simple questions clearly. [Read our full guide on choosing between a freelancer and a company](/blog/freelancer-or-company), or [get in touch](/contact) and ask us these exact 10 questions yourself.",
+      "Outsourcing isn't risky because a company is far away. It's risky when a company can't, or won't, answer simple questions clearly. [Read our full guide on choosing between a freelancer and a company](/blog/freelancer-vs-company), or [get in touch](/contact) and ask us these exact 10 questions yourself.",
     ],
   },
   {
@@ -195,7 +195,7 @@ export const blogPosts: BlogPost[] = [
       "## What This Means If You're Evaluating Us",
       "If your own project is smaller than a hospital system, that's completely fine, most are. The point isn't that every project needs to be this complex. It's that a company capable of handling this level of detail, more than 29 connected modules, all working correctly together, can almost certainly handle yours.",
       "## Conclusion",
-      "Real projects are the best proof of what a company can actually do. [See our full guide on choosing the right partner for your project](/blog/freelancer-or-company), or [get in touch](/contact) to talk about what you're trying to build.",
+      "Real projects are the best proof of what a company can actually do. [See our full guide on choosing the right partner for your project](/blog/freelancer-vs-company), or [get in touch](/contact) to talk about what you're trying to build.",
     ],
   },
 ];

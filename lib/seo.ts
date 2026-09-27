@@ -82,8 +82,8 @@ export const SEO = {
    (The 3 old ERP/digital-marketing entries that used to live here are gone along with the articles themselves - see
    next.config.ts redirects() for where their URLs now go.) */
 export const POST_SEO: Record<string, Metadata> = {
-  "freelancer-or-company": meta(
-    "/blog/freelancer-or-company",
+  "freelancer-vs-company": meta(
+    "/blog/freelancer-vs-company",
     "Freelancer vs. Company: How to Choose | Innector",
     "Freelancer or company? A simple guide to the real differences, the risks, and how to choose the right partner for your project - anywhere in the world.",
     `${SITE_URL}/images/blog/freelancer-or-company.webp`
