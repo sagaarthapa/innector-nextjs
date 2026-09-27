@@ -282,7 +282,7 @@ export default function ManagedItServicesPage() {
                     </p>
                   </div>
                   <div className="services-card__image">
-                    <img loading="lazy" decoding="async" src="/images/innector/bannerfallback.webp" alt="Business email and domain management" />
+                    <img loading="lazy" decoding="async" width={1200} height={658} src="/images/innector/bannerfallback.webp" alt="Business email and domain management" />
                     <div className="services-card__cover"></div>
                   </div>
                 </div>
@@ -383,7 +383,7 @@ export default function ManagedItServicesPage() {
                     </p>
                   </div>
                   <div className="services-card__image">
-                    <img loading="lazy" decoding="async" src="/images/innector/erp-image.webp" alt="Security and data backup concept" />
+                    <img loading="lazy" decoding="async" width={960} height={640} src="/images/innector/erp-image.webp" alt="Security and data backup concept" />
                     <div className="services-card__cover"></div>
                   </div>
                 </div>
@@ -486,7 +486,7 @@ export default function ManagedItServicesPage() {
                     </p>
                   </div>
                   <div className="services-card__image">
-                    <img loading="lazy" decoding="async" src="/images/innector/bannerfallback.webp" alt="IT consulting meeting" />
+                    <img loading="lazy" decoding="async" width={1200} height={658} src="/images/innector/bannerfallback.webp" alt="IT consulting meeting" />
                     <div className="services-card__cover"></div>
                   </div>
                 </div>
@@ -934,7 +934,7 @@ export default function ManagedItServicesPage() {
                         data-cursor-text="Read Post"
                         href="/blog/erp-importance"
                       >
-                        <img loading="lazy" decoding="async" src="/images/innector/erp-nepal-scaled.webp" alt="ERP System Dashboard" />
+                        <img loading="lazy" decoding="async" width={1200} height={801} src="/images/innector/erp-nepal-scaled.webp" alt="ERP System Dashboard" />
                       </a>
                       <div className="mxd-blog-item__caption">
                         <div className="mxd-blog-item__title">
@@ -957,7 +957,7 @@ export default function ManagedItServicesPage() {
                         data-cursor-text="Read Post"
                         href="/blog/top-5-open-source-erp"
                       >
-                        <img loading="lazy" decoding="async" src="/images/innector/erp-image.webp" alt="Open Source ERP Systems" />
+                        <img loading="lazy" decoding="async" width={960} height={640} src="/images/innector/erp-image.webp" alt="Open Source ERP Systems" />
                       </a>
                       <div className="mxd-blog-item__caption">
                         <div className="mxd-blog-item__title">

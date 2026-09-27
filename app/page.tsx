@@ -4,6 +4,7 @@ import CoreValues from "@/components/CoreValues";
 import TechStack from "@/components/TechStack";
 import type { Metadata } from "next";
 import { SEO } from "@/lib/seo";
+import { versioned } from "@/lib/assets";
 
 export const metadata: Metadata = SEO.home;
 
@@ -55,6 +56,11 @@ const worksPreview = { main: "trend-qa", layers: ["acec", "candy-station", "naaz
 export default function Home() {
   return (
     <>
+      {/* The hero still image is the page's LCP element (the video only starts once the loading cover lifts).
+          React 19 hoists <link> tags to <head> from wherever they render, so this reaches the browser as early
+          as the stylesheet preloads in app/layout.tsx do, instead of waiting to be discovered inside the <video>
+          markup further down the tree. */}
+      <link rel="preload" as="image" href={versioned("/images/hero/hero-poster.webp")} fetchPriority="high" />
       {/* Blur Effect Start */}
       <div className="blur-container">
         <div className="blur-layer blur-1"></div>
@@ -265,7 +271,7 @@ export default function Home() {
                           </p>
                         </div>
                         <div className="mxd-niche-cards__image absolute-desktop-bottom fill-space">
-                          <img loading="lazy" decoding="async" src="/images/stock/enterprise-skyscraper.webp" alt="Modern corporate skyscrapers" />
+                          <img loading="lazy" decoding="async" width={1200} height={800} src="/images/stock/enterprise-skyscraper.webp" alt="Modern corporate skyscrapers" />
                         </div>
                       </div>
                     </div>
@@ -296,7 +302,7 @@ export default function Home() {
                                 </p>
                               </div>
                               <div className="mxd-niche-cards__image absolute-desktop-full">
-                                <img loading="lazy" decoding="async" src="/img/illustrations/niche02.webp" alt="AI-powered solutions" />
+                                <img loading="lazy" decoding="async" width={1200} height={727} src="/img/illustrations/niche02.webp" alt="AI-powered solutions" />
                                 <div className="mxd-niche-cards__gradient gradient-linear"></div>
                               </div>
                             </div>
@@ -323,7 +329,7 @@ export default function Home() {
                                 </p>
                               </div>
                               <div className="mxd-niche-cards__image absolute-desktop-full">
-                                <img loading="lazy" decoding="async" src="/images/innector/bannerfallback.webp" alt="Small and medium business team" />
+                                <img loading="lazy" decoding="async" width={1200} height={658} src="/images/innector/bannerfallback.webp" alt="Small and medium business team" />
                                 <div className="mxd-niche-cards__gradient gradient-radial"></div>
                               </div>
                             </div>
@@ -350,7 +356,7 @@ export default function Home() {
                                 </p>
                               </div>
                               <div className="mxd-niche-cards__image absolute-desktop-aside">
-                                <img loading="lazy" decoding="async" src="/images/stock/startup-team.webp" alt="Young startup team working around a laptop" />
+                                <img loading="lazy" decoding="async" width={900} height={600} src="/images/stock/startup-team.webp" alt="Young startup team working around a laptop" />
                               </div>
                             </div>
                           </div>
@@ -1137,7 +1143,7 @@ export default function Home() {
                   <div className="row g-0 mxd-blog-grid__gallery">
                     <div className="col-12 col-lg-6 mxd-blog-item animate-card-3">
                       <a className="mxd-blog-item__media active-cursor-permanent" data-cursor-text="Read Post" href="/blog/erp-importance">
-                        <img loading="lazy" decoding="async" src="/images/innector/erp-nepal-scaled.webp" alt="What is ERP and why is it important for businesses" />
+                        <img loading="lazy" decoding="async" width={1200} height={801} src="/images/innector/erp-nepal-scaled.webp" alt="What is ERP and why is it important for businesses" />
                       </a>
                       <div className="mxd-blog-item__caption">
                         <div className="mxd-blog-item__title">
@@ -1154,7 +1160,7 @@ export default function Home() {
                     </div>
                     <div className="col-12 col-lg-6 mxd-blog-item animate-card-3">
                       <a className="mxd-blog-item__media active-cursor-permanent" data-cursor-text="Read Post" href="/blog/top-5-open-source-erp">
-                        <img loading="lazy" decoding="async" src="/images/innector/erp-image.webp" alt="Top 5 open source ERP for 2022" />
+                        <img loading="lazy" decoding="async" width={960} height={640} src="/images/innector/erp-image.webp" alt="Top 5 open source ERP for 2022" />
                       </a>
                       <div className="mxd-blog-item__caption">
                         <div className="mxd-blog-item__title">

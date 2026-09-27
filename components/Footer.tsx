@@ -166,12 +166,16 @@ export default function Footer() {
                   className="theme-logo--light anim-uni-fade-in"
                   src="/images/innector/innector-logo-black.svg"
                   alt="Innector"
+                  width={231}
+                  height={40}
                   style={{ width: "100%", height: "auto" }}
                 />
                 <img
                   className="theme-logo--dark anim-uni-fade-in"
                   src="/images/innector/innector-logo-white.svg"
                   alt="Innector"
+                  width={231}
+                  height={40}
                   style={{ width: "100%", height: "auto" }}
                 />
               </div>

@@ -46,6 +46,8 @@ export default function MenuOverlay() {
                   className="menu-logo__image"
                   src="/images/innector/innector-logo-white.svg"
                   alt="Innector"
+                  width={231}
+                  height={40}
                 />
                 <div className="menu-logo__text">
                   <span>Innector</span>

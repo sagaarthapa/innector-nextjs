@@ -649,7 +649,7 @@ export default function ServicesPage() {
                         data-cursor-text="Read Post"
                         href="/blog/erp-importance"
                       >
-                        <img loading="lazy" decoding="async" src="/images/innector/erp-nepal-scaled.webp" alt="ERP System Dashboard" />
+                        <img loading="lazy" decoding="async" width={1200} height={801} src="/images/innector/erp-nepal-scaled.webp" alt="ERP System Dashboard" />
                       </a>
                       <div className="mxd-blog-item__caption">
                         <div className="mxd-blog-item__title">
@@ -672,7 +672,7 @@ export default function ServicesPage() {
                         data-cursor-text="Read Post"
                         href="/blog/top-5-open-source-erp"
                       >
-                        <img loading="lazy" decoding="async" src="/images/innector/erp-image.webp" alt="Open Source ERP Systems" />
+                        <img loading="lazy" decoding="async" width={960} height={640} src="/images/innector/erp-image.webp" alt="Open Source ERP Systems" />
                       </a>
                       <div className="mxd-blog-item__caption">
                         <div className="mxd-blog-item__title">

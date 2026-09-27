@@ -465,7 +465,7 @@ export default function AboutPage() {
                           <span className="tag tag-s tag-medium-opposite mxd-scramble">ERP Systems</span>
                         </div>
                         <div className="marquee__image">
-                          <img loading="lazy" decoding="async" src="/images/innector/erp-image.webp" alt="Innector ERP systems" />
+                          <img loading="lazy" decoding="async" width={960} height={640} src="/images/innector/erp-image.webp" alt="Innector ERP systems" />
                         </div>
                       </div>
                       <div className="marquee__item item-imageblock">
@@ -521,7 +521,7 @@ export default function AboutPage() {
                           <span className="tag tag-s tag-medium-opposite mxd-scramble">ERP Systems</span>
                         </div>
                         <div className="marquee__image">
-                          <img loading="lazy" decoding="async" src="/images/innector/erp-image.webp" alt="Innector ERP systems" />
+                          <img loading="lazy" decoding="async" width={960} height={640} src="/images/innector/erp-image.webp" alt="Innector ERP systems" />
                         </div>
                       </div>
                       <div className="marquee__item item-imageblock">

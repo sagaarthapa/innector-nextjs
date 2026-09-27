@@ -48,6 +48,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* the two self-hosted fonts are needed for the first paint: start fetching them with the HTML, not after main.css */}
         <link rel="preload" href="/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <link rel="preload" href="/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        {/* icon font: font-display:block means icons stay invisible for up to 3s until this loads; each file is only
+            3-4 KB (subset to the ~25 icons the site uses), so preloading all three weights is cheap and shortens
+            that invisible window instead of waiting for main.css/icons.css to be parsed and the request discovered */}
+        <link rel="preload" href="/fonts/phosphor.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/phosphor-fill.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/phosphor-bold.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         {/* the scripts are injected after hydration; a preload lets them download in parallel with it */}
         <link rel="preload" href={versioned("/js/libs.min.js")} as="script" />
         <link rel="preload" href={versioned("/js/app.min.js")} as="script" />

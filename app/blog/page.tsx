@@ -247,7 +247,7 @@ export default function BlogPage() {
               {/* promo */}
               <div className="mxd-sidebar__widget widget-ad">
                 <a className="widget__image" href="/contact">
-                  <img loading="lazy" decoding="async" src="/images/innector/bannerfallback.webp" alt="Talk to Innector" />
+                  <img loading="lazy" decoding="async" width={1200} height={658} src="/images/innector/bannerfallback.webp" alt="Talk to Innector" />
                 </a>
                 <div className="widget__tags">
                   <span className="tag tag-m tag-bg permanent">Free Consultation</span>
