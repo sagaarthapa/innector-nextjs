@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { SITE_URL } from "@/lib/site";
+import { getPostBySlug, postISODate } from "@/lib/blog-posts";
 
 /* Page titles and descriptions (the <title> and <meta name="description"> that search results show), plus the
    canonical link, Open Graph and Twitter Card tags every page needs (site audits flag missing canonicals and
@@ -81,33 +82,70 @@ export const SEO = {
    the site-wide default, since that is what a link to the article should actually look like when shared.
    (The 3 old ERP/digital-marketing entries that used to live here are gone along with the articles themselves - see
    next.config.ts redirects() for where their URLs now go.) */
+
+// Unlike meta() above (type: "website", for every static page), an article needs Open Graph's "article" type plus
+// publishedTime and tags - the difference between a shared link showing as a generic page preview versus a proper
+// article card (with a date and topic) on LinkedIn/Facebook/Slack, and one more honest, correct signal for crawlers.
+// The published date is read from the one place it's actually defined (lib/blog-posts.ts) instead of being retyped
+// here a second time and risking the two drifting apart.
+function articleMeta(slug: string, title: string, description: string, image: string): Metadata {
+  const post = getPostBySlug(slug);
+  const url = `${SITE_URL}/blog/${slug}`;
+  const publishedTime = postISODate(post);
+  return {
+    title,
+    description,
+    alternates: { canonical: url },
+    authors: [{ name: "Innector Team", url: `${SITE_URL}/about` }],
+    openGraph: {
+      title,
+      description,
+      url,
+      siteName: "Innector",
+      type: "article",
+      locale: "en_US",
+      ...(publishedTime ? { publishedTime } : {}),
+      authors: [`${SITE_URL}/about`],
+      tags: post?.tags,
+      images: [{ url: image, width: 1200, height: 630, alt: title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      site: "@Innectornet",
+      title,
+      description,
+      images: [image],
+    },
+  };
+}
+
 export const POST_SEO: Record<string, Metadata> = {
-  "freelancer-vs-company": meta(
-    "/blog/freelancer-vs-company",
+  "freelancer-vs-company": articleMeta(
+    "freelancer-vs-company",
     "Freelancer vs. Company: How to Choose | Innector",
     "Freelancer or company? A simple guide to the real differences, the risks, and how to choose the right partner for your project - anywhere in the world.",
     `${SITE_URL}/images/blog/freelancer-or-company.webp`
   ),
-  "try-before-you-hire": meta(
-    "/blog/try-before-you-hire",
+  "try-before-you-hire": articleMeta(
+    "try-before-you-hire",
     "Try Before You Hire: 15-Day Trial | Innector",
     "Why a 15-day trial beats a sales pitch when hiring anyone. See how Innector's risk-free trial works, and what it actually proves.",
     `${SITE_URL}/images/blog/try-before-you-hire.webp`
   ),
-  "risks-of-hiring-a-freelancer": meta(
-    "/blog/risks-of-hiring-a-freelancer",
+  "risks-of-hiring-a-freelancer": articleMeta(
+    "risks-of-hiring-a-freelancer",
     "5 Risks of Hiring a Freelancer | Innector",
     "The 5 biggest risks of hiring a freelancer for your project, in plain language, and simple ways to protect yourself.",
     `${SITE_URL}/images/blog/risks-of-hiring-a-freelancer.webp`
   ),
-  "how-to-evaluate-an-outsourcing-company": meta(
-    "/blog/how-to-evaluate-an-outsourcing-company",
+  "how-to-evaluate-an-outsourcing-company": articleMeta(
+    "how-to-evaluate-an-outsourcing-company",
     "How to Evaluate an Outsourcing Company | Innector",
     "10 simple questions that separate a trustworthy outsourcing partner from a risky one, wherever in the world you're hiring from.",
     `${SITE_URL}/images/blog/how-to-evaluate-an-outsourcing-company.webp`
   ),
-  "hospital-management-software-case-study": meta(
-    "/blog/hospital-management-software-case-study",
+  "hospital-management-software-case-study": articleMeta(
+    "hospital-management-software-case-study",
     "HMIS Case Study: Hospital Software | Innector",
     "Inside HMIS: a real Hospital Management Information System with 29+ modules built by Innector, from patient registration to national health reporting.",
     `${SITE_URL}/images/case-studies/hmis.webp`

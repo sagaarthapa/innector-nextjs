@@ -85,3 +85,65 @@ export function faqSchema(faqs: { q: string; a: string }[]) {
     })),
   };
 }
+
+// BlogPosting node for one article - what lets Google (and an AI Overview/answer engine, which leans on this same
+// markup for citation) understand headline/author/dates/image without guessing from the rendered page. `datePublished`
+// must be ISO 8601 (see postISODate() in lib/blog-posts.ts) - the human-readable "August 12, 2026" string is for the
+// visible page only. author/publisher point at the one real person-equivalent and org this site actually has; no
+// dateModified is invented separately from datePublished unless a post is genuinely edited later.
+export function articleSchema({
+  slug,
+  title,
+  description,
+  image,
+  datePublished,
+  dateModified,
+  wordCount,
+  tags,
+}: {
+  slug: string;
+  title: string;
+  description: string;
+  image: string;
+  datePublished?: string;
+  dateModified?: string;
+  wordCount?: number;
+  tags?: string[];
+}) {
+  const url = `${SITE_URL}/blog/${slug}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": `${url}#article`,
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
+    url,
+    headline: title,
+    description,
+    image: image.startsWith("http") ? image : `${SITE_URL}${image}`,
+    ...(datePublished ? { datePublished, dateModified: dateModified ?? datePublished } : {}),
+    author: { "@type": "Person", name: "Innector Team", url: `${SITE_URL}/about` },
+    publisher: { "@id": `${SITE_URL}/#organization` },
+    ...(wordCount ? { wordCount } : {}),
+    ...(tags?.length ? { keywords: tags.join(", ") } : {}),
+  };
+}
+
+// One Blog node for the /blog index, listing every real article - a standard companion to the per-article
+// BlogPosting nodes above, not a replacement for them (this is the "table of contents", each article's own page
+// carries the full node).
+export function blogSchema(posts: { slug: string; title: string; isoDate?: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "@id": `${SITE_URL}/blog#blog`,
+    url: `${SITE_URL}/blog`,
+    name: "Innector Blog",
+    publisher: { "@id": `${SITE_URL}/#organization` },
+    blogPost: posts.map(({ slug, title, isoDate }) => ({
+      "@type": "BlogPosting",
+      headline: title,
+      url: `${SITE_URL}/blog/${slug}`,
+      ...(isoDate ? { datePublished: isoDate } : {}),
+    })),
+  };
+}

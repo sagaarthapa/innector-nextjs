@@ -1,9 +1,9 @@
-import { getLinkedPosts } from "@/lib/blog-posts";
+import { getLinkedPosts, postISODate } from "@/lib/blog-posts";
 import ServiceMarquee from "@/components/ServiceMarquee";
 import JsonLd from "@/components/JsonLd";
 import type { Metadata } from "next";
 import { SEO } from "@/lib/seo";
-import { breadcrumbSchema } from "@/lib/schema";
+import { breadcrumbSchema, blogSchema } from "@/lib/schema";
 
 export const metadata: Metadata = SEO.blog;
 
@@ -25,6 +25,11 @@ export default function BlogPage() {
   return (
     <div className="mxd-page-content inner-page-content">
       <JsonLd data={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Blog", path: "/blog" }])} />
+      {posts.length > 0 && (
+        <JsonLd
+          data={blogSchema(posts.map((post) => ({ slug: post.slug, title: post.title, isoDate: postISODate(post) })))}
+        />
+      )}
       {/* Blur Effect Start */}
       <div className="blur-container">
         <div className="blur-layer blur-1"></div>
@@ -114,8 +119,10 @@ export default function BlogPage() {
                       data-cursor-text="Read Post"
                       href={`/blog/${featuredPost.slug}`}
                     >
+                      {/* Featured post's image is the first thing painted on /blog (the LCP element) - same reasoning
+                          as the article page's own hero image (see app/blog/[slug]/page.tsx). */}
                       <div className="post-featured__thumb">
-                        <img loading="lazy" decoding="async" src={featuredPost.image} alt={featuredPost.title} />
+                        <img fetchPriority="high" decoding="async" src={featuredPost.image} alt={featuredPost.title} />
                         <div className="post-featured__cover"></div>
                       </div>
                       <div className="post-featured__content">

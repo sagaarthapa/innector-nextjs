@@ -8,6 +8,19 @@ export interface BlogPost {
   readTime?: string;
   linked: boolean;
   content?: string[]; // paragraphs/sections for the real articles
+  // Only set for a post whose content already visibly asks and answers these exact questions (see its numbered
+  // list in `content`) - Google requires FAQPage markup to mirror what a reader actually sees on the page, so this
+  // is never invented separately from the prose.
+  faqs?: { q: string; a: string }[];
+}
+
+// ISO 8601 form of `date`, for anything machine-read (structured data, sitemap lastModified) - `date` itself stays
+// the human-readable string the page actually displays. Returns undefined rather than throwing on a post with no
+// date, or one written in a format Date.parse can't read.
+export function postISODate(post?: BlogPost): string | undefined {
+  if (!post?.date) return undefined;
+  const parsed = Date.parse(post.date);
+  return Number.isNaN(parsed) ? undefined : new Date(parsed).toISOString();
 }
 
 /**
@@ -33,13 +46,20 @@ export const blogPosts: BlogPost[] = [
       "Trying to decide between hiring a freelancer or a company for your project? This simple guide walks you through the real differences, the risks, and how to pick the right partner - anywhere in the world.",
     image: "/images/blog/freelancer-or-company.webp",
     date: "August 12, 2026",
-    tags: ["Hiring Guide", "Freelancers", "Outsourcing"],
+    tags: ["Hiring Guide", "Freelancers", "Outsourcing", "Agencies"],
     readTime: "5 min read",
     linked: true,
+    faqs: [
+      { q: "How big is my project?", a: "A small task may only need one freelancer. A full website or app usually needs a team." },
+      { q: "What happens if something goes wrong?", a: "If you need someone to fix it fast, a company is the safer choice." },
+      { q: "Do I need more than one skill?", a: "Design, coding, and marketing are different skills. A company already has all of them under one roof." },
+      { q: "Will I need help after the project is done?", a: "Freelancers often move on to the next job. Companies usually offer ongoing support." },
+      { q: "Can I see real examples of their past work?", a: "If the answer is no, that's a warning sign." },
+    ],
     content: [
-      "You have a project. Maybe it's a new website, a mobile app, or software for your business. Now you need someone to build it. Should you hire one person (a freelancer) or a whole company? This freelancer vs. company decision is one of the biggest you will make, and getting it wrong can cost you time and money.",
+      "You have a project. Maybe it's a new website, a mobile app, or software for your business. Now you need someone to build it. Should you hire one person (a freelancer) or a whole company (also called an agency)? This freelancer vs. company decision is one of the biggest you will make, and getting it wrong can cost you time and money.",
       "This guide breaks it down in plain language, wherever in the world you're hiring from.",
-      "## What Is a Freelancer? What Is a Company?",
+      "## What Is a Freelancer? What Is a Company or Agency?",
       "A freelancer is one person who works alone. They take on projects and get paid for the work they do. Most freelancers work from home, by themselves.",
       "A company is a team of people who work together. When you hire a company, more than one person works on your project. Different people can handle different parts, like design, coding, and testing.",
       "## The Good Things About Hiring a Freelancer",
@@ -129,7 +149,7 @@ export const blogPosts: BlogPost[] = [
       "## Risk 5: No Support After the Project Ends",
       "Once a freelancer is paid and gone, getting them to fix a bug or make a small update later can be difficult, or impossible if they've moved on to other work.",
       "## How to Protect Yourself If You Still Want to Hire a Freelancer",
-      "- Ask for links to real, live projects they've completed, not just screenshots\n- Break the project into small, paid milestones instead of one big payment\n- Get everything in writing: deadlines, deliverables, and what happens if they miss them\n- Ask what backup plan exists if they become unavailable\n- Keep a copy of all project files and access, not just the freelancer",
+      "- Ask for links to real, live projects they've completed, not just screenshots\n- Break the project into small, paid milestones instead of one big payment\n- Get everything in writing: deadlines, deliverables, and what happens if they miss them\n- Ask what backup plan exists if they become unavailable\n- Keep a copy of all project files and access, not just the freelancer\n- Have them sign a simple NDA before you share business data, customer information, or source code",
       "## A Safer Alternative: Try Before You Commit",
       "None of these risks disappear just by hiring a company instead. The real fix is working with someone, freelancer or company, who's willing to prove their work **before** you fully commit. [See how a 15-day trial removes most of this risk entirely](/blog/try-before-you-hire).",
       "## Conclusion",
@@ -146,6 +166,18 @@ export const blogPosts: BlogPost[] = [
     tags: ["Outsourcing", "Hiring Guide", "Global Business"],
     readTime: "2 min read",
     linked: true,
+    faqs: [
+      { q: "Can I see real projects you've built?", a: "A trustworthy company will happily show you finished, live work." },
+      { q: "Who exactly will work on my project?", a: "You want real names and real roles, not a vague \"our team.\"" },
+      { q: "How do you communicate, and how often?", a: "Regular updates are a good sign. Silence between big \"reveals\" is not." },
+      { q: "What happens if I'm not happy with the work?", a: "There should be a clear answer, not a shrug." },
+      { q: "Can I test your work before I fully commit?", a: "A company confident in its own work usually offers a trial." },
+      { q: "What's included in your price, and what costs extra?", a: "Hidden costs are a common surprise later on." },
+      { q: "How do you handle time zone differences?", a: "A good outsourcing partner already has a clear answer to this." },
+      { q: "What happens if a team member leaves?", a: "Your project shouldn't depend entirely on one person." },
+      { q: "Do you offer support after the project is finished?", a: "Ask this before you start, not after something breaks." },
+      { q: "Can you explain your process in simple terms?", a: "If they can't explain it simply, that's worth noticing." },
+    ],
     content: [
       "More businesses today hire outside help from anywhere in the world, not just their own city. That opens up more choice, but it also means learning how to evaluate an outsourcing company you may never meet in person. Here's how to check if they're actually trustworthy before you sign anything.",
       "## Why Outsourcing Feels Risky (and Why It Doesn't Have to)",

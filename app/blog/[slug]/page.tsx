@@ -1,11 +1,11 @@
 import type { ReactNode } from "react";
 import { notFound } from "next/navigation";
-import { getPostBySlug, getRelatedPosts, getLinkedPosts } from "@/lib/blog-posts";
+import { getPostBySlug, getRelatedPosts, getLinkedPosts, postISODate } from "@/lib/blog-posts";
 import ServiceMarquee from "@/components/ServiceMarquee";
 import JsonLd from "@/components/JsonLd";
 import type { Metadata } from "next";
 import { POST_SEO } from "@/lib/seo";
-import { breadcrumbSchema } from "@/lib/schema";
+import { breadcrumbSchema, articleSchema, faqSchema } from "@/lib/schema";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
@@ -147,6 +147,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
   const prevPost = linkedIndex > 0 ? linkedPosts[linkedIndex - 1] : undefined;
   const nextPost = linkedIndex < linkedPosts.length - 1 ? linkedPosts[linkedIndex + 1] : undefined;
   const relatedPosts = getRelatedPosts(post.slug, 3);
+  const wordCount = post.content?.join(" ").split(/\s+/).filter(Boolean).length;
 
   return (
     <div className="mxd-page-content inner-page-content">
@@ -157,6 +158,18 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
           { name: post.title, path: `/blog/${post.slug}` },
         ])}
       />
+      <JsonLd
+        data={articleSchema({
+          slug: post.slug,
+          title: post.title,
+          description: post.excerpt,
+          image: post.image,
+          datePublished: postISODate(post),
+          wordCount,
+          tags: post.tags,
+        })}
+      />
+      {post.faqs && post.faqs.length > 0 && <JsonLd data={faqSchema(post.faqs)} />}
 
       {/* Section - Blog Article Start */}
       <div className="mxd-section blur-section">
@@ -220,8 +233,12 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
                 {/* Article Headline End */}
 
                 {/* Article Thumb Start */}
+                {/* This is the article's hero image, rendered right below the title with no other content above it -
+                    the LCP (Largest Contentful Paint) element on every article page. loading="lazy" here would defer
+                    the exact image Core Web Vitals times, so it loads eager with high priority instead, matching the
+                    pattern already used for other above-the-fold images (see app/services/page.tsx, for one). */}
                 <div className="mxd-article__thumb loading-item">
-                  <img loading="lazy" decoding="async" src={post.image} alt={post.title} />
+                  <img fetchPriority="high" decoding="async" src={post.image} alt={post.title} />
                 </div>
                 {/* Article Thumb End */}
 
