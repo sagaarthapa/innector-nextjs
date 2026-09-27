@@ -42,6 +42,7 @@ const clients: { logo: string; name: string; color?: boolean }[] = [
 // hover slideshow cycles through; without it the hover layer just repeats `image`.
 const CASE_DIR = "/images/case-studies";
 const caseStudies: { title: string; tags: string[]; image: string; w: number; h: number; more?: string[] }[] = [
+  { title: "HMIS", tags: ["Healthcare", "Enterprise Software", "UI/UX"], image: "hmis", w: 1280, h: 850 },
   { title: "Candy Station", tags: ["E-commerce", "Web App", "UI/UX"], image: "candy-station", w: 850, h: 1200 },
   { title: "Naaz Overseas", tags: ["Corporate", "Feedback", "Web"], image: "naaz-overseas", w: 1280, h: 850 },
   { title: "ACEC", tags: ["Corporate", "Web Development", "UI/UX"], image: "acec", w: 1200, h: 1200 },
@@ -49,6 +50,7 @@ const caseStudies: { title: string; tags: string[]; image: string; w: number; h:
   { title: "Spice Idea", tags: ["Agency", "Web Development", "Branding"], image: "spice-idea", w: 850, h: 1200 },
   { title: "Numen", tags: ["Portfolio", "Web Development", "UI/UX"], image: "numen", w: 1200, h: 1200 },
   { title: "Qatar Mobile", tags: ["E-commerce", "Web Development"], image: "qatar-mobile", w: 1200, h: 1200 },
+  { title: "Gurkha Employment", tags: ["Recruitment", "Corporate", "Web Development"], image: "gurkha-employment", w: 1280, h: 720 },
 ];
 // "All Works" preview: 800x450 crops of the same sites; hover cycles through the others.
 const worksPreview = { main: "trend-qa", layers: ["acec", "candy-station", "naaz-overseas", "numen", "qatar-mobile", "spice-idea"] };
