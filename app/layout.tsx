@@ -47,6 +47,28 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             every page - what lets a business panel or a rich result show up for the company itself. */}
         <JsonLd data={organizationSchema} />
         <JsonLd data={websiteSchema} />
+        {/* Speculation Rules API: on a mostly-static site like this, the browser can fetch a page's HTML ahead of
+            time (on hover/viewport-visibility heuristics, "moderate" eagerness) so the next click feels instant.
+            Deliberately prefetch-only, never prerender - prefetch only fetches the HTML response and never executes
+            any of the page's JavaScript, so it can't touch GSAP/ScrollTrigger or the Matter.js section in any way.
+            Chromium-only; other browsers ignore the tag entirely, so there's no downside elsewhere. Content here is
+            a fixed set of URL patterns, never user input, but this still escapes "</script>" the same way JsonLd
+            does - the same defensive habit this codebase already uses for every other inline JSON <script>, so a
+            later edit that adds a real string here doesn't have to remember to. */}
+        <script
+          type="speculationrules"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              prefetch: [
+                {
+                  source: "document",
+                  where: { and: [{ href_matches: "/*" }, { not: { href_matches: "/api/*" } }] },
+                  eagerness: "moderate",
+                },
+              ],
+            }).replace(/</g, "\\u003c"),
+          }}
+        />
         {/* minified copies (npm run assets rebuilds them from the readable sources); ?v= is a content hash, see lib/assets.ts */}
         <link rel="stylesheet" type="text/css" href={versioned("/css/loader.min.css")} precedence="low" />
         <link rel="stylesheet" type="text/css" href={versioned("/css/plugins.min.css")} precedence="medium" />

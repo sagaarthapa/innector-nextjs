@@ -1,0 +1,32 @@
+# Innector
+
+> Affordable managed IT services and remote software development for SMBs, startups, and enterprises worldwide. Web development, mobile apps, custom software, ERP, cloud infrastructure, digital marketing, AI chatbots, and business process automation - with a 15-day free trial on managed IT services.
+
+## Pages
+
+- [Home](https://www.innector.net/): Global IT solutions provider serving SMBs worldwide with remote IT support, managed services, and digital solutions.
+- [About](https://www.innector.net/about): Background on Innector as a global IT partner offering remote support and managed services.
+- [Services](https://www.innector.net/services): Full list of services - web development, mobile apps, digital marketing, ERP, custom software, AI, and more.
+- [Managed IT Services](https://www.innector.net/managed-it-services): All-in-one managed IT for $999/month, with a 15-day free trial.
+- [Blog](https://www.innector.net/blog): Plain-language guides on hiring a freelancer, a company, or an IT partner.
+- [Contact](https://www.innector.net/contact): Get in touch about a project or start a free trial.
+
+## Blog: Hiring & Outsourcing Guides
+
+- [How We Built HMIS: A Real Hospital Management Software Project](https://www.innector.net/blog/hospital-management-software-case-study): A real Hospital Management Information System with 29+ modules built by Innector - proof of what the company can build, not just a promise.
+- [A Non-Technical Founder's Guide to Hiring the Right Development Partner](https://www.innector.net/blog/non-technical-founder-guide-to-hiring-a-developer): How to hire a developer well without being able to read code yourself.
+- [Freelancer, Agency, Dedicated Team, or Staff Augmentation? The 4 Options Explained](https://www.innector.net/blog/dedicated-team-vs-staff-augmentation): The real difference between a dedicated team and staff augmentation, and which of the 4 hiring models fits a given project.
+- [How to Evaluate an Outsourcing Company: 10 Questions to Ask Before You Hire](https://www.innector.net/blog/how-to-evaluate-an-outsourcing-company): 10 questions that separate a trustworthy outsourcing partner from a risky one.
+- [The Small Business Guide to Hiring an IT Partner](https://www.innector.net/blog/small-business-guide-to-hiring-an-it-partner): Comparing an in-house hire, a freelancer, and a managed IT partner for small businesses.
+- [Try Before You Hire: Why a 15-Day Trial Beats a Sales Pitch](https://www.innector.net/blog/try-before-you-hire): Why testing a company before committing is the smartest way to hire, and how Innector's 15-day free trial works.
+- [The True Cost of a Freelancer vs. a Company (With Real Numbers)](https://www.innector.net/blog/true-cost-of-a-freelancer-vs-a-company): Real hourly-rate and project-cost numbers for freelancers vs. companies.
+- [5 Risks of Hiring a Freelancer for Your Project (and How to Avoid Them)](https://www.innector.net/blog/risks-of-hiring-a-freelancer): The 5 biggest risks of hiring a freelancer, and how to protect against them.
+- [Who Should Build Your Project? A Practical Guide](https://www.innector.net/blog/who-should-build-your-project): A quick decision guide to freelancer vs. company vs. dedicated team vs. an ongoing partner.
+- [Freelancer vs. Company: How to Choose the Right Partner for Your Project](https://www.innector.net/blog/freelancer-vs-company): The pillar guide comparing freelancers, companies, and dedicated teams for any project.
+- [How to Outsource Your Project to a Remote IT Company (Without the Guesswork)](https://www.innector.net/blog/outsourcing-your-project-to-a-remote-it-company): What outsourcing actually means and whether the common worries about it are real.
+- [Do You Need a Project Done or a Partner for the Long Run?](https://www.innector.net/blog/monthly-it-retainer-vs-one-time-project): One-time project vs. an ongoing IT retainer - how to tell which one a business needs.
+- [What to Look for When Hiring a Web Development, Mobile App, or ERP Company](https://www.innector.net/blog/what-to-look-for-when-hiring-a-development-company): What to look for, service by service, when hiring a development company.
+
+## Optional
+
+- [Privacy Policy](https://www.innector.net/privacy-policy)

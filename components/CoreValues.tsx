@@ -6,7 +6,7 @@ const coreValues: { icon: string; title: string; text: string }[] = [
   {
     icon: "ph-lightbulb",
     title: "Innovation",
-    text: "We constantly seek creative solutions and stay ahead of technology trends to deliver cutting-edge results for our clients.",
+    text: "We actively test new tools and approaches, like AI-powered automation, and only bring them into your project once we know they hold up in practice.",
   },
   {
     icon: "ph-handshake",

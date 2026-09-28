@@ -538,8 +538,8 @@ export default function ServicesPage() {
                     </div>
                     <div className="mxd-process-points__descr">
                       <p className="t-medium mxd-split-lines">
-                        We bring your vision to life using cutting-edge technologies and best practices in the
-                        industry.
+                        We build with modern, well-supported technologies and proven practices, so what we deliver
+                        stays reliable and easy to maintain.
                       </p>
                     </div>
                   </div>
