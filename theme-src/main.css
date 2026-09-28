@@ -18818,6 +18818,27 @@ form textarea:required:valid {
           flex-direction: column;
   gap: 3rem;
 }
+/* Article body section headings (the "## "/"### " blocks in lib/blog-posts.ts) render as real <h2>/<h3> for a
+   correct document outline - see app/blog/[slug]/page.tsx. Scoped here to keep the exact same visual size the
+   article template used before that fix: this reuses the bare h3 rule's own sizing (theme-src/main.css's global
+   h3 { font-size: 4rem, 5rem@768px }) for h2, since that's what every article's section heading already looked
+   like, and the sizing this block already reserved for h4 (3.4rem@768px, just below) for h3. */
+.mxd-article__block h2 {
+  font: normal 700 4rem/1.2 var(--_font-default);
+  letter-spacing: -0.1rem;
+  color: var(--t-bright);
+}
+.mxd-article__block h2 span {
+  color: var(--t-medium);
+}
+.mxd-article__block h3 {
+  font: normal 700 3rem/1.2 var(--_font-default);
+  letter-spacing: -0.1rem;
+  color: var(--t-bright);
+}
+.mxd-article__block h3 span {
+  color: var(--t-medium);
+}
 @media only screen and (min-width: 768px) {
   .mxd-article__block.block-table-of-contents {
     padding: 4rem;
@@ -18830,7 +18851,10 @@ form textarea:required:valid {
         -ms-flex-direction: row;
             flex-direction: row;
   }
-  .mxd-article__block h4 {
+  .mxd-article__block h2 {
+    font-size: 5rem;
+  }
+  .mxd-article__block h3 {
     font-size: 3.4rem;
   }
 }

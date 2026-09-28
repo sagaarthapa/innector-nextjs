@@ -48,9 +48,13 @@ function parseInline(text: string): ReactNode[] {
 
 function renderContentBlock(block: string, idx: number) {
   if (block.startsWith("## ")) {
+    // A real <h2>: every article's <h1> title used to be followed directly by <h3> section headings, skipping a
+    // level - a real document-outline/accessibility defect an audit caught, not just a lint nitpick, since screen
+    // readers navigate by heading level. .mxd-article__block h2 in theme-src/main.css keeps the exact same visual
+    // size this already had (it was borrowing h3's styling before), so this only fixes the tag, not the look.
     return (
       <div className="mxd-article__block" key={idx}>
-        <h3>{parseInline(block.slice(3))}</h3>
+        <h2>{parseInline(block.slice(3))}</h2>
       </div>
     );
   }
@@ -58,7 +62,7 @@ function renderContentBlock(block: string, idx: number) {
   if (block.startsWith("### ")) {
     return (
       <div className="mxd-article__block" key={idx}>
-        <h4>{parseInline(block.slice(4))}</h4>
+        <h3>{parseInline(block.slice(4))}</h3>
       </div>
     );
   }
