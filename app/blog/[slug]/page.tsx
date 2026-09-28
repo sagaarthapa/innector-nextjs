@@ -266,10 +266,14 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
                     <img loading="lazy" decoding="async" src="/favicon/android-chrome-512x512.png" alt="Innector Team" />
                   </a>
                   <div className="mxd-article-author__info">
-                    <h4 className="mxd-article-author__name">
+                    {/* Not a heading: an author byline sitting after the article's own H2 sections would skip
+                        from H2 straight to H4 in the page outline - a real accessibility defect an audit caught,
+                        distinct from the article-body h2/h3 fix above. mxd-article-author__name's styling is kept
+                        by applying the class directly to the <p>. */}
+                    <p className="mxd-article-author__name">
                       <a href="/about">Innector Team</a>
                       <small className="mxd-article-author__position">IT Solutions &amp; Digital Marketing</small>
-                    </h4>
+                    </p>
                     <div className="mxd-article-author__socials">
                       <a className="tag tag-m tag-bg default mxd-scramble" href="https://www.linkedin.com/company/innector-net" target="_blank" rel="noreferrer">LinkedIn</a>
                       <a className="tag tag-m tag-bg default mxd-scramble" href="https://twitter.com/Innectornet" target="_blank" rel="noreferrer">Twitter</a>
@@ -381,7 +385,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
                           data-cursor-text={related.linked ? "Read Post" : "Contact Us"}
                           href={related.linked ? `/blog/${related.slug}` : "/contact"}
                         >
-                          <img loading="lazy" decoding="async" src={related.image} alt={related.title} />
+                          <img loading="lazy" decoding="async" width={1200} height={750} src={related.image} alt={related.title} />
                         </a>
                         <div className="mxd-blog-item__caption">
                           <div className="mxd-blog-item__title">

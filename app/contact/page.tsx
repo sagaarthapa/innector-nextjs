@@ -51,7 +51,7 @@ const faqs = [
   },
   {
     q: "What is your pricing structure?",
-    a: "Our pricing is project-based and depends on requirements, complexity, and timeline. We provide detailed quotes after understanding your specific needs. We offer flexible payment terms and packages for different budgets.",
+    a: "Our all-in-one managed IT services start at $999/month, with a 15-day free trial. For custom project work (web, mobile, software, ERP), pricing is project-based and depends on requirements, complexity, and timeline - we provide detailed quotes after understanding your specific needs, with flexible payment terms and packages for different budgets.",
   },
   {
     q: "What regions do you serve?",
@@ -144,6 +144,7 @@ export default function ContactPage() {
                   className="fullwidth-text__content small accent active-cursor"
                   data-cursor-text="Let's chat"
                   href="mailto:info@innector.net"
+                  aria-label="Email us at info@innector.net"
                 >
                   <span className="anim-uni-chars">info@innector.net</span>
                 </a>

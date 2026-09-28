@@ -147,7 +147,7 @@ export default function TrialForm() {
                 />
               </div>
               <div className="col-12 col-md-6 mxd-grid-item loading-item">
-                <select name="country" required value={fields.country} onChange={handleChange} className="trial-select">
+                <select name="country" required value={fields.country} onChange={handleChange} className="trial-select" aria-label="Select your country">
                   <option value="">Select your country*</option>
                   {countries.map((c) => (
                     <option value={c} key={c}>

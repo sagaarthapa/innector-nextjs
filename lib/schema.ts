@@ -24,7 +24,15 @@ export const organizationSchema = {
   name: "Innector",
   legalName: "Innector IT Solutions",
   url: SITE_URL,
-  logo: `${SITE_URL}/images/innector/innector-logo-black.svg`,
+  // Raster, not the SVG wordmark: Google's Logo structured-data feature and Google Images generally don't process
+  // vector logos. This is the site's existing favicon PNG (already used elsewhere as a raster brand asset), sized
+  // as a real ImageObject rather than a bare string per Google's guidance.
+  logo: {
+    "@type": "ImageObject",
+    url: `${SITE_URL}/favicon/android-chrome-512x512.png`,
+    width: 512,
+    height: 512,
+  },
   image: `${SITE_URL}/images/og-image.png`,
   telephone: "+9779705559159",
   email: "info@innector.net",
@@ -43,7 +51,10 @@ export const organizationSchema = {
     { "@type": "Country", name: "United Arab Emirates" },
     { "@type": "Country", name: "Qatar" },
   ],
+  // A real, non-placeholder value: the one concrete price this business actually publishes (see /managed-it-services).
+  priceRange: "$999+/mo",
   sameAs: SOCIAL_LINKS,
+  inLanguage: "en",
 };
 
 // A separate WebSite node (distinct from the LocalBusiness node above): identifies the site itself, published by the
@@ -59,6 +70,7 @@ export const websiteSchema = {
   name: "Innector",
   url: SITE_URL,
   publisher: { "@id": `${SITE_URL}/#organization` },
+  inLanguage: "en",
 };
 
 export function breadcrumbSchema(items: { name: string; path: string }[]) {
@@ -121,8 +133,12 @@ export function articleSchema({
     description,
     image: image.startsWith("http") ? image : `${SITE_URL}${image}`,
     ...(datePublished ? { datePublished, dateModified: dateModified ?? datePublished } : {}),
-    author: { "@type": "Person", name: "Innector Team", url: `${SITE_URL}/about` },
+    // "Innector Team" is a byline for the company, not an individual - the on-page bio widget itself says as much
+    // ("Written by the Innector team"). Typing it Person was a false-entity mismatch; Organization matches what it
+    // actually is and points at the one real org node the site already has.
+    author: { "@type": "Organization", "@id": `${SITE_URL}/#organization`, name: "Innector" },
     publisher: { "@id": `${SITE_URL}/#organization` },
+    inLanguage: "en",
     ...(wordCount ? { wordCount } : {}),
     ...(tags?.length ? { keywords: tags.join(", ") } : {}),
   };

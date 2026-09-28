@@ -64,7 +64,7 @@ export const SEO = {
   blog: meta(
     "/blog",
     "Blog - Innector IT Solutions",
-    "IT insights & digital transformation tips for SMBs. Read about ERP systems, digital marketing trends, cybersecurity, and business growth strategies from Innector's experts."
+    "Plain-language guides on hiring a freelancer, a company, or an outsourcing partner - real costs, real risks, and how to choose the right fit for your project."
   ),
   contact: meta(
     "/contact",
@@ -150,14 +150,14 @@ export const POST_SEO: Record<string, Metadata> = {
     "Inside HMIS: a real Hospital Management Information System with 29+ modules built by Innector, from patient registration to national health reporting.",
     `${SITE_URL}/images/case-studies/hmis.webp`
   ),
-  "true-cost-of-a-freelancer-vs-a-company": articleMeta(
-    "true-cost-of-a-freelancer-vs-a-company",
+  "true-cost-freelancer-vs-company": articleMeta(
+    "true-cost-freelancer-vs-company",
     "The True Cost of a Freelancer vs. Company | Innector",
     "Real numbers for what a freelancer and a company actually cost - hourly rates, hidden costs, and how to compare the true price of your project.",
     `${SITE_URL}/images/blog/true-cost-of-a-freelancer-vs-a-company.webp`
   ),
-  "small-business-guide-to-hiring-an-it-partner": articleMeta(
-    "small-business-guide-to-hiring-an-it-partner",
+  "small-business-hiring-it-partner": articleMeta(
+    "small-business-hiring-it-partner",
     "Small Business Guide to Hiring an IT Partner | Innector",
     "In-house hire, freelancer, or managed IT partner? A simple small business guide comparing the real cost and coverage of each option.",
     `${SITE_URL}/images/blog/small-business-guide-to-hiring-an-it-partner.webp`
@@ -168,14 +168,14 @@ export const POST_SEO: Record<string, Metadata> = {
     "Freelancer vs. company isn't the whole picture. Compare all 4 hiring models - freelancer, company, dedicated team, and staff augmentation.",
     `${SITE_URL}/images/blog/dedicated-team-vs-staff-augmentation.webp`
   ),
-  "non-technical-founder-guide-to-hiring-a-developer": articleMeta(
-    "non-technical-founder-guide-to-hiring-a-developer",
+  "non-technical-founder-hiring-developer": articleMeta(
+    "non-technical-founder-hiring-developer",
     "Non-Technical Founder's Guide to Hiring | Innector",
     "A simple, judgment-free guide for non-technical founders hiring a developer for the first time - no coding knowledge required.",
     `${SITE_URL}/images/blog/non-technical-founder-guide-to-hiring-a-developer.webp`
   ),
-  "what-to-look-for-when-hiring-a-development-company": articleMeta(
-    "what-to-look-for-when-hiring-a-development-company",
+  "hiring-a-development-company": articleMeta(
+    "hiring-a-development-company",
     "Hiring a Development Company: What to Look For | Innector",
     "What to look for when hiring for web development, mobile apps, ERP, branding, marketing, or AI - one checklist per real service.",
     `${SITE_URL}/images/blog/what-to-look-for-when-hiring-a-development-company.webp`
@@ -186,8 +186,8 @@ export const POST_SEO: Record<string, Metadata> = {
     "A one-time project and an ongoing IT retainer solve different problems. Here's how to tell which one your business actually needs.",
     `${SITE_URL}/images/blog/monthly-it-retainer-vs-one-time-project.webp`
   ),
-  "outsourcing-your-project-to-a-remote-it-company": articleMeta(
-    "outsourcing-your-project-to-a-remote-it-company",
+  "outsourcing-remote-it-company": articleMeta(
+    "outsourcing-remote-it-company",
     "How to Outsource to a Remote IT Company | Innector",
     "What outsourcing actually means, whether the common worries about it are real, and how to make hiring a remote IT company work.",
     `${SITE_URL}/images/blog/outsourcing-your-project-to-a-remote-it-company.webp`

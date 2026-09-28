@@ -72,7 +72,13 @@ export default function BlogPage() {
                         <div className="row g-0">
                           <div className="col-12 col-xl-8 mxd-grid-item">
                             <div className="inner-headline__title pre-subtitle-large loading-item">
-                              <h1 className="large">Blog{posts.length > 0 && <sup>({posts.length})</sup>}</h1>
+                              <h1 className="large">
+                                Blog
+                                {/* aria-hidden: a live post count isn't part of the heading's actual text content -
+                                    this keeps it out of the H1's accessible name/SEO text while keeping its visual
+                                    position and <sup> styling exactly as designed. */}
+                                {posts.length > 0 && <sup aria-hidden="true">({posts.length})</sup>}
+                              </h1>
                             </div>
                             <div className="inner-headline__subtitle loading-item">
                               <p>Insights for businesses <span>choosing who builds their next project.</span></p>
@@ -212,7 +218,7 @@ export default function BlogPage() {
               <div className="mxd-sidebar__widget widget-search">
                 <div className="widget-search__form">
                   <form className="form search-form" action="#0" method="get">
-                    <input id="search" type="search" name="search" placeholder="Search" />
+                    <input id="search" type="search" name="search" placeholder="Search" aria-label="Search" />
                     <button className="btn btn-form no-scale btn-absolute-right btn-line-medium" type="submit" aria-label="Search">
                       <i className="ph ph-magnifying-glass"></i>
                     </button>

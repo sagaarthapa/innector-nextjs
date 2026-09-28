@@ -93,7 +93,7 @@ export default function Home() {
         <div className="mxd-hero-03">
           <div className="mxd-hero-03__headline">
             <a className="active-cursor-accent" data-cursor-text="Let's Chat" href="/contact">
-              <h1 className="permanent loading-split">Introducing enhanced digital creativity</h1>
+              <h1 className="permanent loading-split">Affordable managed IT services for growing businesses worldwide</h1>
             </a>
             <div className="mxd-hero-media__small">
               <div className="mxd-hero-media__wrapper" data-flip-element="wrapper" data-flip-id="auto-2">

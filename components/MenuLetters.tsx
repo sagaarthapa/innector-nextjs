@@ -658,7 +658,7 @@ export default function MenuLetters() {
       <div className="menu-letters" ref={boxRef} role="img" aria-label="Innector">
         {LETTERS.map((L) => (
           <div className={`menu-letter${L.gold ? " menu-letter--gold" : ""}`} key={L.key}>
-            <img src={`${LETTER_DIR}/${L.key}.svg`} alt="" draggable={false} />
+            <img loading="lazy" decoding="async" src={`${LETTER_DIR}/${L.key}.svg`} alt="" draggable={false} />
           </div>
         ))}
       </div>
