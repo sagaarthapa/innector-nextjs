@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import type { ChangeEvent, FormEvent } from "react";
+import Turnstile, { type TurnstileHandle } from "./Turnstile";
 
 const arrowIcon = (
   <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 18 18">
@@ -42,6 +43,7 @@ type FormState = {
   phone: string;
   challenge: string;
   consent: boolean;
+  website: string;
 };
 
 const initialState: FormState = {
@@ -52,6 +54,7 @@ const initialState: FormState = {
   phone: "",
   challenge: "",
   consent: false,
+  website: "",
 };
 
 type Status = "idle" | "sending" | "success" | "error";
@@ -60,6 +63,8 @@ export default function TrialForm() {
   const [fields, setFields] = useState<FormState>(initialState);
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const [turnstileToken, setTurnstileToken] = useState("");
+  const turnstileRef = useRef<TurnstileHandle>(null);
 
   function handleChange(e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
     const { name, value, type } = e.target;
@@ -80,7 +85,7 @@ export default function TrialForm() {
       const res = await fetch("/api/trial", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(fields),
+        body: JSON.stringify({ ...fields, turnstileToken }),
       });
 
       if (!res.ok) {
@@ -92,6 +97,9 @@ export default function TrialForm() {
     } catch (err) {
       setStatus("error");
       setErrorMessage(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+    } finally {
+      turnstileRef.current?.reset();
+      setTurnstileToken("");
     }
   }
 
@@ -176,6 +184,20 @@ export default function TrialForm() {
                   </span>
                 </label>
               </div>
+              {/* Honeypot: hidden from real visitors, bots fill every field they find */}
+              <div style={{ position: "absolute", left: "-9999px", top: "-9999px", height: 0, width: 0, overflow: "hidden" }}>
+                <input
+                  type="text"
+                  name="website"
+                  placeholder="Your website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  value={fields.website}
+                  onChange={handleChange}
+                />
+              </div>
+              <Turnstile ref={turnstileRef} onToken={setTurnstileToken} onExpire={() => setTurnstileToken("")} />
               <div className="col-12 mxd-grid-item loading-item">
                 <button
                   className="btn btn-default-icon btn-default-accent slide-right"

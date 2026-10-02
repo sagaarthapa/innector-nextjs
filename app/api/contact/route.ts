@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { sendNotification, sendAcknowledgement, escapeHtml } from "@/lib/email";
+import { clientIp, isRateLimited } from "@/lib/rate-limit";
+import { verifyTurnstile } from "@/lib/turnstile";
 
 type ContactPayload = {
   firstName?: string;
@@ -8,6 +10,8 @@ type ContactPayload = {
   phone?: string;
   company?: string;
   message?: string;
+  website?: string; // honeypot - real users never see or fill this field, bots fill every input they find
+  turnstileToken?: string;
 };
 
 export async function POST(request: NextRequest) {
@@ -19,13 +23,27 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ ok: false, error: "Invalid request body." }, { status: 400 });
   }
 
-  const { firstName, lastName, email, phone, company, message } = body;
+  const { firstName, lastName, email, phone, company, message, website, turnstileToken } = body;
+
+  // Honeypot tripped: pretend success so the bot doesn't learn to leave this field alone, but drop the submission.
+  if (website?.trim()) {
+    return NextResponse.json({ ok: true });
+  }
+
+  const ip = clientIp(request);
+  if (isRateLimited(`contact:${ip}`)) {
+    return NextResponse.json({ ok: false, error: "Too many submissions. Please try again later." }, { status: 429 });
+  }
 
   if (!firstName?.trim() || !lastName?.trim() || !email?.trim() || !message?.trim()) {
     return NextResponse.json(
       { ok: false, error: "First name, last name, email, and message are required." },
       { status: 400 }
     );
+  }
+
+  if (!(await verifyTurnstile(turnstileToken, ip))) {
+    return NextResponse.json({ ok: false, error: "Verification failed. Please try again." }, { status: 400 });
   }
 
   // eslint-disable-next-line no-console
